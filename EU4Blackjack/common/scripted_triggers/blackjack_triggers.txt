@@ -1,0 +1,9 @@
+blackjack_all_player_nations_accepted_or_rejected = {
+	all_country = {
+		OR = {
+			ai = yes
+			has_country_flag = blackjack_is_player
+			has_country_flag = blackjack_not_playing
+		}
+	}
+}

@@ -1,0 +1,67 @@
+reset_randomness = {
+	random_country = {
+        limit = {
+            AND = {
+                NOT = { ai = yes }
+                NOT = { total_development = 70 }
+            }
+        }
+        define_ruler = {
+            dynasty = original_dynasty
+        }
+    }
+}
+
+# Assigns players 2-4 out of players if possible
+assign_blackjack_players = {
+    # clear event targets for players from previous game
+    # TODO move this to the code for ending the game
+    clear_global_event_target = blackjack_player_2_tag
+    clear_global_event_target = blackjack_player_3_tag
+    clear_global_event_target = blackjack_player_4_tag
+
+    # send an event to every player country to join blackjack
+    # first 3 to accept become players 2-4, others even if they accept are rejected
+    every_country = {
+        limit = {
+            AND = {
+                NOT = { ai = yes }
+                NOT = { has_saved_global_event_target = blackjack_player_1_tag }
+            }
+        }
+        country_event = {
+            id = blackjack.1
+        }
+    }
+}
+
+# Assigns empty player slots to AIs
+assign_blackjack_ais = {
+    if = {
+        limit = { NOT = { has_saved_global_event_target = blackjack_player_2_tag } }
+        random_country = {
+            limit = {
+                ai = yes
+            }
+            save_global_event_target_as = blackjack_player_2_tag
+        }
+    }
+    if = {
+        limit = { NOT = { has_saved_global_event_target = blackjack_player_3_tag } }
+        random_country = {
+            limit = {
+                ai = yes
+            }
+            save_global_event_target_as = blackjack_player_3_tag
+        }
+    }
+    if = {
+        limit = { NOT = { has_saved_global_event_target = blackjack_player_4_tag } }
+        random_country = {
+            limit = {
+                ai = yes
+            }
+            save_global_event_target_as = blackjack_player_4_tag
+        }
+    }
+}

@@ -1,0 +1,72 @@
+country_decisions = {
+	blackjack_start_game = {
+		major = yes
+		potential = {
+			NOT = { has_global_flag = blackjack_game_in_progress_flag }
+			ROOT = { NOT = { ai = yes } }
+		}
+		allow = {
+			hidden_trigger = {
+				NOT = { has_global_flag = blackjack_game_in_progress_flag }
+				ROOT = { NOT = { ai = yes } }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				# Set country flag
+				set_country_flag = blackjack_is_player
+
+				# reset randomnmess
+				reset_randomness = yes
+				
+				set_global_flag = blackjack_game_in_progress_flag
+
+				# save player as player 1
+				ROOT = {
+					save_global_event_target_as = blackjack_player_1_tag
+				}
+				
+				# Count number of players
+				event_target:blackjack_player_1_tag = {
+					set_variable = {
+						which = countPlayersVariable
+						value = 0
+					}	
+				}
+				every_country = {
+					limit = {
+						NOT = { ai = yes }
+					}
+					event_target:blackjack_player_1_tag = {
+						change_variable = {
+							which = countPlayersVariable
+							value = 1
+						}
+					}
+				}
+
+				# If this is a singleplayer game, just fill the slots with ai
+				if = {
+					limit = {
+						NOT = {
+							check_variable = {
+								which = countPlayersVariable
+								value = 2
+							}
+						}
+					}
+
+					assign_blackjack_ais = yes
+				} else = {
+					# else if this is mp, try to assign other players
+					assign_blackjack_players = yes
+				}
+
+				# assign_blackjack_players also leads to assign_blackjack_ais
+				# but it goes through events first to ask other players
+				# therefore, the reamining of game flow control is deferred to assign_blackjack_ais
+				# :)
+			}
+		}
+	}
+}

@@ -1,0 +1,131 @@
+namespace = blackjack
+
+# Let players join blackjack
+
+country_event = {
+	id = blackjack.1
+	title = blackjack.1.t
+	desc = blackjack.1.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Accept joining the game
+	option = {
+		name = "blackjack.1a"
+
+		hidden_effect = {
+
+			# Player accepts or rejects game, is let in or game is full
+			if = {
+				limit = { NOT = { has_saved_global_event_target = blackjack_player_2_tag } }
+				ROOT = {
+					save_global_event_target_as = blackjack_player_2_tag
+					country_event = {
+						id = blackjack.2
+					}
+					set_country_flag = blackjack_is_player
+				}
+			} else_if = {
+				limit = { NOT = { has_saved_global_event_target = blackjack_player_3_tag } }
+				ROOT = {
+					save_global_event_target_as = blackjack_player_3_tag
+					country_event = {
+						id = blackjack.2
+					}
+					set_country_flag = blackjack_is_player
+				}
+			} else_if = {
+				limit = { NOT = { has_saved_global_event_target = blackjack_player_4_tag } }
+				ROOT = {
+					save_global_event_target_as = blackjack_player_4_tag
+					country_event = {
+						id = blackjack.2
+					}
+					set_country_flag = blackjack_is_player
+				}
+			} else = {
+				country_event = {
+					id = blackjack.3
+				}
+				set_country_flag = blackjack_not_playing
+			}
+
+			# If every player has either accepted or rejected the decision, its time to pass it off to the AI
+			if = {
+				limit = { blackjack_all_player_nations_accepted_or_rejected = yes }
+				assign_blackjack_ais = yes
+				# Test to make sure event targets are set properly
+
+				declare_war = event_target:blackjack_player_2_tag
+				declare_war = event_target:blackjack_player_3_tag
+				declare_war = event_target:blackjack_player_4_tag
+			}
+		}
+	}
+
+	# Reject joining the game
+	option = {
+		name = "blackjack.1b"
+		set_country_flag = blackjack_not_playing
+	}
+}
+
+# You have been added to the game
+country_event = {
+	id = blackjack.2
+	title = blackjack.2.t
+	desc = blackjack.2.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.2a"
+	}
+}
+
+# Game is full, try again later
+country_event = {
+	id = blackjack.3
+	title = blackjack.3.t
+	desc = blackjack.3.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.3a"
+	}
+}
+
+# Searching for players
+country_event = {
+	id = blackjack.4
+	title = blackjack.4.t
+	desc = blackjack.4.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.4a"
+	}
+}
+
+# Assign AIs to remaining spots and start game
+country_event = {
+	id = blackjack.5
+	title = blackjack.5.t
+	desc = blackjack.5.d
+
+	hidden = yes
+
+	trigger = {
+		
+	}
+
+	option = {
+		name = "blackjack.5a"
+	}
+}
