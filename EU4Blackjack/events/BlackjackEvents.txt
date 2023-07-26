@@ -55,11 +55,6 @@ country_event = {
 			if = {
 				limit = { blackjack_all_player_nations_accepted_or_rejected = yes }
 				assign_blackjack_ais = yes
-				# Test to make sure event targets are set properly
-
-				declare_war = event_target:blackjack_player_2_tag
-				declare_war = event_target:blackjack_player_3_tag
-				declare_war = event_target:blackjack_player_4_tag
 			}
 		}
 	}
@@ -113,17 +108,14 @@ country_event = {
 	}
 }
 
-# Assign AIs to remaining spots and start game
+# Debug event for card shuffle
 country_event = {
 	id = blackjack.5
 	title = blackjack.5.t
 	desc = blackjack.5.d
+	picture = TRADEGOODS_eventPicture
 
-	hidden = yes
-
-	trigger = {
-		
-	}
+	is_triggered_only = yes
 
 	option = {
 		name = "blackjack.5a"
