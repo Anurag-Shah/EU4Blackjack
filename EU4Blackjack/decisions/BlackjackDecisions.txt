@@ -22,40 +22,15 @@ country_decisions = {
 				ROOT = {
 					save_global_event_target_as = blackjack_player_1_tag
 				}
-				
-				# Count number of players
-				event_target:blackjack_player_1_tag = {
-					set_variable = {
-						which = countPlayersVariable
-						value = 0
-					}	
-				}
-				every_country = {
-					limit = {
-						NOT = { ai = yes }
-					}
-					event_target:blackjack_player_1_tag = {
-						change_variable = {
-							which = countPlayersVariable
-							value = 1
-						}
-					}
-				}
 
 				# If this is a singleplayer game, just fill the slots with ai
 				if = {
 					limit = {
-						NOT = {
-							check_variable = {
-								which = countPlayersVariable
-								value = 2
-							}
-						}
+						singleplayer_trigger = yes
 					}
-
 					assign_blackjack_ais = yes
 				} else = {
-					# else if this is mp, try to assign other players
+					# else this is mp, try to assign other players
 					assign_blackjack_players = yes
 				}
 

@@ -1143,7 +1143,7 @@ blackjack_shuffle_deck_wrapper = {
     random_country = {
         limit = {
             AND = {
-                NOT = { ai = yes }
+                ai = yes
                 NOT = { total_development = 70 }
             }
         }

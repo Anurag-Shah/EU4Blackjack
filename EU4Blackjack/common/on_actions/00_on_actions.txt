@@ -1107,12 +1107,6 @@ on_great_project_constructed = {
 # country
 on_new_monarch = {
 	# TODO remove these debug lines
-	event_target:blackjack_player_1_tag = {
-		add_years_of_income = 1
-	}
-	CAS = {
-		add_years_of_income = 1
-	}
 	if = {
 		limit = { 
 			has_global_flag = blackjack_shuffling_deck
