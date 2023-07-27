@@ -1593,76 +1593,78 @@ blackjack_setup_player_dealer_hands = {
 
 # Plays first 2 cards for each player
 blackjack_initialize_cards = {
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_1_hand_1
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_2_hand_1
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_3_hand_1
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_4_hand_1
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_1_hand_2
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_2_hand_2
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_3_hand_2
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_player_4_hand_2
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_dealer_hand_1
-        which = export_variable
-    }
-    blackjack_play_and_inc = yes
-    set_variable = {
-        which = blackjack_dealer_hand_2
-        which = export_variable
-    }
+    event_target:blackjack_player_1_tag = {
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_1_hand_1
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_2_hand_1
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_3_hand_1
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_4_hand_1
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_1_hand_2
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_2_hand_2
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_3_hand_2
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_player_4_hand_2
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_dealer_hand_1
+            which = export_variable
+        }
+        blackjack_play_and_inc = yes
+        set_variable = {
+            which = blackjack_dealer_hand_2
+            which = export_variable
+        }
 
-    set_variable = {
-        which = blackjack_player_1_position
-        value = 3
-    }
-    set_variable = {
-        which = blackjack_player_2_position
-        value = 3
-    }
-    set_variable = {
-        which = blackjack_player_3_position
-        value = 3
-    }
-    set_variable = {
-        which = blackjack_player_4_position
-        value = 3
-    }
-    set_variable = {
-        which = dealer_position
-        value = 3
+        set_variable = {
+            which = blackjack_player_1_position
+            value = 3
+        }
+        set_variable = {
+            which = blackjack_player_2_position
+            value = 3
+        }
+        set_variable = {
+            which = blackjack_player_3_position
+            value = 3
+        }
+        set_variable = {
+            which = blackjack_player_4_position
+            value = 3
+        }
+        set_variable = {
+            which = dealer_position
+            value = 3
+        }
     }
 }
 
