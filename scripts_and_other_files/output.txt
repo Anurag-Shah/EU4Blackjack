@@ -1,0 +1,1659 @@
+province_effect_var = { #var #effect
+	if = {
+		limit = {
+			check_variable = { which = $POSITION$ value = 104 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $POSITION$ value = 156 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $POSITION$ value = 182 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 195 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 201 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 204 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 206 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 207 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_207 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_206 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 205 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_205 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_204 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 202 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 203 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_203 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_202 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_201 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 198 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 199 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 200 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_200 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_199 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_198 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 196 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 197 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_197 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_196 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_195 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 188 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 191 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 193 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 194 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_194 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_193 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 192 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_192 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_191 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 189 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 190 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_190 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_189 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_188 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 185 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 186 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 187 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_187 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_186 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_185 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 183 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 184 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_184 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_183 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_182 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 169 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 175 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 178 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 180 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 181 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_181 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_180 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 179 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_179 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_178 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 176 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 177 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_177 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_176 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_175 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 172 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 173 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 174 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_174 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_173 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_172 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 170 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 171 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_171 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_170 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_169 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 162 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 165 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 167 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 168 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_168 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_167 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 166 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_166 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_165 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 163 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 164 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_164 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_163 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_162 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 159 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 160 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 161 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_161 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_160 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_159 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 157 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 158 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_158 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_157 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_156 }
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $POSITION$ value = 130 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 143 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 149 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 152 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 154 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 155 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_155 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_154 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 153 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_153 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_152 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 150 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 151 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_151 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_150 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_149 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 146 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 147 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 148 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_148 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_147 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_146 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 144 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 145 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_145 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_144 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_143 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 136 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 139 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 141 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 142 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_142 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_141 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 140 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_140 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_139 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 137 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 138 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_138 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_137 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_136 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 133 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 134 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 135 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_135 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_134 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_133 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 131 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 132 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_132 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_131 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_130 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 117 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 123 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 126 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 128 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 129 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_129 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_128 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 127 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_127 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_126 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 124 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 125 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_125 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_124 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_123 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 120 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 121 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 122 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_122 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_121 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_120 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 118 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 119 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_119 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_118 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_117 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 110 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 113 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 115 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 116 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_116 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_115 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 114 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_114 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_113 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 111 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 112 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_112 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_111 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_110 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 107 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 108 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 109 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_109 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_108 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_107 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 105 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 106 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_106 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_105 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_104 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $POSITION$ value = 52 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $POSITION$ value = 78 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 91 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 97 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 100 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 102 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 103 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_103 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_102 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 101 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_101 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_100 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 98 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 99 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_99 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_98 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_97 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 94 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 95 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 96 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_96 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_95 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_94 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 92 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 93 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_93 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_92 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_91 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 84 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 87 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 89 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 90 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_90 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_89 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 88 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_88 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_87 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 85 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 86 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_86 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_85 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_84 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 81 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 82 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 83 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_83 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_82 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_81 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 79 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 80 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_80 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_79 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_78 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 65 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 71 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 74 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 76 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 77 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_77 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_76 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 75 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_75 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_74 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 72 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 73 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_73 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_72 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_71 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 68 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 69 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 70 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_70 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_69 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_68 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 66 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 67 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_67 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_66 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_65 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 58 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 61 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 63 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 64 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_64 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_63 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 62 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_62 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_61 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 59 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 60 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_60 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_59 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_58 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 55 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 56 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 57 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_57 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_56 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_55 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 53 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 54 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_54 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_53 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_52 }
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $POSITION$ value = 26 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 39 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 45 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 48 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 50 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 51 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_51 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_50 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 49 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_49 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_48 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 46 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 47 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_47 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_46 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_45 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 42 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 43 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 44 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_44 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_43 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_42 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 40 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 41 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_41 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_40 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_39 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 32 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 35 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 37 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 38 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_38 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_37 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 36 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_36 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_35 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 33 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 34 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_34 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_33 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_32 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 29 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 30 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 31 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_31 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_30 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_29 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 27 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 28 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_28 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_27 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_26 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $POSITION$ value = 13 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 19 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 22 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 24 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 25 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_25 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_24 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 23 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_23 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_22 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 20 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 21 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_21 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_20 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_19 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 16 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 17 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 18 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_18 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_17 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_16 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 14 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 15 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_15 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_14 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_13 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $POSITION$ value = 6 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 9 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 11 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 12 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_12 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_11 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 10 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_10 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_9 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 7 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 8 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_8 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_7 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_6 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $POSITION$ value = 3 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 4 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 5 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_5 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_4 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_3 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = $POSITION$ value = 1 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = $POSITION$ value = 2 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_2 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_1 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_0 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

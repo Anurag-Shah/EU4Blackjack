@@ -121,3 +121,30 @@ country_event = {
 		name = "blackjack.5a"
 	}
 }
+
+# Non custom gui game loop event
+country_event = {
+	id = blackjack.6
+	title = blackjack.6.t
+	desc = blackjack.6.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.6a"
+	}
+
+	option = {
+		name = "blackjack.6b"
+	}
+
+	option = {
+		name = "blackjack.6c"
+	}
+
+	option = {
+		name = "blackjack.6d"
+	}
+	
+}

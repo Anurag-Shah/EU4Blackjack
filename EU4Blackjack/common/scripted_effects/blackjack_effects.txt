@@ -78,18 +78,94 @@ blackjack_setup_game_flags = {
 
 blackjack_setup_game_flags_two = {
     # This exists because of control flow shenanigans
+    # It's called from blackjack_shuffle_deck
+
+    # debug event to peer at deck TODO comment this out
     event_target:blackjack_player_1_tag = {
         country_event = {
             id = blackjack.5
         }
     }
-    # It's called from blackjack_shuffle_deck
 
-    # Setup player hands, max size is 18
+    # Setup player and dealer hands, max size is 18
+    # 0 value card indicates no card has been played yet
+    blackjack_setup_player_dealer_hands = yes
 
-    # Setup dealer hand, max size is less than 18 but kept at 18 for convinience
+    # Status:
+    # 0 - playing
+    # 1 - stood
+    # 2 - busted
+    # 3 - surrendered
+    # 4 - blackjack
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = blackjack_player_1_status
+            value = 0
+        }
+
+        set_variable = {
+            which = blackjack_player_2_status
+            value = 0
+        }
+
+        set_variable = {
+            which = blackjack_player_3_status
+            value = 0
+        }
+
+        set_variable = {
+            which = blackjack_player_4_status
+            value = 0
+        }
+    }
+
+    # Set each player's current hand position to 1 (this is where new cards are inserted)
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = blackjack_player_1_position
+            value = 1
+        }
+
+        set_variable = {
+            which = blackjack_player_2_position
+            value = 1
+        }
+
+        set_variable = {
+            which = blackjack_player_3_position
+            value = 1
+        }
+
+        set_variable = {
+            which = blackjack_player_4_position
+            value = 1
+        }
+        set_variable = {
+            which = dealer_position
+            value = 1
+        }
+    }
+
+    # Turn. 1 for player 1, 2 for player 2, etc
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = turn
+            value = 1
+        }
+    }
+
+    # Play first 2 cards for each player and for the dealer
+    blackjack_initialize_cards = yes
+
+    # Display hands
+    event_target:blackjack_player_1_tag = {
+        country_event = {
+            id = blackjack.6
+        }
+    }
 }
 
+# Initializes deck variables
 blackjack_initialize_deck = {
     event_target:blackjack_player_1_tag = {
         set_variable = {
@@ -1151,4 +1227,2122 @@ blackjack_shuffle_deck_wrapper = {
             dynasty = original_dynasty
         }
     }
+}
+
+# Initializes hand variables
+blackjack_setup_player_dealer_hands = {
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = blackjack_player_1_hand_1
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_2
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_3
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_4
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_5
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_6
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_7
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_8
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_9
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_10
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_11
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_12
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_13
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_14
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_15
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_16
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_17
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_1_hand_18
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_1
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_2
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_3
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_4
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_5
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_6
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_7
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_8
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_9
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_10
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_11
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_12
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_13
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_14
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_15
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_16
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_17
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_2_hand_18
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_1
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_2
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_3
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_4
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_5
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_6
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_7
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_8
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_9
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_10
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_11
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_12
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_13
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_14
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_15
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_16
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_17
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_3_hand_18
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_1
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_2
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_3
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_4
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_5
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_6
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_7
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_8
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_9
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_10
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_11
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_12
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_13
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_14
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_15
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_16
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_17
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_player_4_hand_18
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_1
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_2
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_3
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_4
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_5
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_6
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_7
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_8
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_9
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_10
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_11
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_12
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_13
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_14
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_15
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_16
+            value = 0
+        }
+        set_variable = {
+            which = blackjack_dealer_hand_17
+            value = 0
+        }
+    }
+}
+
+# Plays first 2 cards for each player
+blackjack_initialize_cards = {
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_1_hand_1
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_2_hand_1
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_3_hand_1
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_4_hand_1
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_1_hand_2
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_2_hand_2
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_3_hand_2
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_player_4_hand_2
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_dealer_hand_1
+        which = export_variable
+    }
+    blackjack_play_and_inc = yes
+    set_variable = {
+        which = blackjack_dealer_hand_2
+        which = export_variable
+    }
+
+    set_variable = {
+        which = blackjack_player_1_position
+        value = 3
+    }
+    set_variable = {
+        which = blackjack_player_2_position
+        value = 3
+    }
+    set_variable = {
+        which = blackjack_player_3_position
+        value = 3
+    }
+    set_variable = {
+        which = blackjack_player_4_position
+        value = 3
+    }
+    set_variable = {
+        which = dealer_position
+        value = 3
+    }
+}
+
+blackjack_play_and_inc = {
+    blackjack_fetch_card_value_at_position = yes
+    blackjack_increment_deck_position = yes
+}
+
+blackjack_increment_deck_position = {
+    change_variable = {
+        which = blackjack_current_deck_position
+        value = 1
+    }
+}
+
+# Places value of card at blackjack_current_deck_position into export_variable
+blackjack_fetch_card_value_at_position = {
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = export_variable
+            value = 0
+        }
+    }
+
+    if = {
+		limit = {
+			check_variable = { which = blackjack_current_deck_position value = 104 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_current_deck_position value = 156 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_current_deck_position value = 182 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 195 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 201 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 204 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 206 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 207 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_207 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_206 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 205 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_205 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_204 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 202 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 203 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_203 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_202 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_201 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 198 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 199 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 200 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_200 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_199 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_198 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 196 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 197 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_197 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_196 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_195 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 188 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 191 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 193 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 194 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_194 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_193 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 192 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_192 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_191 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 189 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 190 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_190 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_189 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_188 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 185 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 186 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 187 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_187 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_186 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_185 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 183 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 184 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_184 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_183 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_182 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 169 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 175 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 178 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 180 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 181 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_181 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_180 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 179 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_179 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_178 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 176 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 177 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_177 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_176 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_175 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 172 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 173 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 174 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_174 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_173 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_172 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 170 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 171 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_171 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_170 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_169 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 162 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 165 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 167 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 168 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_168 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_167 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 166 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_166 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_165 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 163 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 164 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_164 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_163 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_162 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 159 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 160 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 161 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_161 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_160 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_159 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 157 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 158 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_158 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_157 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_156 }
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_current_deck_position value = 130 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 143 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 149 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 152 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 154 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 155 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_155 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_154 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 153 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_153 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_152 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 150 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 151 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_151 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_150 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_149 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 146 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 147 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 148 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_148 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_147 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_146 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 144 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 145 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_145 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_144 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_143 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 136 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 139 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 141 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 142 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_142 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_141 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 140 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_140 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_139 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 137 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 138 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_138 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_137 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_136 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 133 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 134 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 135 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_135 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_134 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_133 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 131 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 132 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_132 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_131 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_130 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 117 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 123 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 126 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 128 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 129 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_129 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_128 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 127 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_127 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_126 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 124 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 125 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_125 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_124 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_123 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 120 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 121 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 122 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_122 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_121 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_120 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 118 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 119 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_119 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_118 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_117 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 110 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 113 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 115 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 116 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_116 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_115 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 114 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_114 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_113 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 111 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 112 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_112 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_111 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_110 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 107 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 108 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 109 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_109 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_108 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_107 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 105 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 106 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_106 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_105 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_104 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_current_deck_position value = 52 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_current_deck_position value = 78 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 91 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 97 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 100 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 102 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 103 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_103 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_102 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 101 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_101 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_100 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 98 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 99 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_99 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_98 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_97 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 94 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 95 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 96 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_96 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_95 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_94 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 92 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 93 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_93 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_92 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_91 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 84 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 87 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 89 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 90 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_90 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_89 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 88 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_88 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_87 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 85 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 86 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_86 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_85 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_84 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 81 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 82 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 83 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_83 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_82 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_81 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 79 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 80 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_80 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_79 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_78 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 65 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 71 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 74 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 76 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 77 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_77 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_76 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 75 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_75 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_74 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 72 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 73 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_73 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_72 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_71 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 68 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 69 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 70 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_70 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_69 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_68 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 66 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 67 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_67 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_66 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_65 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 58 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 61 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 63 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 64 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_64 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_63 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 62 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_62 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_61 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 59 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 60 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_60 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_59 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_58 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 55 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 56 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 57 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_57 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_56 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_55 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 53 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 54 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_54 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_53 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_52 }
+							}
+						}
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_current_deck_position value = 26 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 39 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 45 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 48 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 50 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 51 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_51 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_50 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 49 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_49 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_48 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 46 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 47 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_47 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_46 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_45 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 42 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 43 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 44 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_44 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_43 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_42 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 40 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 41 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_41 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_40 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_39 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 32 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 35 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 37 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 38 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_38 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_37 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 36 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_36 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_35 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 33 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 34 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_34 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_33 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_32 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 29 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 30 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 31 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_31 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_30 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_29 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 27 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 28 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_28 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_27 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_26 }
+							}
+						}
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_current_deck_position value = 13 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 19 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 22 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 24 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 25 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_25 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_24 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 23 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_23 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_22 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 20 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 21 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_21 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_20 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_19 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 16 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 17 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 18 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_18 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_17 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_16 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 14 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 15 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_15 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_14 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_13 }
+							}
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = blackjack_current_deck_position value = 6 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 9 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 11 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 12 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_12 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_11 }
+								}
+							}
+							else = {
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 10 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_10 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_9 }
+								}
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 7 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 8 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_8 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_7 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_6 }
+							}
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = blackjack_current_deck_position value = 3 }
+							}
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 4 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 5 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_5 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_4 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_3 }
+							}
+						}
+						else = {
+							if = {
+								limit = {
+									check_variable = { which = blackjack_current_deck_position value = 1 }
+								}
+								if = {
+									limit = {
+										check_variable = { which = blackjack_current_deck_position value = 2 }
+									}
+									set_variable = { which = export_variable which = blackjack_deck_2 }
+								}
+								else = {
+									set_variable = { which = export_variable which = blackjack_deck_1 }
+								}
+							}
+							else = {
+								set_variable = { which = export_variable which = blackjack_deck_0 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 }

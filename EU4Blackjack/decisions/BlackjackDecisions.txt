@@ -15,6 +15,9 @@ country_decisions = {
 			hidden_effect = {
 				# Set country flag
 				set_country_flag = blackjack_is_player
+
+				# Set shuffling flag
+				set_global_flag = blackjack_initial_setup_shuffle
 				
 				set_global_flag = blackjack_game_in_progress_flag
 

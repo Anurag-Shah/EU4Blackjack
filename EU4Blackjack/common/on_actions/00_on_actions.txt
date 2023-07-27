@@ -1106,7 +1106,6 @@ on_great_project_constructed = {
 # OBS: Consider that the following on_actions can be called for Personal Union juniors as well.
 # country
 on_new_monarch = {
-	# TODO remove these debug lines
 	if = {
 		limit = { 
 			has_global_flag = blackjack_shuffling_deck
