@@ -974,16 +974,25 @@ country_event = {
 	# Stand
 	option = {
 		name = "blackjack.15b"
+		hidden_effect = {
+			blackjack_stand = yes
+		}
 	}
 
 	# Double Down
 	option = {
 		name = "blackjack.15c"
+		hidden_effect = {
+			blackjack_double_down = yes
+		}
 	}
 
 	# Surrender
 	option = {
 		name = "blackjack.15d"
+		hidden_effect = {
+			blackjack_surrender = yes
+		}
 	}
 }
 

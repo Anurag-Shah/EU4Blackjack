@@ -63,20 +63,20 @@ def parse_file(fn):
 	return d
 
 def btree(lst, form, body):
-    if not len(lst):
-        return ''
-    elif len(lst) == 1:
-        return body % lst[0]
-    else:
-        return form % (lst[int(len(lst)/2)],
-                       btree(lst[int(len(lst)/2):], form.replace('\n', '\n\t'), body),
-                       btree(lst[:int(len(lst)/2)], form.replace('\n', '\n\t'), body))
-        
+	if not len(lst):
+		return ''
+	elif len(lst) == 1:
+		return body % lst[0]
+	else:
+		return form % (lst[int(len(lst)/2)],
+					   btree(lst[int(len(lst)/2):], form.replace('\n', '\n\t'), body),
+					   btree(lst[:int(len(lst)/2)], form.replace('\n', '\n\t'), body))
+		
 if __name__ == "__main__":
-        cond = 'check_variable = { which = $POSITION$ value = %s }'
-        body = 'set_variable = { which = export_variable which = blackjack_deck_%s }'
-        form = 'if = {\n\t\tlimit = {\n\t\t\t%s\n\t\t}\n\t\t%s\n\t}\n\telse = {\n\t\t%s\n\t}' % (cond, '%s', '%s')
+		cond = 'check_variable = { which = $POSITION$ value = %s }'
+		body = 'set_variable = { which = export_variable which = blackjack_deck_%s }'
+		form = 'if = {\n\t\tlimit = {\n\t\t\t%s\n\t\t}\n\t\t%s\n\t}\n\telse = {\n\t\t%s\n\t}' % (cond, '%s', '%s')
 
-        with open('output.txt', 'w') as f:
-            f.write('province_effect_var = { #var #effect\n\t'+btree([i for i in range(0, 208)], form, body)+'\n}')
+		with open('output.txt', 'w') as f:
+			f.write('province_effect_var = { #var #effect\n\t'+btree([i for i in range(0, 208)], form, body)+'\n}')
 

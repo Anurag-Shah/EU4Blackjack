@@ -1,0 +1,1968 @@
+blackjack_compute_hand_values = {
+	blackjack_get_hand_value_player_1 = yes
+	blackjack_get_hand_value_player_2 = yes
+	blackjack_get_hand_value_player_3 = yes
+	blackjack_get_hand_value_player_4 = yes
+}
+
+# places the total hand value into blackjack_player_1_hand_value variable
+blackjack_get_hand_value_player_1 = {
+	event_target:blackjack_player_1_tag = {
+		# Count number of aces
+		count_aces_player_1 = yes
+
+		# Get total value of non ace cards
+		compute_non_aces_value_player_1 = yes
+		
+		# Add the non aces value to the total first
+		set_variable = {
+			which = blackjack_player_1_hand_value
+			which = blackjack_total_value
+		}
+
+		# Compute total
+		# If there are no aces, then the value is the non aces value
+		# So we don't need to do anything
+		# If there is exactly 1 ace, then it can be either 11 or 1
+		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
+
+		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = blackjack_aces_count
+						value = 1
+					}
+					NOT = {
+						check_variable = {
+							which = blackjack_aces_count
+							value = 2
+						}
+					}
+				}
+			}
+
+			# If the ace can be 11, that means the rest of the cards have a max value of 10 -> cannot exceed 11
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_1_hand_value
+							value = 11
+						}
+					}
+				}
+				# Yes, total value is 10 or lower
+				change_variable = {
+					which = blackjack_player_1_hand_value
+					value = 11
+				}
+			} else = {
+				# No, total value is 11 or higher
+				change_variable = {
+					which = blackjack_player_1_hand_value
+					value = 1
+				}
+			}
+		}
+		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
+		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
+		else = {
+			# Higher count - treat 1 ace as 11
+			set_variable = {
+				which = higher_aces_count
+				value = 11
+			}
+			change_variable = {
+				which = higher_aces_count
+				which = blackjack_aces_count
+			}
+			subtract_variable = {
+				which = higher_aces_count
+				value = 1 # we're skipping 1 ace cuz its 11
+			}
+
+			# Get total value with higher count
+			set_variable = {
+				which = blackjack_counting_temporary_variable
+				which = higher_aces_count
+			}
+			change_variable = {
+				which = blackjack_counting_temporary_variable
+				which = blackjack_player_1_hand_value
+			}
+
+			# See if count is legal
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_counting_temporary_variable
+							value = 22
+						}
+					}
+				}
+				# Yes, the count is below 22 so legal
+				set_variable = {
+					which = blackjack_player_1_hand_value
+					which = blackjack_counting_temporary_variable
+				}
+			} else = {
+				# No, the higher count is illegal
+				# Just treat each ace as 1
+				change_variable = {
+					which = blackjack_player_1_hand_value
+					which = blackjack_aces_count
+				}
+			}
+		}
+	}
+}
+
+# places the total hand value into blackjack_player_2_hand_value variable
+blackjack_get_hand_value_player_2 = {
+	event_target:blackjack_player_1_tag = {
+		# Count number of aces
+		count_aces_player_2 = yes
+
+		# Get total value of non ace cards
+		compute_non_aces_value_player_2 = yes
+		
+		# Add the non aces value to the total first
+		set_variable = {
+			which = blackjack_player_2_hand_value
+			which = blackjack_total_value_p2
+		}
+
+		# Compute total
+		# If there are no aces, then the value is the non aces value
+		# So we don't need to do anything
+		# If there is exactly 1 ace, then it can be either 11 or 1
+		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
+
+		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = blackjack_aces_count_p2
+						value = 1
+					}
+					NOT = {
+						check_variable = {
+							which = blackjack_aces_count_p2
+							value = 2
+						}
+					}
+				}
+			}
+
+			# If the ace can be 11, that means the rest of the cards have a max value of 10 -> cannot exceed 11
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_2_hand_value
+							value = 11
+						}
+					}
+				}
+				# Yes, total value is 10 or lower
+				change_variable = {
+					which = blackjack_player_2_hand_value
+					value = 11
+				}
+			} else = {
+				# No, total value is 11 or higher
+				change_variable = {
+					which = blackjack_player_2_hand_value
+					value = 1
+				}
+			}
+		}
+		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
+		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
+		else = {
+			# Higher count - treat 1 ace as 11
+			set_variable = {
+				which = higher_aces_count_p2
+				value = 11
+			}
+			change_variable = {
+				which = higher_aces_count_p2
+				which = blackjack_aces_count_p2
+			}
+			subtract_variable = {
+				which = higher_aces_count_p2
+				value = 1 # we're skipping 1 ace cuz its 11
+			}
+
+			# Get total value with higher count
+			set_variable = {
+				which = blackjack_counting_temporary_variable_p2
+				which = higher_aces_count_p2
+			}
+			change_variable = {
+				which = blackjack_counting_temporary_variable_p2
+				which = blackjack_player_2_hand_value_p2
+			}
+
+			# See if count is legal
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_counting_temporary_variable_p2
+							value = 22
+						}
+					}
+				}
+				# Yes, the count is below 22 so legal
+				set_variable = {
+					which = blackjack_player_2_hand_value_p2
+					which = blackjack_counting_temporary_variable_p2
+				}
+			} else = {
+				# No, the higher count is illegal
+				# Just treat each ace as 1
+				change_variable = {
+					which = blackjack_player_2_hand_value_p2
+					which = blackjack_aces_count_p2
+				}
+			}
+		}
+	}
+}
+
+# places the total hand value into blackjack_player_3_hand_value variable
+blackjack_get_hand_value_player_3 = {
+	event_target:blackjack_player_1_tag = {
+		# Count number of aces
+		count_aces_player_3 = yes
+
+		# Get total value of non ace cards
+		compute_non_aces_value_player_3 = yes
+		
+		# Add the non aces value to the total first
+		set_variable = {
+			which = blackjack_player_3_hand_value
+			which = blackjack_total_value_p3
+		}
+
+		# Compute total
+		# If there are no aces, then the value is the non aces value
+		# So we don't need to do anything
+		# If there is exactly 1 ace, then it can be either 11 or 1
+		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
+
+		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = blackjack_aces_count_p3
+						value = 1
+					}
+					NOT = {
+						check_variable = {
+							which = blackjack_aces_count_p3
+							value = 2
+						}
+					}
+				}
+			}
+
+			# If the ace can be 11, that means the rest of the cards have a max value of 10 -> cannot exceed 11
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_3_hand_value
+							value = 11
+						}
+					}
+				}
+				# Yes, total value is 10 or lower
+				change_variable = {
+					which = blackjack_player_3_hand_value
+					value = 11
+				}
+			} else = {
+				# No, total value is 11 or higher
+				change_variable = {
+					which = blackjack_player_3_hand_value
+					value = 1
+				}
+			}
+		}
+		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
+		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
+		else = {
+			# Higher count - treat 1 ace as 11
+			set_variable = {
+				which = higher_aces_count_p3
+				value = 11
+			}
+			change_variable = {
+				which = higher_aces_count_p3
+				which = blackjack_aces_count_p3
+			}
+			subtract_variable = {
+				which = higher_aces_count_p3
+				value = 1 # we're skipping 1 ace cuz its 11
+			}
+
+			# Get total value with higher count
+			set_variable = {
+				which = blackjack_counting_temporary_variable_p3
+				which = higher_aces_count_p3
+			}
+			change_variable = {
+				which = blackjack_counting_temporary_variable_p3
+				which = blackjack_player_3_hand_value_p3
+			}
+
+			# See if count is legal
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_counting_temporary_variable_p3
+							value = 22
+						}
+					}
+				}
+				# Yes, the count is below 22 so legal
+				set_variable = {
+					which = blackjack_player_3_hand_value_p3
+					which = blackjack_counting_temporary_variable_p3
+				}
+			} else = {
+				# No, the higher count is illegal
+				# Just treat each ace as 1
+				change_variable = {
+					which = blackjack_player_3_hand_value_p3
+					which = blackjack_aces_count_p3
+				}
+			}
+		}
+	}
+}
+
+# places the total hand value into blackjack_player_4_hand_value variable
+blackjack_get_hand_value_player_4 = {
+	event_target:blackjack_player_1_tag = {
+		# Count number of aces
+		count_aces_player_4 = yes
+
+		# Get total value of non ace cards
+		compute_non_aces_value_player_4 = yes
+		
+		# Add the non aces value to the total first
+		set_variable = {
+			which = blackjack_player_4_hand_value
+			which = blackjack_total_value_p4
+		}
+
+		# Compute total
+		# If there are no aces, then the value is the non aces value
+		# So we don't need to do anything
+		# If there is exactly 1 ace, then it can be either 11 or 1
+		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
+
+		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = blackjack_aces_count_p4
+						value = 1
+					}
+					NOT = {
+						check_variable = {
+							which = blackjack_aces_count_p4
+							value = 2
+						}
+					}
+				}
+			}
+
+			# If the ace can be 11, that means the rest of the cards have a max value of 10 -> cannot exceed 11
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_4_hand_value
+							value = 11
+						}
+					}
+				}
+				# Yes, total value is 10 or lower
+				change_variable = {
+					which = blackjack_player_4_hand_value
+					value = 11
+				}
+			} else = {
+				# No, total value is 11 or higher
+				change_variable = {
+					which = blackjack_player_4_hand_value
+					value = 1
+				}
+			}
+		}
+		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
+		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
+		else = {
+			# Higher count - treat 1 ace as 11
+			set_variable = {
+				which = higher_aces_count_p4
+				value = 11
+			}
+			change_variable = {
+				which = higher_aces_count_p4
+				which = blackjack_aces_count_p4
+			}
+			subtract_variable = {
+				which = higher_aces_count_p4
+				value = 1 # we're skipping 1 ace cuz its 11
+			}
+
+			# Get total value with higher count
+			set_variable = {
+				which = blackjack_counting_temporary_variable_p4
+				which = higher_aces_count_p4
+			}
+			change_variable = {
+				which = blackjack_counting_temporary_variable_p4
+				which = blackjack_player_4_hand_value_p4
+			}
+
+			# See if count is legal
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_counting_temporary_variable_p4
+							value = 22
+						}
+					}
+				}
+				# Yes, the count is below 22 so legal
+				set_variable = {
+					which = blackjack_player_4_hand_value_p4
+					which = blackjack_counting_temporary_variable_p4
+				}
+			} else = {
+				# No, the higher count is illegal
+				# Just treat each ace as 1
+				change_variable = {
+					which = blackjack_player_4_hand_value_p4
+					which = blackjack_aces_count_p4
+				}
+			}
+		}
+	}
+}
+
+# stores aces into blackjack_aces_count variable
+count_aces_player_1 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_aces_count
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cap1
+			value = 1
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cap1
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cap1 out_var = export_variable }
+
+			# check if that card is an ace
+			if = {
+				limit = {
+					blackjack_is_card_ace = { var = export_variable }
+				}
+				change_variable = {
+					which = blackjack_aces_count
+					value = 1
+				}
+			}
+
+			change_variable = {
+				which = loop_iterator_cap1
+				value = 1
+			}
+		}
+	}
+}
+
+count_aces_player_2 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_aces_count_p2
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cap2
+			value = 1
+		}
+		set_variable = {
+			which = export_variable_p2
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cap2
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_2 = { in_var = loop_iterator_cap2 out_var = export_variable_p2 }
+
+			# check if that card is an ace
+			if = {
+				limit = {
+					blackjack_is_card_ace = { var = export_variable_p2 }
+				}
+				change_variable = {
+					which = blackjack_aces_count_p2
+					value = 1
+				}
+			}
+
+			change_variable = {
+				which = loop_iterator_cap2
+				value = 1
+			}
+		}
+	}
+}
+
+count_aces_player_3 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_aces_count_p3
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cap3
+			value = 1
+		}
+		set_variable = {
+			which = export_variable_p3
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cap3
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_3 = { in_var = loop_iterator_cap3 out_var = export_variable_p3 }
+
+			# check if that card is an ace
+			if = {
+				limit = {
+					blackjack_is_card_ace = { var = export_variable_p3 }
+				}
+				change_variable = {
+					which = blackjack_aces_count_p3
+					value = 1
+				}
+			}
+
+			change_variable = {
+				which = loop_iterator_cap3
+				value = 1
+			}
+		}
+	}
+}
+
+count_aces_player_4 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_aces_count_p4
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cap4
+			value = 1
+		}
+		set_variable = {
+			which = export_variable_cap4
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cap4
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_4 = { in_var = loop_iterator_cap4 out_var = export_variable_cap4 }
+
+			# check if that card is an ace
+			if = {
+				limit = {
+					blackjack_is_card_ace = { var = export_variable_cap4 }
+				}
+				change_variable = {
+					which = blackjack_aces_count_p4
+					value = 1
+				}
+			}
+
+			change_variable = {
+				which = loop_iterator_cap4
+				value = 1
+			}
+		}
+	}
+}
+
+# stores non_ace value into blackjack_total_value variable
+compute_non_aces_value_player_1 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_total_value
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cap1
+			value = 1
+		}
+		set_variable = {
+			which = obj_value
+			value = 0
+		}
+		set_variable = {
+			which = real_value
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cap1
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cap1 out_var = obj_value }
+
+			# get real value for card (0 for aces)
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value out_var = real_value }
+
+			# add to running total
+			change_variable = {
+				which = blackjack_total_value
+				which = real_value
+			}
+
+			change_variable = {
+				which = loop_iterator_cap1
+				value = 1
+			}
+		}
+	}
+}
+
+compute_non_aces_value_player_2 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_total_value_p2
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cvp2
+			value = 1
+		}
+		set_variable = {
+			which = obj_value_p2
+			value = 0
+		}
+		set_variable = {
+			which = real_value_p2
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cvp2
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_2 = { in_var = loop_iterator_cvp2 out_var = obj_value_p2 }
+
+			# get real value for card (0 for aces)
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_p2 out_var = real_value_p2 }
+
+			# add to running total
+			change_variable = {
+				which = blackjack_total_value_p2
+				which = real_value_p2
+			}
+
+			change_variable = {
+				which = loop_iterator_cvp2
+				value = 1
+			}
+		}
+	}
+}
+
+compute_non_aces_value_player_3 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_total_value_p3
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cvp3
+			value = 1
+		}
+		set_variable = {
+			which = obj_value_p3
+			value = 0
+		}
+		set_variable = {
+			which = real_value_p3
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cvp3
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_3 = { in_var = loop_iterator_cvp3 out_var = obj_value_p3 }
+
+			# get real value for card (0 for aces)
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_p3 out_var = real_value_p3 }
+
+			# add to running total
+			change_variable = {
+				which = blackjack_total_value_p3
+				which = real_value_p3
+			}
+
+			change_variable = {
+				which = loop_iterator_cvp3
+				value = 1
+			}
+		}
+	}
+}
+
+compute_non_aces_value_player_4 = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_total_value_p4
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cvp4
+			value = 1
+		}
+		set_variable = {
+			which = obj_value_p4
+			value = 0
+		}
+		set_variable = {
+			which = real_value_p4
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cvp4
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_player_4 = { in_var = loop_iterator_cvp4 out_var = obj_value_p4 }
+
+			# get real value for card (0 for aces)
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_p4 out_var = real_value_p4 }
+
+			# add to running total
+			change_variable = {
+				which = blackjack_total_value_p4
+				which = real_value_p4
+			}
+
+			change_variable = {
+				which = loop_iterator_cvp4
+				value = 1
+			}
+		}
+	}
+}
+
+# Convert card deck from 1-52 to card values from 2-10, aces set to 0
+compute_real_value_from_objective_value_no_aces = { #obv_val #out_var
+	if = {
+		limit = {
+			check_variable = { which = $obj_val$ value = 26 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $obj_val$ value = 39 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $obj_val$ value = 46 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 49 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 51 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 52 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 50 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 47 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 48 }
+							}
+							set_variable = { which = $out_var$ value = 9 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 8 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 7 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 42 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 44 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 45 }
+							}
+							set_variable = { which = $out_var$ value = 6 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 5 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 43 }
+							}
+							set_variable = { which = $out_var$ value = 4 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 3 }
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 40 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 41 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $obj_val$ value = 32 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 35 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 37 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 38 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 36 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 33 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 34 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 29 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 30 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 31 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 27 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 28 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $obj_val$ value = 13 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $obj_val$ value = 19 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 22 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 24 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 25 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 23 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 20 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 21 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 16 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 17 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 18 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 14 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 15 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $obj_val$ value = 6 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 9 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 11 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 12 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 10 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 7 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 8 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $obj_val$ value = 3 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 4 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 5 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 1 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 2 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 0 }
+					}
+				}
+			}
+		}
+	}
+}
+
+blackjack_obj_card_val_at_pos_dealer = { #in_var #out_var
+	if = {
+		limit = {
+			check_variable = { which = $in_var$ value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_18 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_17 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_16 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_15 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_14 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_13 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_12 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_11 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_10 } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_9 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_8 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_7 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_6 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_5 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_4 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_3 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_2 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_dealer_hand_1 } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_obj_card_val_at_pos_player_1 = { #in_var #out_var
+	if = {
+		limit = {
+			check_variable = { which = $in_var$ value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_18 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_17 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_16 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_15 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_14 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_13 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_12 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_11 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_10 } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_9 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_8 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_7 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_6 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_5 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_4 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_3 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_2 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_1_hand_1 } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_obj_card_val_at_pos_player_2 = { #in_var #out_var
+	if = {
+		limit = {
+			check_variable = { which = $in_var$ value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_18 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_17 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_16 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_15 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_14 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_13 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_12 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_11 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_10 } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_9 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_8 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_7 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_6 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_5 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_4 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_3 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_2 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_2_hand_1 } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_obj_card_val_at_pos_player_3 = { #in_var #out_var
+	if = {
+		limit = {
+			check_variable = { which = $in_var$ value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_18 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_17 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_16 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_15 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_14 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_13 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_12 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_11 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_10 } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_9 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_8 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_7 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_6 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_5 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_4 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_3 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_2 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_3_hand_1 } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_obj_card_val_at_pos_player_4 = { #in_var #out_var
+	if = {
+		limit = {
+			check_variable = { which = $in_var$ value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_18 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_17 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_16 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_15 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_14 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_13 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_12 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_11 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_10 } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = $in_var$ value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = $in_var$ value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_9 } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_8 } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_7 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_6 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_5 } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = $in_var$ value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_4 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_3 } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = $in_var$ value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_2 } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = $out_var$ which = blackjack_player_4_hand_1 } }
+				}
+			}
+		}
+	}
+}

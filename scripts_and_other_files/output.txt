@@ -1,70 +1,214 @@
-province_effect_var = { #var #effect
+compute_real_value_from_objective_value_no_aces = { #var #effect
 	if = {
 		limit = {
-			check_variable = { which = blackjack_player_4_position value = 10 }
+			check_variable = { which = $obj_val$ value = 26 }
 		}
 		if = {
 			limit = {
-				check_variable = { which = blackjack_player_4_position value = 14 }
+				check_variable = { which = $obj_val$ value = 39 }
 			}
 			if = {
 				limit = {
-					check_variable = { which = blackjack_player_4_position value = 16 }
+					check_variable = { which = $obj_val$ value = 46 }
 				}
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 17 }
+						check_variable = { which = $obj_val$ value = 49 }
 					}
 					if = {
 						limit = {
-							check_variable = { which = blackjack_player_4_position value = 18 }
+							check_variable = { which = $obj_val$ value = 51 }
 						}
-						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_18 which = export_variable } }
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 52 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
 					}
 					else = {
-						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_17 which = export_variable } }
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 50 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
 					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_16 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 47 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 48 }
+							}
+							set_variable = { which = $out_var$ value = 9 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 8 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 7 }
+					}
 				}
 			}
 			else = {
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 15 }
+						check_variable = { which = $obj_val$ value = 42 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_15 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 44 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 45 }
+							}
+							set_variable = { which = $out_var$ value = 6 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 5 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 43 }
+							}
+							set_variable = { which = $out_var$ value = 4 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 3 }
+						}
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_14 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 40 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 41 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
 				}
 			}
 		}
 		else = {
 			if = {
 				limit = {
-					check_variable = { which = blackjack_player_4_position value = 12 }
+					check_variable = { which = $obj_val$ value = 32 }
 				}
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 13 }
+						check_variable = { which = $obj_val$ value = 35 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_13 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 37 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 38 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 36 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_12 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 33 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 34 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
 				}
 			}
 			else = {
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 11 }
+						check_variable = { which = $obj_val$ value = 29 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_11 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 30 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 31 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_10 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 27 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 28 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
 				}
 			}
 		}
@@ -72,66 +216,202 @@ province_effect_var = { #var #effect
 	else = {
 		if = {
 			limit = {
-				check_variable = { which = blackjack_player_4_position value = 5 }
+				check_variable = { which = $obj_val$ value = 13 }
 			}
 			if = {
 				limit = {
-					check_variable = { which = blackjack_player_4_position value = 7 }
+					check_variable = { which = $obj_val$ value = 19 }
 				}
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 8 }
+						check_variable = { which = $obj_val$ value = 22 }
 					}
 					if = {
 						limit = {
-							check_variable = { which = blackjack_player_4_position value = 9 }
+							check_variable = { which = $obj_val$ value = 24 }
 						}
-						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_9 which = export_variable } }
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 25 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
 					}
 					else = {
-						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_8 which = export_variable } }
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 23 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
 					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_7 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 20 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 21 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
 				}
 			}
 			else = {
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 6 }
+						check_variable = { which = $obj_val$ value = 16 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_6 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 17 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 18 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_5 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 14 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 15 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 10 }
+					}
 				}
 			}
 		}
 		else = {
 			if = {
 				limit = {
-					check_variable = { which = blackjack_player_4_position value = 3 }
+					check_variable = { which = $obj_val$ value = 6 }
 				}
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 4 }
+						check_variable = { which = $obj_val$ value = 9 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_4 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 11 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 12 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 10 }
+						}
+					}
+					else = {
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 10 }
+							}
+							set_variable = { which = $out_var$ value = 10 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 9 }
+						}
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_3 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 7 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 8 }
+							}
+							set_variable = { which = $out_var$ value = 8 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 7 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 6 }
+					}
 				}
 			}
 			else = {
 				if = {
 					limit = {
-						check_variable = { which = blackjack_player_4_position value = 2 }
+						check_variable = { which = $obj_val$ value = 3 }
 					}
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_2 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 4 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 5 }
+							}
+							set_variable = { which = $out_var$ value = 5 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 4 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 3 }
+					}
 				}
 				else = {
-					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_1 which = export_variable } }
+					if = {
+						limit = {
+							check_variable = { which = $obj_val$ value = 1 }
+						}
+						if = {
+							limit = {
+								check_variable = { which = $obj_val$ value = 2 }
+							}
+							set_variable = { which = $out_var$ value = 2 }
+						}
+						else = {
+							set_variable = { which = $out_var$ value = 0 }
+						}
+					}
+					else = {
+						set_variable = { which = $out_var$ value = 0 }
+					}
 				}
 			}
 		}

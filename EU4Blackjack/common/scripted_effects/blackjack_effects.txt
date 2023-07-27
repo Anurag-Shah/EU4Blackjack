@@ -180,6 +180,7 @@ blackjack_setup_game_flags_two = {
             which = bet_value_p4
             value = 5
         }
+
         country_event = {
             id = blackjack.7
         }
@@ -2002,13 +2003,202 @@ blackjack_hit = {
 				value = 1
 			}
 		}
+
+		blackjack_advance_turn = yes
+	}
+}
+
+blackjack_double_down = {
+	event_target:blackjack_player_1_tag = {
+		# Double bet and set status to stood
+		if = {
+			# Player 4's turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			set_variable = {
+				which = blackjack_player_4_status
+				value = 1
+			}
+			multiply_variable = {
+				which = bet_value_p4
+				value = 2
+			}
+		} else_if = {
+			# Player 3 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			set_variable = {
+				which = blackjack_player_3_status
+				value = 1
+			}
+			multiply_variable = {
+				which = bet_value_p3
+				value = 2
+			}
+		} else_if = {
+			# Player 2 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			set_variable = {
+				which = blackjack_player_2_status
+				value = 1
+			}
+			multiply_variable = {
+				which = bet_value_p2
+				value = 2
+			}
+		} else = {
+			set_variable = {
+				which = blackjack_player_1_status
+				value = 1
+			}
+			multiply_variable = {
+				which = bet_value_p1
+				value = 2
+			}
+		}
 		
+		# Then just hit like normal
+		blackjack_hit = yes
+	}
+}
+
+blackjack_stand = {
+	event_target:blackjack_player_1_tag = {
+		# Set status to stood
+		if = {
+			# Player 4's turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			set_variable = {
+				which = blackjack_player_4_status
+				value = 1
+			}
+		} else_if = {
+			# Player 3 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			set_variable = {
+				which = blackjack_player_3_status
+				value = 1
+			}
+		} else_if = {
+			# Player 2 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			set_variable = {
+				which = blackjack_player_2_status
+				value = 1
+			}
+		} else = {
+			set_variable = {
+				which = blackjack_player_1_status
+				value = 1
+			}
+		}
+		
+		# Then advance turn
+		blackjack_advance_turn = yes
+	}
+}
+
+blackjack_surrender = {
+	event_target:blackjack_player_1_tag = {
+		# Halve the bet and set status to surrendered
+		if = {
+			# Player 4's turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			set_variable = {
+				which = blackjack_player_4_status
+				value = 3
+			}
+			divide_variable = {
+				which = bet_value_p4
+				value = 2
+			}
+		} else_if = {
+			# Player 3 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			set_variable = {
+				which = blackjack_player_3_status
+				value = 3
+			}
+			divide_variable = {
+				which = bet_value_p3
+				value = 2
+			}
+		} else_if = {
+			# Player 2 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			set_variable = {
+				which = blackjack_player_2_status
+				value = 3
+			}
+			divide_variable = {
+				which = bet_value_p2
+				value = 2
+			}
+		} else = {
+			set_variable = {
+				which = blackjack_player_1_status
+				value = 3
+			}
+			divide_variable = {
+				which = bet_value_p1
+				value = 2
+			}
+		}
+		
+		# Then advance turn
 		blackjack_advance_turn = yes
 	}
 }
 
 blackjack_advance_turn = {
-	# Update current player's status
+	# Recompute player values
+	# Sure you only technically need to recompute it for the one player but i cba
+	blackjack_compute_hand_values = yes
+	
+	# If the player hit, make sure to check the status and set to bustedblackjack_p1_has_bet if > 21 or stood if == 21
 
 	# If all players status isn't 0, end the game
 	
@@ -3708,6 +3898,11 @@ blackjack_check_and_end_betting = {
         clr_global_flag = blackjack_p3_has_bet
         clr_global_flag = blackjack_p4_has_bet
         set_global_flag = blackjack_see_gamestate_enabled
+
+		# Compute hand totals
+		blackjack_compute_hand_values = yes
+
+		# Give game event to all players
         event_target:blackjack_player_1_tag = {
             country_event = {
                 id = blackjack.6
@@ -3728,6 +3923,8 @@ blackjack_check_and_end_betting = {
                 id = blackjack.6
             }
         }
+
+		# Give options event to player 1
         event_target:blackjack_player_1_tag = {
             country_event = {
                 id = blackjack.15

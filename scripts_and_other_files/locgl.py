@@ -13,3 +13,6 @@ for i in range(1,5):
 
 for i in range(1,5):
     print(f"[blackjack_player_{i}_tag.GetName]'s Bet: [Root.bet_value_p{i}.GetValue] ducats\\n", end="")
+
+for i in range(1,5):
+    print(f"[blackjack_player_{i}_tag.GetName]'s Value: [Root.blackjack_player_{i}_hand_value.GetValue]\\n", end="")

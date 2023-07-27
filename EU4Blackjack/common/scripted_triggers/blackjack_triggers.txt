@@ -41,3 +41,58 @@ singleplayer_or_ai_country_trigger = {
 		}
 	}
 }
+
+blackjack_is_card_ace = { #var
+	event_target:blackjack_player_1_tag = {
+		OR = {
+			AND = {
+				check_variable = {
+					which = $var$
+					value = 1
+				}
+				NOT = {
+					check_variable = {
+						which = $var$
+						value = 2
+					}
+				}
+			}
+			AND = {
+				check_variable = {
+					which = $var$
+					value = 14
+				}
+				NOT = {
+					check_variable = {
+						which = $var$
+						value = 15
+					}
+				}
+			}
+			AND = {
+				check_variable = {
+					which = $var$
+					value = 27
+				}
+				NOT = {
+					check_variable = {
+						which = $var$
+						value = 28
+					}
+				}
+			}
+			AND = {
+				check_variable = {
+					which = $var$
+					value = 40
+				}
+				NOT = {
+					check_variable = {
+						which = $var$
+						value = 41
+					}
+				}
+			}
+		}	
+	}
+}
