@@ -133,6 +133,9 @@ country_event = {
 
 	option = {
 		name = "blackjack.6a"
+		hidden_effect = {
+			blackjack_hit = yes
+		}
 	}
 
 	option = {
@@ -147,4 +150,878 @@ country_event = {
 		name = "blackjack.6d"
 	}
 	
+}
+
+# Non custom place bet p1 event
+country_event = {
+	id = blackjack.7
+	title = blacjack.7.t
+	desc = blackjack.7.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Confirm
+	option = {
+		name = "blackjack.7a"
+		hidden_effect = {
+			set_global_flag = blackjack_p1_has_bet
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+			}
+		}
+	}
+
+	# Add 1
+	option = {
+		name = "blackjack.7b"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 1
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 5
+	option = {
+		name = "blackjack.7c"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 5
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 10
+	option = {
+		name = "blackjack.7d"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 10
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 50
+	option = {
+		name = "blackjack.7e"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 50
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 100
+	option = {
+		name = "blackjack.7f"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 100
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 500
+	option = {
+		name = "blackjack.7g"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 500
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 1000
+	option = {
+		name = "blackjack.7h"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 1000
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+
+	# Add 10000
+	option = {
+		name = "blackjack.7i"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p1
+					value = 10000
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+	
+	# Reset
+	option = {
+		name = "blackjack.7j"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				set_variable = {
+					which = bet_value_p1
+					value = 5
+				}
+			}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.11
+				}
+			}
+		}
+	}
+}
+
+# Non custom place bet p2 event
+country_event = {
+	id = blackjack.8
+	title = blacjack.8.t
+	desc = blackjack.8.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Confirm
+	option = {
+		name = "blackjack.8a"
+		hidden_effect = {
+			set_global_flag = blackjack_p2_has_bet
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+			}
+		}
+	}
+
+	# Add 1
+	option = {
+		name = "blackjack.8b"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 1
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 5
+	option = {
+		name = "blackjack.8c"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 5
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 10
+	option = {
+		name = "blackjack.8d"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 10
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 50
+	option = {
+		name = "blackjack.8e"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 50
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 100
+	option = {
+		name = "blackjack.8f"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 100
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 500
+	option = {
+		name = "blackjack.8g"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 500
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 1000
+	option = {
+		name = "blackjack.8h"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 1000
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+
+	# Add 10000
+	option = {
+		name = "blackjack.8i"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 10000
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+	
+	# Reset
+	option = {
+		name = "blackjack.8j"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				set_variable = {
+					which = bet_value_p2
+					value = 5
+				}
+			}
+			event_target:blackjack_player_2_tag = {
+				country_event = {
+					id = blackjack.12
+				}
+			}
+		}
+	}
+}
+
+# Non custom place bet p3 event
+country_event = {
+	id = blackjack.9
+	title = blacjack.9.t
+	desc = blackjack.9.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Confirm
+	option = {
+		name = "blackjack.9a"
+		hidden_effect = {
+			set_global_flag = blackjack_p3_has_bet
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+			}
+		}
+	}
+
+	# Add 1
+	option = {
+		name = "blackjack.9b"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 1
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 5
+	option = {
+		name = "blackjack.9c"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 5
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 10
+	option = {
+		name = "blackjack.9d"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 10
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 50
+	option = {
+		name = "blackjack.9e"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 50
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 100
+	option = {
+		name = "blackjack.9f"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 100
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 500
+	option = {
+		name = "blackjack.9g"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 500
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 1000
+	option = {
+		name = "blackjack.9h"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p2
+					value = 1000
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+
+	# Add 10000
+	option = {
+		name = "blackjack.9i"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p3
+					value = 10000
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+	
+	# Reset
+	option = {
+		name = "blackjack.9j"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				set_variable = {
+					which = bet_value_p3
+					value = 5
+				}
+			}
+			event_target:blackjack_player_3_tag = {
+				country_event = {
+					id = blackjack.13
+				}
+			}
+		}
+	}
+}
+
+# Non custom place bet p4 event
+country_event = {
+	id = blackjack.10
+	title = blacjack.10.t
+	desc = blackjack.10.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Confirm
+	option = {
+		name = "blackjack.10a"
+		hidden_effect = {
+			set_global_flag = blackjack_p4_has_bet
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+			}
+		}
+	}
+
+	# Add 1
+	option = {
+		name = "blackjack.10b"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 1
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 5
+	option = {
+		name = "blackjack.10c"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 5
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 10
+	option = {
+		name = "blackjack.10d"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 10
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 50
+	option = {
+		name = "blackjack.10e"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 50
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 100
+	option = {
+		name = "blackjack.10f"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 100
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 500
+	option = {
+		name = "blackjack.10g"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 500
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 1000
+	option = {
+		name = "blackjack.10h"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 1000
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+
+	# Add 10000
+	option = {
+		name = "blackjack.10i"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				change_variable = {
+					which = bet_value_p4
+					value = 10000
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+	
+	# Reset
+	option = {
+		name = "blackjack.10j"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				set_variable = {
+					which = bet_value_p4
+					value = 5
+				}
+			}
+			event_target:blackjack_player_4_tag = {
+				country_event = {
+					id = blackjack.14
+				}
+			}
+		}
+	}
+}
+
+# Back to betting menu events
+country_event = {
+	id = blackjack.11
+	title = blackjack.11.t
+	desc = blackjack.11.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.11a
+		event_target:blackjack_player_1_tag = {
+			country_event = {
+				id = blackjack.7
+			}
+		}
+	}
+}
+country_event = {
+	id = blackjack.12
+	title = blackjack.12.t
+	desc = blackjack.12.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.12a
+		event_target:blackjack_player_2_tag = {
+			country_event = {
+				id = blackjack.8
+			}
+		}
+	}
+}
+country_event = {
+	id = blackjack.13
+	title = blackjack.13.t
+	desc = blackjack.13.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.13a
+		event_target:blackjack_player_3_tag = {
+			country_event = {
+				id = blackjack.9
+			}
+		}
+	}
+}
+country_event = {
+	id = blackjack.14
+	title = blackjack.14.t
+	desc = blackjack.14.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.14a
+		event_target:blackjack_player_4_tag = {
+			country_event = {
+				id = blackjack.10
+			}
+		}
+	}
 }

@@ -66958,3 +66958,448 @@ defined_text = {
         }
     }
 }
+
+defined_text = {
+    name = get_p1s
+	text = {
+		localisation_key = debug_b_playing
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_1_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_stood
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_1_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_1_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_busted
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_1_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_1_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_surrendered
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_1_status
+                        value = 3
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_1_status
+                            value = 4
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_blackjack
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_1_status
+                    value = 4
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p2s
+	text = {
+		localisation_key = debug_b_playing
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_2_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_stood
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_2_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_2_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_busted
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_2_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_2_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_surrendered
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_2_status
+                        value = 3
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_2_status
+                            value = 4
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_blackjack
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_2_status
+                    value = 4
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p3s
+	text = {
+		localisation_key = debug_b_playing
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_3_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_stood
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_3_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_3_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_busted
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_3_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_3_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_surrendered
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_3_status
+                        value = 3
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_3_status
+                            value = 4
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_blackjack
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_3_status
+                    value = 4
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p4s
+	text = {
+		localisation_key = debug_b_playing
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_4_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_stood
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_4_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_4_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_busted
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_4_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_4_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_surrendered
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_4_status
+                        value = 3
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_4_status
+                            value = 4
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_blackjack
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_4_status
+                    value = 4
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_ds
+	text = {
+		localisation_key = debug_b_playing
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_dealer_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_stood
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_dealer_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_dealer_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_busted
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_dealer_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_dealer_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_surrendered
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_dealer_status
+                        value = 3
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_dealer_status
+                            value = 4
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_blackjack
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_dealer_status
+                    value = 4
+                }
+            }
+        }
+    }
+}

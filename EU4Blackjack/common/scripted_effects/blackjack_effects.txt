@@ -117,6 +117,11 @@ blackjack_setup_game_flags_two = {
             which = blackjack_player_4_status
             value = 0
         }
+
+        set_variable = {
+            which = blackjack_dealer_status
+            value = 0
+        }
     }
 
     # Set each player's current hand position to 1 (this is where new cards are inserted)
@@ -157,10 +162,272 @@ blackjack_setup_game_flags_two = {
     # Play first 2 cards for each player and for the dealer
     blackjack_initialize_cards = yes
 
-    # Display hands
+    # Start betting
     event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = bet_value_p1
+            value = 5
+        }
+        set_variable = {
+            which = bet_value_p2
+            value = 5
+        }
+        set_variable = {
+            which = bet_value_p3
+            value = 5
+        }
+        set_variable = {
+            which = bet_value_p4
+            value = 5
+        }
         country_event = {
-            id = blackjack.6
+            id = blackjack.7
+        }
+    }
+    if = {
+        limit = { 
+            event_target:blackjack_player_2_tag = {
+                NOT = { ai = yes }
+            }
+        }
+        event_target:blackjack_player_2_tag = {
+            country_event = {
+                id = blackjack.8
+            }
+        }
+    } else = {
+        set_global_flag = blackjack_p2_has_bet
+        random_list = {
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 5
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 6
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 7
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 8
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 9
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 10
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 11
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 12
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 13
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 14
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p2
+                    value = 15
+                }
+            }
+        }
+    }
+    if = {
+        limit = { 
+            event_target:blackjack_player_3_tag = {
+                NOT = { ai = yes }
+            }
+        }
+        event_target:blackjack_player_3_tag = {
+            country_event = {
+                id = blackjack.9
+            }
+        }
+    } else = {
+        set_global_flag = blackjack_p3_has_bet
+        random_list = {
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 5
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 6
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 7
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 8
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 9
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 10
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 11
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 12
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 13
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 14
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p3
+                    value = 15
+                }
+            }
+        }
+    }
+    if = {
+        limit = { 
+            event_target:blackjack_player_4_tag = {
+                NOT = { ai = yes }
+            }
+        }
+        event_target:blackjack_player_4_tag = {
+            country_event = {
+                id = blackjack.10
+            }
+        }
+    } else = {
+        set_global_flag = blackjack_p4_has_bet
+        random_list = {
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 5
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 6
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 7
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 8
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 9
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 10
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 11
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 12
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 13
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 14
+                }
+            }
+            1 = {
+                set_variable = {
+                    which = bet_value_p4
+                    value = 15
+                }
+            }
         }
     }
 }
@@ -1678,6 +1945,13 @@ blackjack_increment_deck_position = {
         which = blackjack_current_deck_position
         value = 1
     }
+}
+
+blackjack_hit = {
+    #TODO: THIS NEXT!
+    
+    #blackjack_play_and_inc = yes
+
 }
 
 # Places value of card at blackjack_current_deck_position into export_variable

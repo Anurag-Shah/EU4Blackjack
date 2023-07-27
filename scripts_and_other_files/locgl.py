@@ -17,3 +17,9 @@ for i in range(1,5):
     for j in range(1,19):
         print(f"[Root.get_b_p{i}_{j}] ", end="")
     print("\\n", end="")
+print("Dealer Status: [Root.get_ds]\\n", end="")
+for i in range(1,5):
+    print(f"Player {i} Status: [Root.get_p{i}s]\\n", end="")
+
+for i in range(1,5):
+    print(f"Player {i} Bet: [Root.bet_value_p{i}.GetValue]\\n", end="")
