@@ -154,7 +154,7 @@ blackjack_setup_game_flags_two = {
     # Turn. 1 for player 1, 2 for player 2, etc
     event_target:blackjack_player_1_tag = {
         set_variable = {
-            which = turn
+            which = blackjack_turn
             value = 1
         }
     }
@@ -1941,17 +1941,86 @@ blackjack_play_and_inc = {
 }
 
 blackjack_increment_deck_position = {
-    change_variable = {
-        which = blackjack_current_deck_position
-        value = 1
-    }
+	event_target:blackjack_player_1_tag = {
+		change_variable = {
+			which = blackjack_current_deck_position
+			value = 1
+		}
+	}
 }
 
 blackjack_hit = {
-    #TODO: THIS NEXT!
-    
-    #blackjack_play_and_inc = yes
+	event_target:blackjack_player_1_tag = {
+		# Fetch next card and store into export_variable
+		blackjack_play_and_inc = yes
 
+		# Play next card for whichever player hit
+		if = {
+			# Player 4's turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			blackjack_player_4_play_card = yes
+			change_variable = {
+				which = blackjack_player_4_position
+				value = 1
+			}
+		} else_if = {
+			# Player 3 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			blackjack_player_3_play_card = yes
+			change_variable = {
+				which = blackjack_player_3_position
+				value = 1
+			}
+		} else_if = {
+			# Player 2 turn
+			limit = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			blackjack_player_2_play_card = yes
+			change_variable = {
+				which = blackjack_player_2_position
+				value = 1
+			}
+		} else = {
+			# Player 1 turn
+			blackjack_player_1_play_card = yes
+			change_variable = {
+				which = blackjack_player_1_position
+				value = 1
+			}
+		}
+		
+		blackjack_advance_turn = yes
+	}
+}
+
+blackjack_advance_turn = {
+	# Update current player's status
+
+	# If all players status isn't 0, end the game
+	
+	# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
+
+	# TODO REMOVE THIS DEBUG LINE
+
+	event_target:blackjack_player_1_tag = {
+		country_event = {
+			id = blackjack.17
+		}
+	}
 }
 
 # Places value of card at blackjack_current_deck_position into export_variable
@@ -3621,4 +3690,608 @@ blackjack_fetch_card_value_at_position = {
 		}
 	}
 
+}
+
+# Check if betting should end, then end it
+blackjack_check_and_end_betting = {
+    if = {
+        limit = { 
+            AND = {
+                has_global_flag = blackjack_p1_has_bet
+                has_global_flag = blackjack_p2_has_bet
+                has_global_flag = blackjack_p3_has_bet
+                has_global_flag = blackjack_p4_has_bet
+            }
+        }
+        clr_global_flag = blackjack_p1_has_bet
+        clr_global_flag = blackjack_p2_has_bet
+        clr_global_flag = blackjack_p3_has_bet
+        clr_global_flag = blackjack_p4_has_bet
+        set_global_flag = blackjack_see_gamestate_enabled
+        event_target:blackjack_player_1_tag = {
+            country_event = {
+                id = blackjack.6
+            }
+        }
+        event_target:blackjack_player_2_tag = {
+            country_event = {
+                id = blackjack.6
+            }
+        }
+        event_target:blackjack_player_3_tag = {
+            country_event = {
+                id = blackjack.6
+            }
+        }
+        event_target:blackjack_player_4_tag = {
+            country_event = {
+                id = blackjack.6
+            }
+        }
+        event_target:blackjack_player_1_tag = {
+            country_event = {
+                id = blackjack.15
+            }
+        }
+    }
+}
+
+blackjack_player_1_play_card = {
+	if = {
+		limit = {
+			check_variable = { which = blackjack_player_1_position value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_1_position value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_1_position value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_1_position value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_18 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_17 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_16 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_15 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_14 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_1_position value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_13 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_12 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_11 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_10 which = export_variable } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_1_position value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_1_position value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_1_position value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_9 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_8 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_7 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_6 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_5 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_1_position value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_4 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_3 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_1_position value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_2 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_1_hand_1 which = export_variable } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_player_2_play_card = {
+	if = {
+		limit = {
+			check_variable = { which = blackjack_player_2_position value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_2_position value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_2_position value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_2_position value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_18 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_17 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_16 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_15 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_14 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_2_position value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_13 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_12 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_11 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_10 which = export_variable } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_2_position value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_2_position value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_2_position value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_9 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_8 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_7 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_6 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_5 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_2_position value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_4 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_3 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_2_position value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_2 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_2_hand_1 which = export_variable } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_player_3_play_card = {
+	if = {
+		limit = {
+			check_variable = { which = blackjack_player_3_position value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_3_position value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_3_position value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_3_position value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_18 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_17 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_16 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_15 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_14 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_3_position value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_13 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_12 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_11 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_10 which = export_variable } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_3_position value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_3_position value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_3_position value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_9 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_8 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_7 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_6 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_5 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_3_position value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_4 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_3 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_3_position value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_2 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_3_hand_1 which = export_variable } }
+				}
+			}
+		}
+	}
+}
+
+blackjack_player_4_play_card = {
+	if = {
+		limit = {
+			check_variable = { which = blackjack_player_4_position value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_4_position value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_4_position value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_4_position value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_18 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_17 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_16 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_15 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_14 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_4_position value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_13 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_12 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_11 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_10 which = export_variable } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_player_4_position value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_4_position value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_player_4_position value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_9 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_8 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_7 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_6 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_5 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_player_4_position value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_4 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_3 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_player_4_position value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_2 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_1 which = export_variable } }
+				}
+			}
+		}
+	}
 }

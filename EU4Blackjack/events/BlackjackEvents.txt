@@ -122,7 +122,7 @@ country_event = {
 	}
 }
 
-# Non custom gui game loop event
+# Non custom gui game state event
 country_event = {
 	id = blackjack.6
 	title = blackjack.6.t
@@ -131,25 +131,22 @@ country_event = {
 
 	is_triggered_only = yes
 
+	# Refresh
 	option = {
 		name = "blackjack.6a"
 		hidden_effect = {
-			blackjack_hit = yes
+			ROOT = {
+				country_event = {
+					id = blackjack.16
+				}
+			}
 		}
 	}
 
+	# Close
 	option = {
 		name = "blackjack.6b"
 	}
-
-	option = {
-		name = "blackjack.6c"
-	}
-
-	option = {
-		name = "blackjack.6d"
-	}
-	
 }
 
 # Non custom place bet p1 event
@@ -166,25 +163,7 @@ country_event = {
 		name = "blackjack.7a"
 		hidden_effect = {
 			set_global_flag = blackjack_p1_has_bet
-			if = {
-				limit = { 
-					AND = {
-						has_global_flag = blackjack_p1_has_bet
-						has_global_flag = blackjack_p2_has_bet
-						has_global_flag = blackjack_p3_has_bet
-						has_global_flag = blackjack_p4_has_bet
-					}
-				}
-				clr_global_flag = blackjack_p1_has_bet
-				clr_global_flag = blackjack_p2_has_bet
-				clr_global_flag = blackjack_p3_has_bet
-				clr_global_flag = blackjack_p4_has_bet
-				event_target:blackjack_player_1_tag = {
-					country_event = {
-						id = blackjack.6
-					}
-				}
-			}
+			blackjack_check_and_end_betting = yes
 		}
 	}
 
@@ -365,25 +344,7 @@ country_event = {
 		name = "blackjack.8a"
 		hidden_effect = {
 			set_global_flag = blackjack_p2_has_bet
-			if = {
-				limit = { 
-					AND = {
-						has_global_flag = blackjack_p1_has_bet
-						has_global_flag = blackjack_p2_has_bet
-						has_global_flag = blackjack_p3_has_bet
-						has_global_flag = blackjack_p4_has_bet
-					}
-				}
-				clr_global_flag = blackjack_p1_has_bet
-				clr_global_flag = blackjack_p2_has_bet
-				clr_global_flag = blackjack_p3_has_bet
-				clr_global_flag = blackjack_p4_has_bet
-				event_target:blackjack_player_1_tag = {
-					country_event = {
-						id = blackjack.6
-					}
-				}
-			}
+			blackjack_check_and_end_betting = yes
 		}
 	}
 
@@ -564,25 +525,7 @@ country_event = {
 		name = "blackjack.9a"
 		hidden_effect = {
 			set_global_flag = blackjack_p3_has_bet
-			if = {
-				limit = { 
-					AND = {
-						has_global_flag = blackjack_p1_has_bet
-						has_global_flag = blackjack_p2_has_bet
-						has_global_flag = blackjack_p3_has_bet
-						has_global_flag = blackjack_p4_has_bet
-					}
-				}
-				clr_global_flag = blackjack_p1_has_bet
-				clr_global_flag = blackjack_p2_has_bet
-				clr_global_flag = blackjack_p3_has_bet
-				clr_global_flag = blackjack_p4_has_bet
-				event_target:blackjack_player_1_tag = {
-					country_event = {
-						id = blackjack.6
-					}
-				}
-			}
+			blackjack_check_and_end_betting = yes
 		}
 	}
 
@@ -763,25 +706,7 @@ country_event = {
 		name = "blackjack.10a"
 		hidden_effect = {
 			set_global_flag = blackjack_p4_has_bet
-			if = {
-				limit = { 
-					AND = {
-						has_global_flag = blackjack_p1_has_bet
-						has_global_flag = blackjack_p2_has_bet
-						has_global_flag = blackjack_p3_has_bet
-						has_global_flag = blackjack_p4_has_bet
-					}
-				}
-				clr_global_flag = blackjack_p1_has_bet
-				clr_global_flag = blackjack_p2_has_bet
-				clr_global_flag = blackjack_p3_has_bet
-				clr_global_flag = blackjack_p4_has_bet
-				event_target:blackjack_player_1_tag = {
-					country_event = {
-						id = blackjack.6
-					}
-				}
-			}
+			blackjack_check_and_end_betting = yes
 		}
 	}
 
@@ -968,6 +893,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = blackjack.12
 	title = blackjack.12.t
@@ -987,6 +913,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = blackjack.13
 	title = blackjack.13.t
@@ -1006,6 +933,7 @@ country_event = {
 		}
 	}
 }
+
 country_event = {
 	id = blackjack.14
 	title = blackjack.14.t
@@ -1021,6 +949,81 @@ country_event = {
 		event_target:blackjack_player_4_tag = {
 			country_event = {
 				id = blackjack.10
+			}
+		}
+	}
+}
+
+# Options event when it is your turn
+country_event = {
+	id = blackjack.15
+	title = blackjack.15.t
+	desc = blackjack.15.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Hit
+	option = {
+		name = "blackjack.15a"
+		hidden_effect = {
+			blackjack_hit = yes
+		}
+	}
+
+	# Stand
+	option = {
+		name = "blackjack.15b"
+	}
+
+	# Double Down
+	option = {
+		name = "blackjack.15c"
+	}
+
+	# Surrender
+	option = {
+		name = "blackjack.15d"
+	}
+}
+
+# Refresh game screen hidden event
+country_event = {
+	id = blackjack.16
+	title = blackjack.16.t
+	desc = blackjack.16.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.16a
+		ROOT = {
+			country_event = {
+				id = blackjack.6
+			}
+		}
+	}
+}
+
+# Options event part 2
+country_event = {
+	id = blackjack.17
+	title = blackjack.17.t
+	desc = blackjack.17.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = blackjack.17a
+		ROOT = {
+			country_event = {
+				id = blackjack.15
 			}
 		}
 	}

@@ -44,4 +44,29 @@ country_decisions = {
 			}
 		}
 	}
+
+	blackjack_view_gamestate = {
+		major = yes
+		potential = {
+			has_global_flag = blackjack_game_in_progress_flag
+			has_global_flag = blackjack_see_gamestate_enabled
+			has_country_flag = blackjack_is_player
+			ROOT = { NOT = { ai = yes } }
+		}
+		allow = {
+			hidden_trigger = {
+				has_global_flag = blackjack_game_in_progress_flag
+				has_global_flag = blackjack_see_gamestate_enabled
+				has_country_flag = blackjack_is_player
+				ROOT = { NOT = { ai = yes } }
+			}
+		}
+		effect = {
+			hidden_effect = {
+				country_event = {
+					id = blackjack.6
+				}
+			}
+		}
+	}
 }

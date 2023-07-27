@@ -73,10 +73,10 @@ def btree(lst, form, body):
                        btree(lst[:int(len(lst)/2)], form.replace('\n', '\n\t'), body))
         
 if __name__ == "__main__":
-        cond = 'check_variable = { which = $var$ value = %s }'
-        body = '$effect$ = { var = %s }'
+        cond = 'check_variable = { which = blackjack_player_4_position value = %s }'
+        body = 'event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_%s which = export_variable } }'
         form = 'if = {\n\t\tlimit = {\n\t\t\t%s\n\t\t}\n\t\t%s\n\t}\n\telse = {\n\t\t%s\n\t}' % (cond, '%s', '%s')
 
         with open('output.txt', 'w') as f:
-            f.write('province_effect_var = { #var #effect\n\t'+btree([i for i in range(0, 33)], form, body)+'\n}')
+            f.write('province_effect_var = { #var #effect\n\t'+btree([i for i in range(1, 19)], form, body)+'\n}')
 
