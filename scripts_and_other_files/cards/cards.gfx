@@ -1,0 +1,625 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_icon_10_clubs"
+		texturefile = "gfx//interface//icon_10_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_clubs_part"
+		texturefile = "gfx//interface//icon_10_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_diamonds"
+		texturefile = "gfx//interface//icon_10_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_diamonds_part"
+		texturefile = "gfx//interface//icon_10_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_hearts"
+		texturefile = "gfx//interface//icon_10_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_hearts_part"
+		texturefile = "gfx//interface//icon_10_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_spades"
+		texturefile = "gfx//interface//icon_10_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_10_spades_part"
+		texturefile = "gfx//interface//icon_10_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_clubs"
+		texturefile = "gfx//interface//icon_2_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_clubs_part"
+		texturefile = "gfx//interface//icon_2_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_diamonds"
+		texturefile = "gfx//interface//icon_2_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_diamonds_part"
+		texturefile = "gfx//interface//icon_2_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_hearts"
+		texturefile = "gfx//interface//icon_2_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_hearts_part"
+		texturefile = "gfx//interface//icon_2_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_spades"
+		texturefile = "gfx//interface//icon_2_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_2_spades_part"
+		texturefile = "gfx//interface//icon_2_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_clubs"
+		texturefile = "gfx//interface//icon_3_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_clubs_part"
+		texturefile = "gfx//interface//icon_3_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_diamonds"
+		texturefile = "gfx//interface//icon_3_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_diamonds_part"
+		texturefile = "gfx//interface//icon_3_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_hearts"
+		texturefile = "gfx//interface//icon_3_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_hearts_part"
+		texturefile = "gfx//interface//icon_3_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_spades"
+		texturefile = "gfx//interface//icon_3_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_3_spades_part"
+		texturefile = "gfx//interface//icon_3_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_clubs"
+		texturefile = "gfx//interface//icon_4_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_clubs_part"
+		texturefile = "gfx//interface//icon_4_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_diamonds"
+		texturefile = "gfx//interface//icon_4_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_diamonds_part"
+		texturefile = "gfx//interface//icon_4_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_hearts"
+		texturefile = "gfx//interface//icon_4_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_hearts_part"
+		texturefile = "gfx//interface//icon_4_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_spades"
+		texturefile = "gfx//interface//icon_4_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_4_spades_part"
+		texturefile = "gfx//interface//icon_4_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_clubs"
+		texturefile = "gfx//interface//icon_5_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_clubs_part"
+		texturefile = "gfx//interface//icon_5_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_diamonds"
+		texturefile = "gfx//interface//icon_5_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_diamonds_part"
+		texturefile = "gfx//interface//icon_5_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_hearts"
+		texturefile = "gfx//interface//icon_5_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_hearts_part"
+		texturefile = "gfx//interface//icon_5_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_spades"
+		texturefile = "gfx//interface//icon_5_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_5_spades_part"
+		texturefile = "gfx//interface//icon_5_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_clubs"
+		texturefile = "gfx//interface//icon_6_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_clubs_part"
+		texturefile = "gfx//interface//icon_6_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_diamonds"
+		texturefile = "gfx//interface//icon_6_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_diamonds_part"
+		texturefile = "gfx//interface//icon_6_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_hearts"
+		texturefile = "gfx//interface//icon_6_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_hearts_part"
+		texturefile = "gfx//interface//icon_6_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_spades"
+		texturefile = "gfx//interface//icon_6_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_6_spades_part"
+		texturefile = "gfx//interface//icon_6_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_clubs"
+		texturefile = "gfx//interface//icon_7_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_clubs_part"
+		texturefile = "gfx//interface//icon_7_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_diamonds"
+		texturefile = "gfx//interface//icon_7_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_diamonds_part"
+		texturefile = "gfx//interface//icon_7_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_hearts"
+		texturefile = "gfx//interface//icon_7_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_hearts_part"
+		texturefile = "gfx//interface//icon_7_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_spades"
+		texturefile = "gfx//interface//icon_7_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_7_spades_part"
+		texturefile = "gfx//interface//icon_7_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_clubs"
+		texturefile = "gfx//interface//icon_8_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_clubs_part"
+		texturefile = "gfx//interface//icon_8_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_diamonds"
+		texturefile = "gfx//interface//icon_8_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_diamonds_part"
+		texturefile = "gfx//interface//icon_8_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_hearts"
+		texturefile = "gfx//interface//icon_8_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_hearts_part"
+		texturefile = "gfx//interface//icon_8_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_spades"
+		texturefile = "gfx//interface//icon_8_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_8_spades_part"
+		texturefile = "gfx//interface//icon_8_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_clubs"
+		texturefile = "gfx//interface//icon_9_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_clubs_part"
+		texturefile = "gfx//interface//icon_9_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_diamonds"
+		texturefile = "gfx//interface//icon_9_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_diamonds_part"
+		texturefile = "gfx//interface//icon_9_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_hearts"
+		texturefile = "gfx//interface//icon_9_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_hearts_part"
+		texturefile = "gfx//interface//icon_9_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_spades"
+		texturefile = "gfx//interface//icon_9_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_9_spades_part"
+		texturefile = "gfx//interface//icon_9_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_clubs"
+		texturefile = "gfx//interface//icon_ace_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_clubs_part"
+		texturefile = "gfx//interface//icon_ace_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_diamonds"
+		texturefile = "gfx//interface//icon_ace_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_diamonds_part"
+		texturefile = "gfx//interface//icon_ace_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_hearts"
+		texturefile = "gfx//interface//icon_ace_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_hearts_part"
+		texturefile = "gfx//interface//icon_ace_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_spades"
+		texturefile = "gfx//interface//icon_ace_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_ace_spades_part"
+		texturefile = "gfx//interface//icon_ace_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_clubs"
+		texturefile = "gfx//interface//icon_jack_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_clubs_part"
+		texturefile = "gfx//interface//icon_jack_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_diamonds"
+		texturefile = "gfx//interface//icon_jack_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_diamonds_part"
+		texturefile = "gfx//interface//icon_jack_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_hearts"
+		texturefile = "gfx//interface//icon_jack_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_hearts_part"
+		texturefile = "gfx//interface//icon_jack_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_spades"
+		texturefile = "gfx//interface//icon_jack_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_jack_spades_part"
+		texturefile = "gfx//interface//icon_jack_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_clubs"
+		texturefile = "gfx//interface//icon_king_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_clubs_part"
+		texturefile = "gfx//interface//icon_king_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_diamonds"
+		texturefile = "gfx//interface//icon_king_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_diamonds_part"
+		texturefile = "gfx//interface//icon_king_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_hearts"
+		texturefile = "gfx//interface//icon_king_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_hearts_part"
+		texturefile = "gfx//interface//icon_king_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_spades"
+		texturefile = "gfx//interface//icon_king_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_king_spades_part"
+		texturefile = "gfx//interface//icon_king_spades_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_clubs"
+		texturefile = "gfx//interface//icon_queen_clubs.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_clubs_part"
+		texturefile = "gfx//interface//icon_queen_clubs_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_diamonds"
+		texturefile = "gfx//interface//icon_queen_diamonds.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_diamonds_part"
+		texturefile = "gfx//interface//icon_queen_diamonds_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_hearts"
+		texturefile = "gfx//interface//icon_queen_hearts.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_hearts_part"
+		texturefile = "gfx//interface//icon_queen_hearts_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_spades"
+		texturefile = "gfx//interface//icon_queen_spades.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_queen_spades_part"
+		texturefile = "gfx//interface//icon_queen_spades_part.dds"
+		loadType = "INGAME"
+	}
+}
