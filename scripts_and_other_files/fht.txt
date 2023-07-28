@@ -1,422 +1,4 @@
-blackjack_all_player_nations_accepted_or_rejected = {
-	all_country = {
-		OR = {
-			ai = yes
-			has_country_flag = blackjack_is_player
-			has_country_flag = blackjack_not_playing
-		}
-	}
-}
-
-singleplayer_trigger = {
-	NOT = {
-		calc_true_if = {
-			all_country = {
-				ai = no
-			}
-			amount = 2
-		}
-	}
-}
-
-multiplayer_trigger = {
-	calc_true_if = {
-		all_country = {
-			ai = no
-		}
-		amount = 2
-	}
-}
-
-singleplayer_or_ai_country_trigger = {
-	OR = {
-		ai = yes
-		NOT = {
-			calc_true_if = {
-				all_country = {
-					ai = no
-				}
-				amount = 2
-			}
-		}
-	}
-}
-
-blackjack_is_card_ace = { #var
-	event_target:blackjack_player_1_tag = {
-		OR = {
-			AND = {
-				check_variable = {
-					which = $var$
-					value = 1
-				}
-				NOT = {
-					check_variable = {
-						which = $var$
-						value = 2
-					}
-				}
-			}
-			AND = {
-				check_variable = {
-					which = $var$
-					value = 14
-				}
-				NOT = {
-					check_variable = {
-						which = $var$
-						value = 15
-					}
-				}
-			}
-			AND = {
-				check_variable = {
-					which = $var$
-					value = 27
-				}
-				NOT = {
-					check_variable = {
-						which = $var$
-						value = 28
-					}
-				}
-			}
-			AND = {
-				check_variable = {
-					which = $var$
-					value = 40
-				}
-				NOT = {
-					check_variable = {
-						which = $var$
-						value = 41
-					}
-				}
-			}
-		}	
-	}
-}
-
-blackjack_player_1_has_blackjack = {
-	event_target:blackjack_player_1_tag = {
-		AND = {
-			check_variable = {
-				which = blackjack_player_1_position
-				value = 2
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_1_position
-					value = 3
-				}
-			}
-			check_variable = {
-				which = blackjack_player_1_hand_value
-				value = 21
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_1_hand_value
-					value = 22
-				}
-			}
-		}
-	}
-}
-
-blackjack_player_2_has_blackjack = {
-	event_target:blackjack_player_1_tag = {
-		AND = {
-			check_variable = {
-				which = blackjack_player_2_position
-				value = 2
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_2_position
-					value = 3
-				}
-			}
-			check_variable = {
-				which = blackjack_player_2_hand_value
-				value = 21
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_2_hand_value
-					value = 22
-				}
-			}
-		}
-	}
-}
-
-blackjack_player_3_has_blackjack = {
-	event_target:blackjack_player_1_tag = {
-		AND = {
-			check_variable = {
-				which = blackjack_player_3_position
-				value = 2
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_3_position
-					value = 3
-				}
-			}
-			check_variable = {
-				which = blackjack_player_3_hand_value
-				value = 21
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_3_hand_value
-					value = 22
-				}
-			}
-		}
-	}
-}
-
-blackjack_player_4_has_blackjack = {
-	event_target:blackjack_player_1_tag = {
-		AND = {
-			check_variable = {
-				which = blackjack_player_4_position
-				value = 2
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_4_position
-					value = 3
-				}
-			}
-			check_variable = {
-				which = blackjack_player_4_hand_value
-				value = 21
-			}
-			NOT = {
-				check_variable = {
-					which = blackjack_player_4_hand_value
-					value = 22
-				}
-			}
-		}
-	}
-}
-
-# Checks if a player busts
-blackjack_player_busted = {
-	event_target:blackjack_player_1_tag = {
-		OR = {
-			# Is player 4
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 4
-				}
-				# Player's total is 22 or higher
-				check_variable = {
-					which = blackjack_player_4_hand_value
-					value = 22
-				}
-			}
-			# Is player 3
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 3
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 4
-					}
-				}
-				# Player's total is 22 or higher
-				check_variable = {
-					which = blackjack_player_3_hand_value
-					value = 22
-				}
-			}
-			# Is player 2
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 2
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 3
-					}
-				}
-				# Player's total is 22 or higher
-				check_variable = {
-					which = blackjack_player_2_hand_value
-					value = 22
-				}
-			}
-			# Is player 1
-			AND = {
-				# It is the player's turn
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 2
-					}
-				}
-				# Player's total is 22 or higher
-				check_variable = {
-					which = blackjack_player_1_hand_value
-					value = 22
-				}
-			}
-		}
-	}
-}
-
-# Checks if a player auto-stands at 21
-blackjack_player_stood = {
-	event_target:blackjack_player_1_tag = {
-		OR = {
-			# Is player 4
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 4
-				}
-				# Player's total is exactly 21 or higher
-				check_variable = {
-					which = blackjack_player_4_hand_value
-					value = 21
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_player_4_hand_value
-						value = 22
-					}
-				}
-				# Player doesn't have blackjack
-				NOT = {
-					blackjack_player_4_has_blackjack = yes
-				}
-			}
-			# Is player 3
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 3
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 4
-					}
-				}
-				# Player's total is exactly 21
-				check_variable = {
-					which = blackjack_player_3_hand_value
-					value = 21
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_player_3_hand_value
-						value = 22
-					}
-				}
-				# Player doesn't have blackjack
-				NOT = {
-					blackjack_player_3_has_blackjack = yes
-				}
-			}
-			# Is player 2
-			AND = {
-				# It is the player's turn
-				check_variable = {
-					which = blackjack_turn
-					value = 2
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 3
-					}
-				}
-				# Player's total is exactly 21
-				check_variable = {
-					which = blackjack_player_2_hand_value
-					value = 21
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_player_2_hand_value
-						value = 22
-					}
-				}
-				# Player doesn't have blackjack
-				NOT = {
-					blackjack_player_2_has_blackjack = yes
-				}
-			}
-			# Is player 1
-			AND = {
-				# It is the player's turn
-				NOT = {
-					check_variable = {
-						which = blackjack_turn
-						value = 2
-					}
-				}
-				# Player's total is exactly 21
-				check_variable = {
-					which = blackjack_player_1_hand_value
-					value = 21
-				}
-				NOT = {
-					check_variable = {
-						which = blackjack_player_1_hand_value
-						value = 22
-					}
-				}
-				# Player doesn't have blackjack
-				NOT = {
-					blackjack_player_1_has_blackjack = yes
-				}
-			}
-		}
-	}
-}
-
-# Checks if game is over (all players have nonzero status)
-blackjack_game_over = {
-	AND = {
-		check_variable = {
-			which = blackjack_player_1_status
-			value = 1 
-		}
-		check_variable = {
-			which = blackjack_player_1_status
-			value = 2 
-		}
-		check_variable = {
-			which = blackjack_player_1_status
-			value = 3 
-		}
-		check_variable = {
-			which = blackjack_player_1_status
-			value = 4 
-		}
-	}
-}
-
-# Dealer first card value triggers
-blackjack_dealer_first_card_is_A = {
+blackjack_dealer_first_card_is_1 = {
 	OR = {
 		AND = {
 			check_variable = {
@@ -893,7 +475,7 @@ blackjack_dealer_first_card_is_9 = {
 	}
 }
 
-blackjack_dealer_first_card_is_10JQK = {
+blackjack_dealer_first_card_is_10 = {
 	OR = {
 		AND = {
 			check_variable = {
@@ -943,6 +525,11 @@ blackjack_dealer_first_card_is_10JQK = {
 				}
 			}
 		}
+	}
+}
+
+blackjack_dealer_first_card_is_11 = {
+	OR = {
 		AND = {
 			check_variable = {
 				which = blackjack_dealer_hand_1
@@ -991,6 +578,11 @@ blackjack_dealer_first_card_is_10JQK = {
 				}
 			}
 		}
+	}
+}
+
+blackjack_dealer_first_card_is_12 = {
+	OR = {
 		AND = {
 			check_variable = {
 				which = blackjack_dealer_hand_1
@@ -1039,6 +631,11 @@ blackjack_dealer_first_card_is_10JQK = {
 				}
 			}
 		}
+	}
+}
+
+blackjack_dealer_first_card_is_13 = {
+	OR = {
 		AND = {
 			check_variable = {
 				which = blackjack_dealer_hand_1
@@ -1089,3 +686,4 @@ blackjack_dealer_first_card_is_10JQK = {
 		}
 	}
 }
+

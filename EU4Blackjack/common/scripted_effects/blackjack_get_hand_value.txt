@@ -17,7 +17,7 @@ blackjack_get_hand_value_player_1 = {
 		# Add the non aces value to the total first
 		set_variable = {
 			which = blackjack_player_1_hand_value
-			which = blackjack_total_value
+			which = blackjack_total_value_p1
 		}
 
 		# Compute total
@@ -31,12 +31,12 @@ blackjack_get_hand_value_player_1 = {
 			limit = {
 				AND = {
 					check_variable = {
-						which = blackjack_aces_count
+						which = blackjack_aces_count_p1
 						value = 1
 					}
 					NOT = {
 						check_variable = {
-							which = blackjack_aces_count
+							which = blackjack_aces_count_p1
 							value = 2
 						}
 					}
@@ -71,25 +71,25 @@ blackjack_get_hand_value_player_1 = {
 		else = {
 			# Higher count - treat 1 ace as 11
 			set_variable = {
-				which = higher_aces_count
+				which = higher_aces_count_p1
 				value = 11
 			}
 			change_variable = {
-				which = higher_aces_count
-				which = blackjack_aces_count
+				which = higher_aces_count_p1
+				which = blackjack_aces_count_p1
 			}
 			subtract_variable = {
-				which = higher_aces_count
+				which = higher_aces_count_p1
 				value = 1 # we're skipping 1 ace cuz its 11
 			}
 
 			# Get total value with higher count
 			set_variable = {
-				which = blackjack_counting_temporary_variable
-				which = higher_aces_count
+				which = blackjack_counting_temporary_variable_p1
+				which = higher_aces_count_p1
 			}
 			change_variable = {
-				which = blackjack_counting_temporary_variable
+				which = blackjack_counting_temporary_variable_p1
 				which = blackjack_player_1_hand_value
 			}
 
@@ -98,7 +98,7 @@ blackjack_get_hand_value_player_1 = {
 				limit = {
 					NOT = {
 						check_variable = {
-							which = blackjack_counting_temporary_variable
+							which = blackjack_counting_temporary_variable_p1
 							value = 22
 						}
 					}
@@ -106,14 +106,14 @@ blackjack_get_hand_value_player_1 = {
 				# Yes, the count is below 22 so legal
 				set_variable = {
 					which = blackjack_player_1_hand_value
-					which = blackjack_counting_temporary_variable
+					which = blackjack_counting_temporary_variable_p1
 				}
 			} else = {
 				# No, the higher count is illegal
 				# Just treat each ace as 1
 				change_variable = {
 					which = blackjack_player_1_hand_value
-					which = blackjack_aces_count
+					which = blackjack_aces_count_p1
 				}
 			}
 		}
@@ -469,12 +469,16 @@ blackjack_get_hand_value_player_4 = {
 count_aces_player_1 = {
 	event_target:blackjack_player_1_tag = {
 		set_variable = {
-			which = blackjack_aces_count
+			which = blackjack_aces_count_p1
 			value = 0
 		}
 		set_variable = {
 			which = loop_iterator_cap1
 			value = 1
+		}
+		set_variable = {
+			which = export_variable_p1
+			value = 0
 		}
 
 		while = {
@@ -488,15 +492,15 @@ count_aces_player_1 = {
 			}
 
 			# export the right card
-			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cap1 out_var = export_variable }
+			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cap1 out_var = export_variable_p1 }
 
 			# check if that card is an ace
 			if = {
 				limit = {
-					blackjack_is_card_ace = { var = export_variable }
+					blackjack_is_card_ace = { var = export_variable_p1 }
 				}
 				change_variable = {
-					which = blackjack_aces_count
+					which = blackjack_aces_count_p1
 					value = 1
 				}
 			}
@@ -649,23 +653,23 @@ count_aces_player_4 = {
 	}
 }
 
-# stores non_ace value into blackjack_total_value variable
+# stores non_ace value into blackjack_total_value_p1 variable
 compute_non_aces_value_player_1 = {
 	event_target:blackjack_player_1_tag = {
 		set_variable = {
-			which = blackjack_total_value
+			which = blackjack_total_value_p1
 			value = 0
 		}
 		set_variable = {
-			which = loop_iterator_cap1
+			which = loop_iterator_cav1
 			value = 1
 		}
 		set_variable = {
-			which = obj_value
+			which = obj_value_p1
 			value = 0
 		}
 		set_variable = {
-			which = real_value
+			which = real_value_p1
 			value = 0
 		}
 
@@ -673,26 +677,26 @@ compute_non_aces_value_player_1 = {
 			limit = {
 				NOT = {
 					check_variable = {
-						which = loop_iterator_cap1
+						which = loop_iterator_cav1
 						value = 19
 					}
 				}
 			}
 
 			# export the right card
-			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cap1 out_var = obj_value }
+			blackjack_obj_card_val_at_pos_player_1 = { in_var = loop_iterator_cav1 out_var = obj_value_p1 }
 
 			# get real value for card (0 for aces)
-			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value out_var = real_value }
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_p1 out_var = real_value_p1 }
 
 			# add to running total
 			change_variable = {
-				which = blackjack_total_value
-				which = real_value
+				which = blackjack_total_value_p1
+				which = real_value_p1
 			}
 
 			change_variable = {
-				which = loop_iterator_cap1
+				which = loop_iterator_cav1
 				value = 1
 			}
 		}

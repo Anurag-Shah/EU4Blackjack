@@ -1,0 +1,1834 @@
+# Optimal moves
+# There are 2 versions of these effects because I am lazy
+# Use this version not the other
+blackjack_player_1_optimal_move = {
+	event_target:blackjack_player_1_tag = {
+		blackjack_player_1_optimal_move_inside = yes
+	}
+}
+
+blackjack_player_2_optimal_move = {
+	event_target:blackjack_player_1_tag = {
+		blackjack_player_2_optimal_move_inside = yes
+	}
+}
+
+blackjack_player_3_optimal_move = {
+	event_target:blackjack_player_1_tag = {
+		blackjack_player_3_optimal_move_inside = yes
+	}
+}
+
+blackjack_player_4_optimal_move = {
+	event_target:blackjack_player_1_tag = {
+		blackjack_player_4_optimal_move_inside = yes
+	}
+}
+
+blackjack_player_1_optimal_move_inside = {
+	# Separate table for soft total
+	# To see if this is a soft total, check that there is at least 1 ace and only 2 cards
+	set_variable = {
+		which = optimal_move_player_1
+		value = 0
+	}
+	count_aces_player_1 = yes
+	blackjack_get_hand_value_player_1 = yes
+	if = {
+		limit = {
+			AND = {
+				# At least 1 ace
+				check_variable = {
+					which = blackjack_aces_count_p1
+					value = 1
+				}
+				# Only 2 total cards
+				NOT = {
+					check_variable = {
+						which = blackjack_player_1_position
+						value = 3 
+					}
+				}
+			}
+		}
+		# Implement soft totals table
+		# Use the actual value variable to get the final total
+		
+		# Hand of A and 9
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 20
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_1
+				value = 1
+			}
+		}
+		#Hand of A and 8
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 19
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_6 = yes
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		#Hand of A and 7
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 18
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_8 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 6
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 4-5
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 2-3
+		else = {
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+
+	} else = {
+		# implement hard totals table
+		# Hand of 18-20
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 18
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_1
+				value = 1
+			}
+		} 
+		# Hand of 17
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 3
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		# Hand of 16
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 16
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		# Hand of 15
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		# Hand of 13-14
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 13
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		# Hand of 12
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 12
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 1
+				}
+			}
+		}
+		# Hand of 11
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 11
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+		# Hand of 10
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 10
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			}
+		}
+		# Hand of 9
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_1_hand_value
+					value = 9
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_6 = yes
+						blackjack_dealer_first_card_is_5 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_1
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_1
+					value = 0
+				}
+			}
+		}
+		# Hand of 4-8
+		else = {
+			set_variable = {
+				which = optimal_move_player_1
+				value = 0
+			}
+		}
+	}
+}
+
+blackjack_player_2_optimal_move_inside = {
+	# Separate table for soft total
+	# To see if this is a soft total, check that there is at least 1 ace and only 2 cards
+	set_variable = {
+		which = optimal_move_player_2
+		value = 0
+	}
+	count_aces_player_2 = yes
+	blackjack_get_hand_value_player_2 = yes
+	if = {
+		limit = {
+			AND = {
+				# At least 1 ace
+				check_variable = {
+					which = blackjack_aces_count_p2
+					value = 1
+				}
+				# Only 2 total cards
+				NOT = {
+					check_variable = {
+						which = blackjack_player_2_position
+						value = 3 
+					}
+				}
+			}
+		}
+		# Implement soft totals table
+		# Use the actual value variable to get the final total
+		
+		# Hand of A and 9
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 20
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_2
+				value = 1
+			}
+		}
+		#Hand of A and 8
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 19
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_6 = yes
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		#Hand of A and 7
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 18
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_8 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 6
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 4-5
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 2-3
+		else = {
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+
+	} else = {
+		# implement hard totals table
+		# Hand of 18-20
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 18
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_2
+				value = 1
+			}
+		} 
+		# Hand of 17
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 3
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		# Hand of 16
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 16
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		# Hand of 15
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		# Hand of 13-14
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 13
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		# Hand of 12
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 12
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 1
+				}
+			}
+		}
+		# Hand of 11
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 11
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+		# Hand of 10
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 10
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			}
+		}
+		# Hand of 9
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_2_hand_value
+					value = 9
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_6 = yes
+						blackjack_dealer_first_card_is_5 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_2
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_2
+					value = 0
+				}
+			}
+		}
+		# Hand of 4-8
+		else = {
+			set_variable = {
+				which = optimal_move_player_2
+				value = 0
+			}
+		}
+	}
+}
+
+blackjack_player_3_optimal_move_inside = {
+	# Separate table for soft total
+	# To see if this is a soft total, check that there is at least 1 ace and only 2 cards
+	set_variable = {
+		which = optimal_move_player_3
+		value = 0
+	}
+	count_aces_player_3 = yes
+	blackjack_get_hand_value_player_3 = yes
+	if = {
+		limit = {
+			AND = {
+				# At least 1 ace
+				check_variable = {
+					which = blackjack_aces_count_p3
+					value = 1
+				}
+				# Only 2 total cards
+				NOT = {
+					check_variable = {
+						which = blackjack_player_3_position
+						value = 3 
+					}
+				}
+			}
+		}
+		# Implement soft totals table
+		# Use the actual value variable to get the final total
+		
+		# Hand of A and 9
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 20
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_3
+				value = 1
+			}
+		}
+		#Hand of A and 8
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 19
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_6 = yes
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		#Hand of A and 7
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 18
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_8 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 6
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 4-5
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 2-3
+		else = {
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+
+	} else = {
+		# implement hard totals table
+		# Hand of 18-20
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 18
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_3
+				value = 1
+			}
+		} 
+		# Hand of 17
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 3
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		# Hand of 16
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 16
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		# Hand of 15
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		# Hand of 13-14
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 13
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		# Hand of 12
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 12
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 1
+				}
+			}
+		}
+		# Hand of 11
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 11
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+		# Hand of 10
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 10
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			}
+		}
+		# Hand of 9
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_3_hand_value
+					value = 9
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_6 = yes
+						blackjack_dealer_first_card_is_5 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_3
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_3
+					value = 0
+				}
+			}
+		}
+		# Hand of 4-8
+		else = {
+			set_variable = {
+				which = optimal_move_player_3
+				value = 0
+			}
+		}
+	}
+}
+
+blackjack_player_4_optimal_move_inside = {
+	# Separate table for soft total
+	# To see if this is a soft total, check that there is at least 1 ace and only 2 cards
+	set_variable = {
+		which = optimal_move_player_4
+		value = 0
+	}
+	count_aces_player_4 = yes
+	blackjack_get_hand_value_player_4 = yes
+	if = {
+		limit = {
+			AND = {
+				# At least 1 ace
+				check_variable = {
+					which = blackjack_aces_count_p4
+					value = 1
+				}
+				# Only 2 total cards
+				NOT = {
+					check_variable = {
+						which = blackjack_player_4_position
+						value = 3 
+					}
+				}
+			}
+		}
+		# Implement soft totals table
+		# Use the actual value variable to get the final total
+		
+		# Hand of A and 9
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 20
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_4
+				value = 1
+			}
+		}
+		#Hand of A and 8
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 19
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_6 = yes
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		#Hand of A and 7
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 18
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_8 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 6
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 4-5
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+		#Hand of A and 2-3
+		else = {
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+
+	} else = {
+		# implement hard totals table
+		# Hand of 18-20
+		if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 18
+				}
+			}
+			set_variable = {
+				which = optimal_move_player_4
+				value = 1
+			}
+		} 
+		# Hand of 17
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 17
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 3
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		# Hand of 16
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 16
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		# Hand of 15
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 15
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 3
+				}
+			} else_if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		# Hand of 13-14
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 13
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		# Hand of 12
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 12
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+						blackjack_dealer_first_card_is_9 = yes
+						blackjack_dealer_first_card_is_8 = yes
+						blackjack_dealer_first_card_is_7 = yes
+						blackjack_dealer_first_card_is_3 = yes
+						blackjack_dealer_first_card_is_2 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 1
+				}
+			}
+		}
+		# Hand of 11
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 11
+				}
+			}
+			if = {
+				limit = {
+					blackjack_dealer_first_card_is_A = yes
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+		# Hand of 10
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 10
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_A = yes
+						blackjack_dealer_first_card_is_10JQK = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			}
+		}
+		# Hand of 9
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_player_4_hand_value
+					value = 9
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						blackjack_dealer_first_card_is_6 = yes
+						blackjack_dealer_first_card_is_5 = yes
+						blackjack_dealer_first_card_is_4 = yes
+						blackjack_dealer_first_card_is_3 = yes
+					}
+				}
+				set_variable = {
+					which = optimal_move_player_4
+					value = 2
+				}
+			} else = {
+				set_variable = {
+					which = optimal_move_player_4
+					value = 0
+				}
+			}
+		}
+		# Hand of 4-8
+		else = {
+			set_variable = {
+				which = optimal_move_player_4
+				value = 0
+			}
+		}
+	}
+}

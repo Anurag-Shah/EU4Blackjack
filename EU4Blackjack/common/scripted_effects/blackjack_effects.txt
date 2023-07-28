@@ -2194,21 +2194,342 @@ blackjack_surrender = {
 }
 
 blackjack_advance_turn = {
-	# Recompute player values
-	# Sure you only technically need to recompute it for the one player but i cba
-	blackjack_compute_hand_values = yes
-	
-	# If the player hit, make sure to check the status and set to bustedblackjack_p1_has_bet if > 21 or stood if == 21
-
-	# If all players status isn't 0, end the game
-	
-	# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
-
-	# TODO REMOVE THIS DEBUG LINE
-
 	event_target:blackjack_player_1_tag = {
-		country_event = {
-			id = blackjack.17
+		# Recompute player values
+		# Sure you only technically need to recompute it for the one player but i cba
+		blackjack_compute_hand_values = yes
+		
+		# If the player hit, make sure to check the status and set to bustedblackjack_p1_has_bet if > 21 or stood if == 21
+		if = {
+			limit = {
+				OR = {
+					# Player 1's turn, status is either 0 or 1
+					AND = {
+						NOT = {
+							check_variable = {
+								which = blackjack_turn
+								value = 2
+							}
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 2
+							}
+						}
+					}
+					# Player 2's turn, status is either 0 or 1
+					AND = {
+						check_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_turn
+								value = 3
+							}
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 2
+							}
+						}
+					}
+					# Player 3's turn, status is either 0 or 1
+					AND = {
+						check_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_turn
+								value = 4
+							}
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 2
+							}
+						}
+					}
+					# Player 1's turn, status is either 0 or 1
+					AND = {
+						check_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+						NOT = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 2
+							}
+						}
+					}
+				}
+			}
+
+			# The player is either playing or stood
+			# This means we need to check for auto-bust or auto-stand
+			
+			# auto-bust
+			if = {
+				limit = {
+					blackjack_player_busted = yes
+				}
+				# See who's turn it is and assign them bust
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+					}
+					set_variable = {
+						which = blackjack_player_4_status
+						value = 2
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+					}
+					set_variable = {
+						which = blackjack_player_3_status
+						value = 2
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+					}
+					set_variable = {
+						which = blackjack_player_2_status
+						value = 2
+					}
+				} else = {
+					set_variable = {
+						which = blackjack_player_1_status
+						value = 2
+					}
+				}
+			}
+
+			# auto-stand
+			if = {
+				limit = {
+					blackjack_player_stood = yes
+				}
+				# See who's turn it is and assign them bust
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+					}
+					set_variable = {
+						which = blackjack_player_4_status
+						value = 1
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+					}
+					set_variable = {
+						which = blackjack_player_3_status
+						value = 1
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+					}
+					set_variable = {
+						which = blackjack_player_2_status
+						value = 1
+					}
+				} else = {
+					set_variable = {
+						which = blackjack_player_1_status
+						value = 1
+					}
+				}
+			}
+		}
+
+		# If all players status isn't 0, end the game
+		if = {
+			limit = {
+				blackjack_game_over = yes
+			}
+			# TODO Go to dealer processing!!
+			# search for the key kgh1
+			# that key will have all the other dealer processing places
+		}
+		
+		# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
+		else = {
+			# Use a while loop to find the next turn
+			set_global_flag = blackjack_next_turn_while_loop_flag # Shut up cwtools shut up please shut up please please
+			clr_global_flag = blackjack_next_turn_while_loop_flag
+
+			while = {
+				limit = {
+					NOT = { has_global_flag = blackjack_next_turn_while_loop_flag }
+				}
+				# Increment turn and if it becomes 5, reset to 1
+				change_variable = {
+					which = blackjack_turn
+					value = 1
+				}
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 5
+						}
+					}
+					set_variable = {
+						which = blackjack_turn
+						value = 1
+					}
+				}
+				# Check if the player corresponding to this turn has a status of 0
+				if = {
+					limit = {
+						# player 1 turn, status of 0
+						AND = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 1
+								}
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_turn
+									value = 2
+								}
+							}
+						}
+						# player 2 turn, status of 0
+						AND = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 1
+								}
+							}
+							check_variable = {
+								which = blackjack_turn
+								value = 2
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_turn
+									value = 3
+								}
+							}
+						}
+						# player 3 turn, status of 0
+						AND = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 1
+								}
+							}
+							check_variable = {
+								which = blackjack_turn
+								value = 3
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_turn
+									value = 4
+								}
+							}
+						}
+						# player 4 turn, status of 0
+						AND = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 1
+								}
+							}
+							check_variable = {
+								which = blackjack_turn
+								value = 4
+							}
+						}
+					}
+					set_global_flag = blackjack_next_turn_while_loop_flag
+				}
+			}
+			clr_global_flag = blackjack_next_turn_while_loop_flag
+
+			# Figure out the optimal move
+			
+
+
+			# Fire the helper event
+			if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 4
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.17
+					}
+				}
+			} else_if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 3
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.17
+					}
+				}
+			} else_if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 2
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.17
+					}
+				}
+			} else = {
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.17
+					}
+				}
+			}
 		}
 	}
 }
@@ -3902,6 +4223,46 @@ blackjack_check_and_end_betting = {
 		# Compute hand totals
 		blackjack_compute_hand_values = yes
 
+		# Check if players have blackjack and set their status accordingly
+		event_target:blackjack_player_1_tag = {
+			if = {
+				limit = {
+					blackjack_player_1_has_blackjack = yes
+				}
+				set_variable = {
+					which = blackjack_player_1_status
+					value = 4
+				}
+			}
+			if = {
+				limit = {
+					blackjack_player_2_has_blackjack = yes
+				}
+				set_variable = {
+					which = blackjack_player_2_status
+					value = 4
+				}
+			}
+			if = {
+				limit = {
+					blackjack_player_3_has_blackjack = yes
+				}
+				set_variable = {
+					which = blackjack_player_3_status
+					value = 4
+				}
+			}
+			if = {
+				limit = {
+					blackjack_player_4_has_blackjack = yes
+				}
+				set_variable = {
+					which = blackjack_player_4_status
+					value = 4
+				}
+			}
+		}
+
 		# Give game event to all players
         event_target:blackjack_player_1_tag = {
             country_event = {
@@ -3924,11 +4285,76 @@ blackjack_check_and_end_betting = {
             }
         }
 
-		# Give options event to player 1
+		# TEMP!
+		blackjack_player_1_optimal_move = yes
+		blackjack_player_2_optimal_move = yes
+		blackjack_player_3_optimal_move = yes
+		blackjack_player_4_optimal_move = yes
+
+		# Give options event to first non-blackjack player
         event_target:blackjack_player_1_tag = {
-            country_event = {
-                id = blackjack.15
-            }
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_1_status
+							value = 4
+						}
+					}
+				}
+				country_event = {
+					id = blackjack.15
+				}
+			} else_if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_2_status
+							value = 4
+						}
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.15
+					}
+				}
+			} else_if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_3_status
+							value = 4
+						}
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.15
+					}
+				}
+			} else_if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_player_4_status
+							value = 4
+						}
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.15
+					}
+				}
+			}
+			# Every single player has blackjack
+			# Move on to evaluate dealer
+			else = {
+				# TODO Go to dealer processing!!
+				# search for the key kgh1
+				# that key will have all the other dealer processing places
+			}
         }
     }
 }
