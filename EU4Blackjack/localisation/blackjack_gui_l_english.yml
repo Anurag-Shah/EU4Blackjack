@@ -1,0 +1,8 @@
+﻿l_english:
+ blackjack_gui.1.t:0 "Cards"
+ blackjack_gui.1.d:0 "[blackjack_player_1_tag.get_dealer_hand_icons]\n\n\n\n\n[blackjack_player_1_tag.get_player_1_hand_icons]\n\n\n\n\n[blackjack_player_1_tag.get_player_2_hand_icons]\n\n\n\n\n[blackjack_player_1_tag.get_player_3_hand_icons]\n\n\n\n\n[blackjack_player_1_tag.get_player_4_hand_icons]"
+ blackjack_gui.1.a:0 "Refresh"
+
+ blackjack_gui.2.t:0 "Hidden return event"
+ blackjack_gui.2.d:0 "Shouldn't see it"
+ blackjack_gui.2.a:0 "Return to normal"

@@ -1,0 +1,49 @@
+namespace = blackjack_gui
+
+country_event = {
+	id = blackjack_gui.1
+	title = blackjack_gui.1.t
+	desc = blackjack_gui.1.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+    option = {
+        name = blackjack_gui.1.a
+
+        hidden_effect = {
+            country_event = {
+                id = blackjack_gui.2
+            }
+        }
+    }
+
+    # Close button for after end
+    option = {
+        name = blackjack_gui.1.a
+
+        trigger = {
+            always = no
+        }
+    }
+}
+
+country_event = {
+	id = blackjack_gui.2
+	title = blackjack_gui.2.t
+	desc = blackjack_gui.2.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+    hidden = yes
+
+    option = {
+        name = blackjack_gui.2.a
+
+        hidden_effect = {
+            country_event = {
+                id = blackjack_gui.1
+            }
+        }
+    }
+}

@@ -16,7 +16,7 @@ for file in files:
 
         img.compression = 'no'
         img.resize(target_width, target_height)
-        img.save(filename=os.path.join(dir, "output", clear_name + ".dds"))
+        img.save(filename=os.path.join(dir, "output", "icon_" + clear_name + ".dds"))
 
         gfx_text += "\n\tspriteType = {\n"\
                     f"\t\tname = \"GFX_icon_{clear_name}\"\n"\
@@ -25,7 +25,7 @@ for file in files:
                     "\t}\n"
 
         img.crop(0, 0, part_width, target_height)
-        img.save(filename=os.path.join(dir, "output", clear_name.replace("_of", "") + "_part.dds"))
+        img.save(filename=os.path.join(dir, "output", "icon_" + clear_name + "_part.dds"))
         gfx_text += "\n\tspriteType = {\n"\
                     f"\t\tname = \"GFX_icon_{clear_name}_part\"\n"\
                     f"\t\ttexturefile = \"gfx//interface//icon_{clear_name}_part.dds\"\n"\
