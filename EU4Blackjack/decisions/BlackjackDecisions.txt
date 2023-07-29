@@ -69,4 +69,25 @@ country_decisions = {
 			}
 		}
 	}
+
+	z_blackjack_debug_decision = {
+		major = yes
+		potential = {
+			has_global_flag = blackjack_game_in_progress_flag
+			has_global_flag = blackjack_see_gamestate_enabled
+			has_country_flag = blackjack_is_player
+			ROOT = { NOT = { ai = yes } }
+		}
+		allow = {
+			hidden_trigger = {
+				has_global_flag = blackjack_game_in_progress_flag
+				has_global_flag = blackjack_see_gamestate_enabled
+				has_country_flag = blackjack_is_player
+				ROOT = { NOT = { ai = yes } }
+			}
+		}
+		effect = {
+			custom_tooltip = blackjack_debug_decision_tooltip
+		}
+	}
 }

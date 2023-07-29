@@ -86,3 +86,4 @@
  blackjack.10h: "Add 1000 ducats"
  blackjack.10i: "Add 10000 ducats"
  blackjack.10j: "Reset Bet to 5 ducats"
+ blackjack_debug_decision_tooltip: "Turn: [Root.blackjack_turn.GetValue]\nStatuses: [Root.blackjack_player_1_status.GetValue], [Root.blackjack_player_2_status.GetValue], [Root.blackjack_player_3_status.GetValue], [Root.blackjack_player_4_status.GetValue]\n Is this even being reached: [Root.isthisevenbeingreached.GetValue]"

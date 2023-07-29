@@ -141,6 +141,11 @@ country_event = {
 				}
 			}
 		}
+		trigger = {
+			NOT = {
+				ai = yes
+			}
+		}
 	}
 
 	# Close
@@ -963,11 +968,27 @@ country_event = {
 
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			log = "Options event fired for: [Root.GetName]"
+		}
+	}
+
 	# Hit
 	option = {
 		name = "blackjack.15a"
 		hidden_effect = {
 			blackjack_hit = yes
+		}
+		# Optimal AI
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					blackjack_optimal_move_hit = yes
+				}
+			}
 		}
 	}
 
@@ -977,6 +998,16 @@ country_event = {
 		hidden_effect = {
 			blackjack_stand = yes
 		}
+		# Optimal AI
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					blackjack_optimal_move_stand = yes
+				}
+			}
+		}
 	}
 
 	# Double Down
@@ -985,6 +1016,16 @@ country_event = {
 		hidden_effect = {
 			blackjack_double_down = yes
 		}
+		# Optimal AI
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					blackjack_optimal_move_double_down = yes
+				}
+			}
+		}
 	}
 
 	# Surrender
@@ -992,6 +1033,16 @@ country_event = {
 		name = "blackjack.15d"
 		hidden_effect = {
 			blackjack_surrender = yes
+		}
+		# Optimal AI
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = {
+					blackjack_optimal_move_surrender = yes
+				}
+			}
 		}
 	}
 }
@@ -1026,14 +1077,60 @@ country_event = {
 
 	hidden = yes
 
+	immediate = {
+		hidden_effect = {
+			log = "17 event fired for: [Root.GetName]"
+			event_target:blackjack_player_1_tag = {
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+					}
+					event_target:blackjack_player_4_tag = {
+						country_event = {
+							id = blackjack.15
+						}
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+					}
+					event_target:blackjack_player_3_tag = {
+						country_event = {
+							id = blackjack.15
+						}
+					}
+				} else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+					}
+					event_target:blackjack_player_2_tag = {
+						country_event = {
+							id = blackjack.15
+						}
+					}
+				} else = {
+					event_target:blackjack_player_1_tag = {
+						country_event = {
+							id = blackjack.15
+						}
+					}
+				}
+			}
+		}
+	}
+
 	is_triggered_only = yes
 
 	option = {
 		name = blackjack.17a
-		ROOT = {
-			country_event = {
-				id = blackjack.15
-			}
-		}
 	}
 }

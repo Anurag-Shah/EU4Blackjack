@@ -2410,70 +2410,72 @@ blackjack_advance_turn = {
 				# Check if the player corresponding to this turn has a status of 0
 				if = {
 					limit = {
-						# player 1 turn, status of 0
-						AND = {
-							NOT = {
-								check_variable = {
-									which = blackjack_player_1_status
-									value = 1
+						OR = {
+							# player 1 turn, status of 0
+							AND = {
+								NOT = {
+									check_variable = {
+										which = blackjack_player_1_status
+										value = 1
+									}
+								}
+								NOT = {
+									check_variable = {
+										which = blackjack_turn
+										value = 2
+									}
 								}
 							}
-							NOT = {
+							# player 2 turn, status of 0
+							AND = {
+								NOT = {
+									check_variable = {
+										which = blackjack_player_2_status
+										value = 1
+									}
+								}
 								check_variable = {
 									which = blackjack_turn
 									value = 2
 								}
-							}
-						}
-						# player 2 turn, status of 0
-						AND = {
-							NOT = {
-								check_variable = {
-									which = blackjack_player_2_status
-									value = 1
+								NOT = {
+									check_variable = {
+										which = blackjack_turn
+										value = 3
+									}
 								}
 							}
-							check_variable = {
-								which = blackjack_turn
-								value = 2
-							}
-							NOT = {
+							# player 3 turn, status of 0
+							AND = {
+								NOT = {
+									check_variable = {
+										which = blackjack_player_3_status
+										value = 1
+									}
+								}
 								check_variable = {
 									which = blackjack_turn
 									value = 3
 								}
-							}
-						}
-						# player 3 turn, status of 0
-						AND = {
-							NOT = {
-								check_variable = {
-									which = blackjack_player_3_status
-									value = 1
+								NOT = {
+									check_variable = {
+										which = blackjack_turn
+										value = 4
+									}
 								}
 							}
-							check_variable = {
-								which = blackjack_turn
-								value = 3
-							}
-							NOT = {
+							# player 4 turn, status of 0
+							AND = {
+								NOT = {
+									check_variable = {
+										which = blackjack_player_4_status
+										value = 1
+									}
+								}
 								check_variable = {
 									which = blackjack_turn
 									value = 4
 								}
-							}
-						}
-						# player 4 turn, status of 0
-						AND = {
-							NOT = {
-								check_variable = {
-									which = blackjack_player_4_status
-									value = 1
-								}
-							}
-							check_variable = {
-								which = blackjack_turn
-								value = 4
 							}
 						}
 					}
@@ -2482,52 +2484,23 @@ blackjack_advance_turn = {
 			}
 			clr_global_flag = blackjack_next_turn_while_loop_flag
 
-			# Figure out the optimal move
-			
+			# Compute optimal moves
+			blackjack_player_1_optimal_move = yes
+			blackjack_player_2_optimal_move = yes
+			blackjack_player_3_optimal_move = yes
+			blackjack_player_4_optimal_move = yes
 
+			# TODO
 
+			# Ok so, i need to check if this is even being reached
+			set_variable = {
+				which = isthisevenbeingreached
+				value = 69
+			}
 			# Fire the helper event
-			if = {
-				limit = {
-					check_variable = {
-						which = blackjack_turn
-						value = 4
-					}
-				}
-				event_target:blackjack_player_4_tag = {
-					country_event = {
-						id = blackjack.17
-					}
-				}
-			} else_if = {
-				limit = {
-					check_variable = {
-						which = blackjack_turn
-						value = 3
-					}
-				}
-				event_target:blackjack_player_3_tag = {
-					country_event = {
-						id = blackjack.17
-					}
-				}
-			} else_if = {
-				limit = {
-					check_variable = {
-						which = blackjack_turn
-						value = 2
-					}
-				}
-				event_target:blackjack_player_2_tag = {
-					country_event = {
-						id = blackjack.17
-					}
-				}
-			} else = {
-				event_target:blackjack_player_1_tag = {
-					country_event = {
-						id = blackjack.17
-					}
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.17
 				}
 			}
 		}
@@ -4285,7 +4258,7 @@ blackjack_check_and_end_betting = {
             }
         }
 
-		# TEMP!
+		# Compute optimal moves
 		blackjack_player_1_optimal_move = yes
 		blackjack_player_2_optimal_move = yes
 		blackjack_player_3_optimal_move = yes
@@ -4314,6 +4287,10 @@ blackjack_check_and_end_betting = {
 						}
 					}
 				}
+				set_variable = {
+					which = blackjack_turn
+					value = 2
+				}
 				event_target:blackjack_player_2_tag = {
 					country_event = {
 						id = blackjack.15
@@ -4328,6 +4305,10 @@ blackjack_check_and_end_betting = {
 						}
 					}
 				}
+				set_variable = {
+					which = blackjack_turn
+					value = 3
+				}
 				event_target:blackjack_player_3_tag = {
 					country_event = {
 						id = blackjack.15
@@ -4341,6 +4322,10 @@ blackjack_check_and_end_betting = {
 							value = 4
 						}
 					}
+				}
+				set_variable = {
+					which = blackjack_turn
+					value = 4
 				}
 				event_target:blackjack_player_4_tag = {
 					country_event = {

@@ -102,12 +102,12 @@ blackjack_player_1_has_blackjack = {
 		AND = {
 			check_variable = {
 				which = blackjack_player_1_position
-				value = 2
+				value = 3
 			}
 			NOT = {
 				check_variable = {
 					which = blackjack_player_1_position
-					value = 3
+					value = 4
 				}
 			}
 			check_variable = {
@@ -129,12 +129,12 @@ blackjack_player_2_has_blackjack = {
 		AND = {
 			check_variable = {
 				which = blackjack_player_2_position
-				value = 2
+				value = 3
 			}
 			NOT = {
 				check_variable = {
 					which = blackjack_player_2_position
-					value = 3
+					value = 4
 				}
 			}
 			check_variable = {
@@ -156,12 +156,12 @@ blackjack_player_3_has_blackjack = {
 		AND = {
 			check_variable = {
 				which = blackjack_player_3_position
-				value = 2
+				value = 3
 			}
 			NOT = {
 				check_variable = {
 					which = blackjack_player_3_position
-					value = 3
+					value = 4
 				}
 			}
 			check_variable = {
@@ -183,12 +183,12 @@ blackjack_player_4_has_blackjack = {
 		AND = {
 			check_variable = {
 				which = blackjack_player_4_position
-				value = 2
+				value = 3
 			}
 			NOT = {
 				check_variable = {
 					which = blackjack_player_4_position
-					value = 3
+					value = 4
 				}
 			}
 			check_variable = {
@@ -1085,6 +1085,259 @@ blackjack_dealer_first_card_is_10JQK = {
 					which = blackjack_dealer_hand_1
 					value = 53
 				}
+			}
+		}
+	}
+}
+
+# Optimal move triggers
+blackjack_optimal_move_hit = {
+	OR = {
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_1
+				value = 0
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_2
+				value = 0
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_3
+				value = 0
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 4
+			}
+			check_variable = {
+				which = optimal_move_player_4
+				value = 0
+			}
+		}
+	}
+}
+
+blackjack_optimal_move_stand = {
+	OR = {
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_1
+				value = 1
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_2
+				value = 1
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_3
+				value = 1
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 4
+			}
+			check_variable = {
+				which = optimal_move_player_4
+				value = 1
+			}
+		}
+	}
+}
+
+blackjack_optimal_move_double_down = {
+	OR = {
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_1
+				value = 2
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_2
+				value = 2
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_3
+				value = 2
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 4
+			}
+			check_variable = {
+				which = optimal_move_player_4
+				value = 2
+			}
+		}
+	}
+}
+
+blackjack_optimal_move_surrender = {
+	OR = {
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 1
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 2
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_1
+				value = 3
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 2
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 3
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_2
+				value = 3
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_turn
+					value = 4
+				}
+			}
+			check_variable = {
+				which = optimal_move_player_3
+				value = 3
+			}
+		}
+		AND = {
+			check_variable = {
+				which = blackjack_turn
+				value = 4
+			}
+			check_variable = {
+				which = optimal_move_player_4
+				value = 3
 			}
 		}
 	}

@@ -26,7 +26,7 @@ blackjack_get_hand_value_player_1 = {
 		# If there is exactly 1 ace, then it can be either 11 or 1
 		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
 
-		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		# (There's definitely an easier way to do this by checking for an extra added 10 but that's literally impossible to read lol)
 		if = {
 			limit = {
 				AND = {
@@ -68,7 +68,13 @@ blackjack_get_hand_value_player_1 = {
 		}
 		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
 		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
-		else = {
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_aces_count_p1
+					value = 2
+				}
+			}
 			# Higher count - treat 1 ace as 11
 			set_variable = {
 				which = higher_aces_count_p1
@@ -183,7 +189,13 @@ blackjack_get_hand_value_player_2 = {
 		}
 		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
 		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
-		else = {
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_aces_count_p2
+					value = 2
+				}
+			}
 			# Higher count - treat 1 ace as 11
 			set_variable = {
 				which = higher_aces_count_p2
@@ -298,7 +310,13 @@ blackjack_get_hand_value_player_3 = {
 		}
 		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
 		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
-		else = {
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_aces_count_p3
+					value = 2
+				}
+			}
 			# Higher count - treat 1 ace as 11
 			set_variable = {
 				which = higher_aces_count_p3
@@ -413,7 +431,13 @@ blackjack_get_hand_value_player_4 = {
 		}
 		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
 		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
-		else = {
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_aces_count_p4
+					value = 2
+				}
+			}
 			# Higher count - treat 1 ace as 11
 			set_variable = {
 				which = higher_aces_count_p4
@@ -690,10 +714,13 @@ compute_non_aces_value_player_1 = {
 			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_p1 out_var = real_value_p1 }
 
 			# add to running total
+			#log = "Current: [blackjack_player_1_tag.real_value_p1.GetValue]"
+			#log = "Old Total: [Root.blackjack_total_value_p1.GetValue]"
 			change_variable = {
 				which = blackjack_total_value_p1
 				which = real_value_p1
 			}
+			#log = "New total: [Root.blackjack_total_value_p1.GetValue]"
 
 			change_variable = {
 				which = loop_iterator_cav1
