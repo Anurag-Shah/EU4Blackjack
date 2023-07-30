@@ -1,4 +1,5 @@
 ﻿l_english:
+ blank_card:0 "£icon_card_blank£"
  no_card:0 ""
  icon_king_clubs_full:0 "£icon_king_clubs£"
  icon_king_clubs_part:0 "£icon_king_clubs_part£"
@@ -108,7 +109,7 @@
 
 
 # Players hands
- dealer_hand_icons:0 "[This.get_dealer_card_at_1][This.get_dealer_card_at_2][This.get_dealer_card_at_3][This.get_dealer_card_at_4][This.get_dealer_card_at_5][This.get_dealer_card_at_6][This.get_dealer_card_at_7][This.get_dealer_card_at_8][This.get_dealer_card_at_9][This.get_dealer_card_at_10][This.get_dealer_card_at_11][This.get_dealer_card_at_12][This.get_dealer_card_at_13][This.get_dealer_card_at_14][This.get_dealer_card_at_15][This.get_dealer_card_at_16][This.get_dealer_card_at_17][This.get_dealer_card_at_18]"
+ dealer_hand_icons:0 "[This.get_dealer_card_at_1][This.get_dealer_card_at_2][This.get_dealer_card_at_3][This.get_dealer_card_at_4][This.get_dealer_card_at_5] [This.get_dealer_card_at_6][This.get_dealer_card_at_7][This.get_dealer_card_at_8][This.get_dealer_card_at_9][This.get_dealer_card_at_10] [This.get_dealer_card_at_11][This.get_dealer_card_at_12][This.get_dealer_card_at_13][This.get_dealer_card_at_14][This.get_dealer_card_at_15] [This.get_dealer_card_at_16][This.get_dealer_card_at_17][This.get_dealer_card_at_18]"
  dealer_card_at_1_full:0 "[This.get_dealer_card_at_1_full]"
  dealer_card_at_1_part:0 "[This.get_dealer_card_at_1_part]"
  dealer_card_at_2_full:0 "[This.get_dealer_card_at_2_full]"
@@ -145,7 +146,7 @@
  dealer_card_at_17_part:0 "[This.get_dealer_card_at_17_part]"
  dealer_card_at_18_full:0 "[This.get_dealer_card_at_18_full]"
  dealer_card_at_18_part:0 "[This.get_dealer_card_at_18_part]"
- player_1_hand_icons:0 "[This.get_player_1_card_at_1][This.get_player_1_card_at_2][This.get_player_1_card_at_3][This.get_player_1_card_at_4][This.get_player_1_card_at_5][This.get_player_1_card_at_6][This.get_player_1_card_at_7][This.get_player_1_card_at_8][This.get_player_1_card_at_9][This.get_player_1_card_at_10][This.get_player_1_card_at_11][This.get_player_1_card_at_12][This.get_player_1_card_at_13][This.get_player_1_card_at_14][This.get_player_1_card_at_15][This.get_player_1_card_at_16][This.get_player_1_card_at_17][This.get_player_1_card_at_18]"
+ player_1_hand_icons:0 "[This.get_player_1_card_at_1][This.get_player_1_card_at_2][This.get_player_1_card_at_3][This.get_player_1_card_at_4][This.get_player_1_card_at_5] [This.get_player_1_card_at_6][This.get_player_1_card_at_7][This.get_player_1_card_at_8][This.get_player_1_card_at_9][This.get_player_1_card_at_10] [This.get_player_1_card_at_11][This.get_player_1_card_at_12][This.get_player_1_card_at_13][This.get_player_1_card_at_14][This.get_player_1_card_at_15] [This.get_player_1_card_at_16][This.get_player_1_card_at_17][This.get_player_1_card_at_18]"
  player_1_card_at_1_full:0 "[This.get_player_1_card_at_1_full]"
  player_1_card_at_1_part:0 "[This.get_player_1_card_at_1_part]"
  player_1_card_at_2_full:0 "[This.get_player_1_card_at_2_full]"
@@ -182,7 +183,7 @@
  player_1_card_at_17_part:0 "[This.get_player_1_card_at_17_part]"
  player_1_card_at_18_full:0 "[This.get_player_1_card_at_18_full]"
  player_1_card_at_18_part:0 "[This.get_player_1_card_at_18_part]"
- player_2_hand_icons:0 "[This.get_player_2_card_at_1][This.get_player_2_card_at_2][This.get_player_2_card_at_3][This.get_player_2_card_at_4][This.get_player_2_card_at_5][This.get_player_2_card_at_6][This.get_player_2_card_at_7][This.get_player_2_card_at_8][This.get_player_2_card_at_9][This.get_player_2_card_at_10][This.get_player_2_card_at_11][This.get_player_2_card_at_12][This.get_player_2_card_at_13][This.get_player_2_card_at_14][This.get_player_2_card_at_15][This.get_player_2_card_at_16][This.get_player_2_card_at_17][This.get_player_2_card_at_18]"
+ player_2_hand_icons:0 "[This.get_player_2_card_at_1][This.get_player_2_card_at_2][This.get_player_2_card_at_3][This.get_player_2_card_at_4][This.get_player_2_card_at_5] [This.get_player_2_card_at_6][This.get_player_2_card_at_7][This.get_player_2_card_at_8][This.get_player_2_card_at_9][This.get_player_2_card_at_10] [This.get_player_2_card_at_11][This.get_player_2_card_at_12][This.get_player_2_card_at_13][This.get_player_2_card_at_14][This.get_player_2_card_at_15] [This.get_player_2_card_at_16][This.get_player_2_card_at_17][This.get_player_2_card_at_18]"
  player_2_card_at_1_full:0 "[This.get_player_2_card_at_1_full]"
  player_2_card_at_1_part:0 "[This.get_player_2_card_at_1_part]"
  player_2_card_at_2_full:0 "[This.get_player_2_card_at_2_full]"
@@ -219,7 +220,7 @@
  player_2_card_at_17_part:0 "[This.get_player_2_card_at_17_part]"
  player_2_card_at_18_full:0 "[This.get_player_2_card_at_18_full]"
  player_2_card_at_18_part:0 "[This.get_player_2_card_at_18_part]"
- player_3_hand_icons:0 "[This.get_player_3_card_at_1][This.get_player_3_card_at_2][This.get_player_3_card_at_3][This.get_player_3_card_at_4][This.get_player_3_card_at_5][This.get_player_3_card_at_6][This.get_player_3_card_at_7][This.get_player_3_card_at_8][This.get_player_3_card_at_9][This.get_player_3_card_at_10][This.get_player_3_card_at_11][This.get_player_3_card_at_12][This.get_player_3_card_at_13][This.get_player_3_card_at_14][This.get_player_3_card_at_15][This.get_player_3_card_at_16][This.get_player_3_card_at_17][This.get_player_3_card_at_18]"
+ player_3_hand_icons:0 "[This.get_player_3_card_at_1][This.get_player_3_card_at_2][This.get_player_3_card_at_3][This.get_player_3_card_at_4][This.get_player_3_card_at_5] [This.get_player_3_card_at_6][This.get_player_3_card_at_7][This.get_player_3_card_at_8][This.get_player_3_card_at_9][This.get_player_3_card_at_10] [This.get_player_3_card_at_11][This.get_player_3_card_at_12][This.get_player_3_card_at_13][This.get_player_3_card_at_14][This.get_player_3_card_at_15] [This.get_player_3_card_at_16][This.get_player_3_card_at_17][This.get_player_3_card_at_18]"
  player_3_card_at_1_full:0 "[This.get_player_3_card_at_1_full]"
  player_3_card_at_1_part:0 "[This.get_player_3_card_at_1_part]"
  player_3_card_at_2_full:0 "[This.get_player_3_card_at_2_full]"
@@ -256,7 +257,7 @@
  player_3_card_at_17_part:0 "[This.get_player_3_card_at_17_part]"
  player_3_card_at_18_full:0 "[This.get_player_3_card_at_18_full]"
  player_3_card_at_18_part:0 "[This.get_player_3_card_at_18_part]"
- player_4_hand_icons:0 "[This.get_player_4_card_at_1][This.get_player_4_card_at_2][This.get_player_4_card_at_3][This.get_player_4_card_at_4][This.get_player_4_card_at_5][This.get_player_4_card_at_6][This.get_player_4_card_at_7][This.get_player_4_card_at_8][This.get_player_4_card_at_9][This.get_player_4_card_at_10][This.get_player_4_card_at_11][This.get_player_4_card_at_12][This.get_player_4_card_at_13][This.get_player_4_card_at_14][This.get_player_4_card_at_15][This.get_player_4_card_at_16][This.get_player_4_card_at_17][This.get_player_4_card_at_18]"
+ player_4_hand_icons:0 "[This.get_player_4_card_at_1][This.get_player_4_card_at_2][This.get_player_4_card_at_3][This.get_player_4_card_at_4][This.get_player_4_card_at_5] [This.get_player_4_card_at_6][This.get_player_4_card_at_7][This.get_player_4_card_at_8][This.get_player_4_card_at_9][This.get_player_4_card_at_10] [This.get_player_4_card_at_11][This.get_player_4_card_at_12][This.get_player_4_card_at_13][This.get_player_4_card_at_14][This.get_player_4_card_at_15] [This.get_player_4_card_at_16][This.get_player_4_card_at_17][This.get_player_4_card_at_18]"
  player_4_card_at_1_full:0 "[This.get_player_4_card_at_1_full]"
  player_4_card_at_1_part:0 "[This.get_player_4_card_at_1_part]"
  player_4_card_at_2_full:0 "[This.get_player_4_card_at_2_full]"

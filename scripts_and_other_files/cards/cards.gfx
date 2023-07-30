@@ -480,6 +480,18 @@ spriteTypes = {
 	}
 
 	spriteType = {
+		name = "GFX_icon_card_blank"
+		texturefile = "gfx//interface//icon_card_blank.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_icon_card_blank_part"
+		texturefile = "gfx//interface//icon_card_blank_part.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
 		name = "GFX_icon_jack_clubs"
 		texturefile = "gfx//interface//icon_jack_clubs.dds"
 		loadType = "INGAME"

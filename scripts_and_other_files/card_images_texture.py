@@ -4,7 +4,7 @@ import numpy as np
 
 target_width = 110
 target_height = 166
-part_width = 15
+part_width = 20
 
 dir = "cards"
 files = [f for f in os.listdir(os.path.join(dir, "input")) if os.path.isfile(os.path.join(dir, "input", f))]
@@ -20,18 +20,23 @@ gfx_text = "spriteTypes = {"
 for file in files:
     with image.Image(filename=os.path.join(dir, "input", file)) as base_img:
         clear_name = file.replace("_of", "").replace(".png", "")
-
         base_img.compression = 'no'
-        base_img.resize(target_width, target_height)
 
-        # apply texture
-        img_data = np.array(base_img)
-        for y in range(target_height):
-            for x in range(target_width):
-                if (img_data[y, x, :3] == white).all():
-                    img_data[y, x, :3] = texture[y, x, :3]
+        img = None
+        if base_img.width != target_width or base_img.height != target_height:
+            base_img.resize(target_width, target_height)
 
-        img = image.Image.from_array(img_data)
+            # apply texture
+            img_data = np.array(base_img)
+            for y in range(target_height):
+                for x in range(target_width):
+                    if (img_data[y, x, :3] == white).all():
+                        img_data[y, x, :3] = texture[y, x, :3]
+
+            img = image.Image.from_array(img_data)
+        else:
+            img = base_img
+
         img.compression = 'no'
         img.save(filename=os.path.join(dir, "output", "icon_" + clear_name + ".dds"))
 

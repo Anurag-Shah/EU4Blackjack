@@ -3,7 +3,7 @@ from wand import image
 
 target_width = 40
 target_height = 80
-part_width = 15
+part_width = 20
 
 dir = "cards"
 files = [f for f in os.listdir(os.path.join(dir, "input")) if os.path.isfile(os.path.join(dir, "input", f))]
@@ -15,7 +15,10 @@ for file in files:
         clear_name = file.replace("_of", "").replace(".png", "")
 
         img.compression = 'no'
-        img.resize(target_width, target_height)
+
+        if img.width != target_width or img.height != target_height:
+            img.resize(target_width, target_height)
+
         img.save(filename=os.path.join(dir, "output", "icon_" + clear_name + ".dds"))
 
         gfx_text += "\n\tspriteType = {\n"\
