@@ -27,20 +27,60 @@ country_decisions = {
 				}
 
 				# If this is a singleplayer game, just fill the slots with ai
+				# Count number of non ai players
+				# Yes, we have a trigger for this. No, it doesn't work. No, I don't know why. Yes, I did have a 2 hour long voice call with another player trying to debug it.
+				event_target:blackjack_player_1_tag = {
+					set_variable = {
+						which = blackjack_player_counter_d
+						value = 0
+					}
+				}	
+				every_country = {
+					limit = {
+						NOT = { ai = yes }
+					}
+					event_target:blackjack_player_1_tag = {	
+						change_variable = {
+							which = blackjack_player_counter_d
+							value = 1
+						}	
+					}
+				}
 				if = {
 					limit = {
-						singleplayer_trigger = yes
+						event_target:blackjack_player_1_tag = {
+							check_variable = {
+								which = blackjack_player_counter_d
+								value = 2
+							}	
+						}
 					}
-					assign_blackjack_ais = yes
+					# This is MP, try to assign other players
+				 	assign_blackjack_players = yes
 				} else = {
-					# else this is mp, try to assign other players
-					assign_blackjack_players = yes
+					# This is sp, assign ais
+				 	assign_blackjack_ais = yes
 				}
-
+				
 				# assign_blackjack_players also leads to assign_blackjack_ais
 				# but it goes through events first to ask other players
 				# therefore, the reamining of game flow control is deferred to assign_blackjack_ais
 				# :)
+				
+				# Aforementioned nonfunctional trigger
+				# One day you'll be useful
+				# Or probably not tbh
+				
+				# if = {
+				# 	limit = {
+				# 		singleplayer_trigger = yes
+				# 	}
+				# 	log = "reached"
+				# 	assign_blackjack_ais = yes
+				# } else = {
+				# 	# else this is mp, try to assign other players
+				# 	assign_blackjack_players = yes
+				# }
 			}
 		}
 	}
@@ -67,6 +107,27 @@ country_decisions = {
 					id = blackjack.6
 				}
 			}
+		}
+	}
+
+	z_blackjack_debug_decision = {
+		major = yes
+		potential = {
+			has_global_flag = blackjack_game_in_progress_flag
+			has_global_flag = blackjack_see_gamestate_enabled
+			has_country_flag = blackjack_is_player
+			ROOT = { NOT = { ai = yes } }
+		}
+		allow = {
+			hidden_trigger = {
+				has_global_flag = blackjack_game_in_progress_flag
+				has_global_flag = blackjack_see_gamestate_enabled
+				has_country_flag = blackjack_is_player
+				ROOT = { NOT = { ai = yes } }
+			}
+		}
+		effect = {
+			custom_tooltip = blackjack_debug_decision_tooltip
 		}
 	}
 }
