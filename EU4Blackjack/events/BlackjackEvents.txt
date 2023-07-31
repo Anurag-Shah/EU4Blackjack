@@ -979,6 +979,7 @@ country_event = {
 	option = {
 		name = "blackjack.15a"
 		hidden_effect = {
+			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just hit!"
 			#blackjack_hit = yes
 			# The effect doesn't work because ???? but it works if i paste the contents here and look im so done with this im just giving up
 			event_target:blackjack_player_1_tag = {
@@ -1323,12 +1324,6 @@ country_event = {
 							}
 						}
 						clr_global_flag = blackjack_next_turn_while_loop_flag
-			
-						# Compute optimal moves
-						blackjack_player_1_optimal_move = yes
-						blackjack_player_2_optimal_move = yes
-						blackjack_player_3_optimal_move = yes
-						blackjack_player_4_optimal_move = yes
 
 						# Fire the helper event
 						event_target:blackjack_player_1_tag = {
@@ -1358,6 +1353,7 @@ country_event = {
 	option = {
 		name = "blackjack.15b"
 		hidden_effect = {
+			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just stood!"
 			event_target:blackjack_player_1_tag = {
 				# Set status to stood
 				if = {
@@ -1694,12 +1690,6 @@ country_event = {
 						}
 						clr_global_flag = blackjack_next_turn_while_loop_flag
 			
-						# Compute optimal moves
-						blackjack_player_1_optimal_move = yes
-						blackjack_player_2_optimal_move = yes
-						blackjack_player_3_optimal_move = yes
-						blackjack_player_4_optimal_move = yes
-			
 						# Fire the helper event
 						event_target:blackjack_player_1_tag = {
 							country_event = {
@@ -1728,6 +1718,7 @@ country_event = {
 	option = {
 		name = "blackjack.15c"
 		hidden_effect = {
+			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just doubled down!"
 			event_target:blackjack_player_1_tag = {
 				# Double bet and set status to stood
 				if = {
@@ -2133,12 +2124,6 @@ country_event = {
 							}
 							clr_global_flag = blackjack_next_turn_while_loop_flag
 				
-							# Compute optimal moves
-							blackjack_player_1_optimal_move = yes
-							blackjack_player_2_optimal_move = yes
-							blackjack_player_3_optimal_move = yes
-							blackjack_player_4_optimal_move = yes
-				
 							# Fire the helper event
 							event_target:blackjack_player_1_tag = {
 								country_event = {
@@ -2169,6 +2154,7 @@ country_event = {
 		name = "blackjack.15d"
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
+				log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just surrendered!"
 				# Halve the bet and set status to surrendered
 				if = {
 					# Player 4's turn
@@ -2520,12 +2506,6 @@ country_event = {
 						}
 						clr_global_flag = blackjack_next_turn_while_loop_flag
 			
-						# Compute optimal moves
-						blackjack_player_1_optimal_move = yes
-						blackjack_player_2_optimal_move = yes
-						blackjack_player_3_optimal_move = yes
-						blackjack_player_4_optimal_move = yes
-			
 						# Fire the helper event
 						event_target:blackjack_player_1_tag = {
 							country_event = {
@@ -2582,6 +2562,42 @@ country_event = {
 	hidden = yes
 
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			# Compute optimal moves
+			blackjack_player_1_optimal_move = yes
+			blackjack_player_2_optimal_move = yes
+			blackjack_player_3_optimal_move = yes
+			blackjack_player_4_optimal_move = yes
+
+			# DELETE THESE LOGGING LINES
+			if = {
+				limit = {
+					blackjack_optimal_move_hit = yes
+				}
+				log = "Optimal move: hit"
+			}
+			if = {
+				limit = {
+					blackjack_optimal_move_stand = yes
+				}
+				log = "Optimal move: stand"
+			}
+			if = {
+				limit = {
+					blackjack_optimal_move_double_down = yes
+				}
+				log = "Optimal move: double"
+			}
+			if = {
+				limit = {
+					blackjack_optimal_move_surrender = yes
+				}
+				log = "Optimal move: surrender"
+			}
+		}
+	}
 
 	option = {
 		name = "blackjack.17a"

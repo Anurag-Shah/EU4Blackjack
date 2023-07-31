@@ -4284,11 +4284,14 @@ blackjack_check_and_end_betting = {
 					which = blackjack_turn
 					value = 2
 				}
-				event_target:blackjack_player_2_tag = {
-					country_event = {
-						id = blackjack.15
-					}
+				country_event = {
+					id = blackjack.17
 				}
+				# event_target:blackjack_player_2_tag = {
+				# 	country_event = {
+				# 		id = blackjack.15
+				# 	}
+				# }
 			} else_if = {
 				limit = {
 					NOT = {
@@ -4302,11 +4305,14 @@ blackjack_check_and_end_betting = {
 					which = blackjack_turn
 					value = 3
 				}
-				event_target:blackjack_player_3_tag = {
-					country_event = {
-						id = blackjack.15
-					}
+				country_event = {
+					id = blackjack.17
 				}
+				# event_target:blackjack_player_3_tag = {
+				# 	country_event = {
+				# 		id = blackjack.15
+				# 	}
+				# }
 			} else_if = {
 				limit = {
 					NOT = {
@@ -4320,11 +4326,14 @@ blackjack_check_and_end_betting = {
 					which = blackjack_turn
 					value = 4
 				}
-				event_target:blackjack_player_4_tag = {
-					country_event = {
-						id = blackjack.15
-					}
+				country_event = {
+					id = blackjack.17
 				}
+				# event_target:blackjack_player_4_tag = {
+				# 	country_event = {
+				# 		id = blackjack.15
+				# 	}
+				# }
 			}
 			# Every single player has blackjack
 			# Move on to evaluate dealer
