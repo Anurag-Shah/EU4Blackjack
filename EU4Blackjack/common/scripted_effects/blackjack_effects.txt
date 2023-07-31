@@ -80,12 +80,12 @@ blackjack_setup_game_flags_two = {
     # This exists because of control flow shenanigans
     # It's called from blackjack_shuffle_deck
 
-    # debug event to peer at deck TODO comment this out
-    event_target:blackjack_player_1_tag = {
-        country_event = {
-            id = blackjack.5
-        }
-    }
+    # debug event to peer at deck
+    # event_target:blackjack_player_1_tag = {
+    #     country_event = {
+    #         id = blackjack.5
+    #     }
+    # }
 
     # Setup player and dealer hands, max size is 18
     # 0 value card indicates no card has been played yet
@@ -2490,21 +2490,8 @@ blackjack_advance_turn = {
 			blackjack_player_3_optimal_move = yes
 			blackjack_player_4_optimal_move = yes
 
-			# TODO
-
-			# Ok so, i need to check if this is even being reached
-			event_target:blackjack_player_1_tag = {	
-				set_variable = {
-					which = isthisevenbeingreached
-					value = 1
-				}	
-			}
 			# Fire the helper event
 			event_target:blackjack_player_1_tag = {
-				set_variable = {
-					which = isthisevenbeingreached
-					value = 2
-				}
 				country_event = {
 					id = blackjack.17
 				}
