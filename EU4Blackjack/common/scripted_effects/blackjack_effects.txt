@@ -12,7 +12,7 @@ assign_blackjack_players = {
         limit = {
             AND = {
                 NOT = { ai = yes }
-                NOT = { has_saved_global_event_target = blackjack_player_1_tag }
+                NOT = { has_country_flag = blackjack_is_player }
             }
         }
         country_event = {
@@ -2493,12 +2493,18 @@ blackjack_advance_turn = {
 			# TODO
 
 			# Ok so, i need to check if this is even being reached
-			set_variable = {
-				which = isthisevenbeingreached
-				value = 69
+			event_target:blackjack_player_1_tag = {	
+				set_variable = {
+					which = isthisevenbeingreached
+					value = 1
+				}	
 			}
 			# Fire the helper event
 			event_target:blackjack_player_1_tag = {
+				set_variable = {
+					which = isthisevenbeingreached
+					value = 2
+				}
 				country_event = {
 					id = blackjack.17
 				}

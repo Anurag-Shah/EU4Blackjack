@@ -62,7 +62,14 @@ country_event = {
 	# Reject joining the game
 	option = {
 		name = "blackjack.1b"
-		set_country_flag = blackjack_not_playing
+		hidden_effect = {
+			set_country_flag = blackjack_not_playing
+			# If every player has either accepted or rejected the decision, its time to pass it off to the AI
+			if = {
+				limit = { blackjack_all_player_nations_accepted_or_rejected = yes }
+				assign_blackjack_ais = yes
+			}
+		}
 	}
 }
 
@@ -1075,62 +1082,62 @@ country_event = {
 	desc = blackjack.17.d
 	picture = TRADE_GOODS_eventPicture
 
-	hidden = yes
+	#hidden = yes
+
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = {
 			log = "17 event fired for: [Root.GetName]"
-			event_target:blackjack_player_1_tag = {
-				if = {
-					limit = {
-						check_variable = {
-							which = blackjack_turn
-							value = 4
-						}
+		}
+	}
+
+	option = {
+		name = blackjack.17a
+		event_target:blackjack_player_1_tag = {
+			if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 4
 					}
-					event_target:blackjack_player_4_tag = {
-						country_event = {
-							id = blackjack.15
-						}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.15
 					}
-				} else_if = {
-					limit = {
-						check_variable = {
-							which = blackjack_turn
-							value = 3
-						}
+				}
+			} else_if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 3
 					}
-					event_target:blackjack_player_3_tag = {
-						country_event = {
-							id = blackjack.15
-						}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.15
 					}
-				} else_if = {
-					limit = {
-						check_variable = {
-							which = blackjack_turn
-							value = 2
-						}
+				}
+			} else_if = {
+				limit = {
+					check_variable = {
+						which = blackjack_turn
+						value = 2
 					}
-					event_target:blackjack_player_2_tag = {
-						country_event = {
-							id = blackjack.15
-						}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.15
 					}
-				} else = {
-					event_target:blackjack_player_1_tag = {
-						country_event = {
-							id = blackjack.15
-						}
+				}
+			} else = {
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.15
 					}
 				}
 			}
 		}
-	}
-
-	is_triggered_only = yes
-
-	option = {
-		name = blackjack.17a
 	}
 }

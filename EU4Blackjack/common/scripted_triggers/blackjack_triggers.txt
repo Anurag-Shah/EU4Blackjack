@@ -12,7 +12,9 @@ singleplayer_trigger = {
 	NOT = {
 		calc_true_if = {
 			all_country = {
-				ai = no
+				NOT = {
+					ai = yes
+				}
 			}
 			amount = 2
 		}
