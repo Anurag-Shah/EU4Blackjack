@@ -21,10 +21,7 @@ country_event = {
     # Close button for after end
     option = {
         name = blackjack_gui.1.a
-
-        trigger = {
-            always = no
-        }
+        
     }
 }
 
