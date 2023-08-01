@@ -207,6 +207,33 @@ blackjack_player_4_has_blackjack = {
 	}
 }
 
+blackjack_dealer_has_blackjack = {
+	event_target:blackjack_player_1_tag = {
+		AND = {
+			check_variable = {
+				which = blackjack_dealer_position
+				value = 3
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_dealer_position
+					value = 4
+				}
+			}
+			check_variable = {
+				which = blackjack_dealer_hand_value
+				value = 21
+			}
+			NOT = {
+				check_variable = {
+					which = blackjack_dealer_hand_value
+					value = 22
+				}
+			}
+		}
+	}
+}
+
 # Checks if a player busts
 blackjack_player_busted = {
 	event_target:blackjack_player_1_tag = {

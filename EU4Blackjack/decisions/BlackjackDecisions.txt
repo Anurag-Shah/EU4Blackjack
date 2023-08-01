@@ -3,11 +3,13 @@ country_decisions = {
 		major = yes
 		potential = {
 			NOT = { has_global_flag = blackjack_game_in_progress_flag }
+			NOT = { has_global_flag = blackjack_table_playing }
 			ROOT = { NOT = { ai = yes } }
 		}
 		allow = {
 			hidden_trigger = {
 				NOT = { has_global_flag = blackjack_game_in_progress_flag }
+				NOT = { has_global_flag = blackjack_table_playing }
 				ROOT = { NOT = { ai = yes } }
 			}
 		}
@@ -18,8 +20,10 @@ country_decisions = {
 
 				# Set shuffling flag
 				set_global_flag = blackjack_initial_setup_shuffle
-				
-				set_global_flag = blackjack_game_in_progress_flag
+
+				# Set game flags
+				set_global_flag = blackjack_table_playing				# Table
+				set_global_flag = blackjack_game_in_progress_flag		# Game on the table
 
 				# save player as player 1
 				ROOT = {

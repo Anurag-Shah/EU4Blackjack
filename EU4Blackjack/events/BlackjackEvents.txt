@@ -170,6 +170,23 @@ country_event = {
 
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = bet_value_p1
+						value = 5001
+					}
+				}
+				set_variable = {
+					which = bet_value_p1
+					value = 5000
+				}
+			}
+		}
+	}
+
 	# Confirm
 	option = {
 		name = "blackjack.7a"
@@ -305,14 +322,14 @@ country_event = {
 		}
 	}
 
-	# Add 10000
+	# Set to max
 	option = {
 		name = "blackjack.7i"
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
-				change_variable = {
+				set_variable = {
 					which = bet_value_p1
-					value = 10000
+					value = 5000
 				}
 			}
 			event_target:blackjack_player_1_tag = {
@@ -350,6 +367,23 @@ country_event = {
 	picture = TRADEGOODS_eventPicture
 
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = bet_value_p2
+						value = 5001
+					}
+				}
+				set_variable = {
+					which = bet_value_p2
+					value = 5000
+				}
+			}
+		}
+	}
 
 	# Confirm
 	option = {
@@ -486,19 +520,19 @@ country_event = {
 		}
 	}
 
-	# Add 10000
+	# Set to max
 	option = {
-		name = "blackjack.8i"
+		name = "blackjack.7i"
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
-				change_variable = {
+				set_variable = {
 					which = bet_value_p2
-					value = 10000
+					value = 5000
 				}
 			}
-			event_target:blackjack_player_2_tag = {
+			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.12
+					id = blackjack.11
 				}
 			}
 		}
@@ -531,6 +565,23 @@ country_event = {
 	picture = TRADEGOODS_eventPicture
 
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = bet_value_p3
+						value = 5001
+					}
+				}
+				set_variable = {
+					which = bet_value_p3
+					value = 5000
+				}
+			}
+		}
+	}
 
 	# Confirm
 	option = {
@@ -667,19 +718,19 @@ country_event = {
 		}
 	}
 
-	# Add 10000
+	# Set to max
 	option = {
-		name = "blackjack.9i"
+		name = "blackjack.7i"
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
-				change_variable = {
+				set_variable = {
 					which = bet_value_p3
-					value = 10000
+					value = 5000
 				}
 			}
-			event_target:blackjack_player_3_tag = {
+			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.13
+					id = blackjack.11
 				}
 			}
 		}
@@ -712,6 +763,23 @@ country_event = {
 	picture = TRADEGOODS_eventPicture
 
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = bet_value_p4
+						value = 5001
+					}
+				}
+				set_variable = {
+					which = bet_value_p4
+					value = 5000
+				}
+			}
+		}
+	}
 
 	# Confirm
 	option = {
@@ -848,19 +916,19 @@ country_event = {
 		}
 	}
 
-	# Add 10000
+	# Set to max
 	option = {
-		name = "blackjack.10i"
+		name = "blackjack.7i"
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
-				change_variable = {
+				set_variable = {
 					which = bet_value_p4
-					value = 10000
+					value = 5000
 				}
 			}
-			event_target:blackjack_player_4_tag = {
+			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.14
+					id = blackjack.11
 				}
 			}
 		}
@@ -1216,9 +1284,12 @@ country_event = {
 						limit = {
 							blackjack_game_over = yes
 						}
-						# TODO Go to dealer processing!!
-						# search for the key kgh1
-						# that key will have all the other dealer processing places
+						# Dealer Processing event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
 					}
 					
 					# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
@@ -1581,9 +1652,12 @@ country_event = {
 						limit = {
 							blackjack_game_over = yes
 						}
-						# TODO Go to dealer processing!!
-						# search for the key kgh1
-						# that key will have all the other dealer processing places
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
 					}
 					
 					# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
@@ -2015,9 +2089,12 @@ country_event = {
 							limit = {
 								blackjack_game_over = yes
 							}
-							# TODO Go to dealer processing!!
-							# search for the key kgh1
-							# that key will have all the other dealer processing places
+							# Dealer Processing Event
+							event_target:blackjack_player_1_tag = {
+								country_event = {
+									id = blackjack.18
+								}
+							}
 						}
 						
 						# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
@@ -2397,9 +2474,12 @@ country_event = {
 						limit = {
 							blackjack_game_over = yes
 						}
-						# TODO Go to dealer processing!!
-						# search for the key kgh1
-						# that key will have all the other dealer processing places
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
 					}
 					
 					# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
@@ -2647,6 +2727,826 @@ country_event = {
 					}
 				}
 			}
+		}
+	}
+}
+
+# Dealer processing event. because eu4 seems to hate triggers and ive just given up at this point
+country_event = {
+	id = blackjack.18
+	title = blackjack.18.t
+	desc = blackjack.18.d
+	picture = TRADE_GOODS_eventPicture
+
+	hidden = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.18a"
+		hidden_effect = {
+			event_target:blackjack_player_1_tag = {
+				# Get blackjack value
+				blackjack_get_hand_value_dealer = yes
+				
+				# Check if dealer has blackjack
+				if = {
+					limit = {
+						blackjack_dealer_has_blackjack = yes
+					}
+					change_variable = {
+						which = blackjack_dealer_status
+						value = 4
+					}
+				}
+				# Else In a while loop, till the dealer reaches 17
+				else = {
+					while = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_dealer_hand_value
+									value = 17
+								}
+							}
+						}
+						
+						# Get new dealer card
+						blackjack_play_and_inc = yes 
+						blackjack_dealer_play_card = yes
+						change_variable = {
+							which = blackjack_dealer_position
+							value = 1
+						}
+
+						# Get new dealer value
+						blackjack_get_hand_value_dealer = yes
+					}
+					# Set dealer to stood or busted accordingly
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_dealer_hand_value
+								value = 22
+							}
+						}
+						set_variable = {
+							which = blackjack_dealer_status
+							value = 2
+						}
+					} else = {
+						set_variable = {
+							which = blackjack_dealer_status
+							value = 1
+						}
+					}
+				}
+
+				# Now that we have dealer status, evaluate which players win and which lose
+
+				# Initialize winning variables to 0 (default for surrender which is never checked again)
+				set_variable = {
+					which = blackjack_player_1_win_status
+					value = 0
+				}
+				set_variable = {
+					which = blackjack_player_2_win_status
+					value = 0
+				}
+				set_variable = {
+					which = blackjack_player_3_win_status
+					value = 0
+				}
+				set_variable = {
+					which = blackjack_player_4_win_status
+					value = 0
+				}
+
+				# Case 1: dealer has blackjack
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_dealer_status
+							value = 4
+						}
+					}
+					# player also has blackjack - push
+					# otherwise, loss (no change, 0 is default)
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 4 
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 1
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 4 
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 1
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 4 
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 1
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 4 
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 1
+						}
+					}
+				}
+
+				# Case 2: dealer busts
+				else_if = {
+					limit = {
+						check_variable = {
+							which = blackjack_dealer_status
+							value = 2
+						}
+					}
+					# player also busts - lose
+					# player surrenders - lose
+					# player has blackjack - win with blackjack
+					# otherwise, win
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 2
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 0
+						}
+					} else = {
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 2
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 0
+						}
+					} else = {
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 2
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 0
+						}
+					} else = {
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 2
+							}
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 0
+						}
+					} else = {
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 2
+						}
+					}
+				}
+				
+				# Case 3: dealer stands between 17-21
+				else = {
+					# player has blackjack - win with blackjack
+					# player has the same value as dealer - push
+					# player has larger value than dealer - win
+					# otherwise - lose (no change, 0 is default)
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_status
+								value = 2
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 0
+						}
+					} else_if = {
+						limit = {
+							# a >= b ^ b >= a <-> a == b
+							AND = {
+								check_variable = {
+									which = blackjack_player_1_hand_value
+									which = blackjack_dealer_hand_value
+								}
+								check_variable = {
+									which = blackjack_dealer_hand_value
+									which = blackjack_player_1_hand_value
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 1
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_1_hand_value
+								which = blackjack_dealer_hand_value
+							}
+						}
+						set_variable = {
+							which = blackjack_player_1_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_status
+								value = 2
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 0
+						}
+					} else_if = {
+						limit = {
+							# a >= b ^ b >= a <-> a == b
+							AND = {
+								check_variable = {
+									which = blackjack_player_2_hand_value
+									which = blackjack_dealer_hand_value
+								}
+								check_variable = {
+									which = blackjack_dealer_hand_value
+									which = blackjack_player_2_hand_value
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 1
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_2_hand_value
+								which = blackjack_dealer_hand_value
+							}
+						}
+						set_variable = {
+							which = blackjack_player_2_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_status
+								value = 2
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 0
+						}
+					} else_if = {
+						limit = {
+							# a >= b ^ b >= a <-> a == b
+							AND = {
+								check_variable = {
+									which = blackjack_player_3_hand_value
+									which = blackjack_dealer_hand_value
+								}
+								check_variable = {
+									which = blackjack_dealer_hand_value
+									which = blackjack_player_3_hand_value
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 1
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_3_hand_value
+								which = blackjack_dealer_hand_value
+							}
+						}
+						set_variable = {
+							which = blackjack_player_3_win_status
+							value = 2
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 4
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 3
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_status
+								value = 2
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 0
+						}
+					} else_if = {
+						limit = {
+							# a >= b ^ b >= a <-> a == b
+							AND = {
+								check_variable = {
+									which = blackjack_player_4_hand_value
+									which = blackjack_dealer_hand_value
+								}
+								check_variable = {
+									which = blackjack_dealer_hand_value
+									which = blackjack_player_4_hand_value
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 1
+						}
+					} else_if = {
+						limit = {
+							check_variable = {
+								which = blackjack_player_4_hand_value
+								which = blackjack_dealer_hand_value
+							}
+						}
+						set_variable = {
+							which = blackjack_player_4_win_status
+							value = 2
+						}
+					}
+				}
+
+				# If winning variable is win with blackjack, multiply the bet by 3 then divide by 2
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_player_1_win_status
+							value = 3 
+						}
+					}
+					# 3:2 payout
+					multiply_variable = {
+						which = bet_value_p1
+						value = 3
+					}
+					divide_variable = {
+						which = bet_value_p1
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_player_2_win_status
+							value = 3 
+						}
+					}
+					# 3:2 payout
+					multiply_variable = {
+						which = bet_value_p2
+						value = 3
+					}
+					divide_variable = {
+						which = bet_value_p2
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_player_3_win_status
+							value = 3 
+						}
+					}
+					# 3:2 payout
+					multiply_variable = {
+						which = bet_value_p3
+						value = 3
+					}
+					divide_variable = {
+						which = bet_value_p3
+						value = 2
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_player_4_win_status
+							value = 3 
+						}
+					}
+					# 3:2 payout
+					multiply_variable = {
+						which = bet_value_p4
+						value = 3
+					}
+					divide_variable = {
+						which = bet_value_p4
+						value = 2
+					}
+				}
+
+				# Process win / loss
+				if = {
+					# Status of 2 (win) or 3 (3:2 win)
+					limit = {
+						check_variable = {
+							which = blackjack_player_1_win_status
+							value = 2
+						}
+					}
+					blackjack_payout_p1_w = yes
+				} else_if = {
+					# Status of 0 (loss)
+					limit = {
+						NOT = {
+							check_variable = {
+								which = blackjack_player_1_win_status
+								value = 1
+							}
+						}
+					}
+					blackjack_payout_p1_l = yes
+				}
+				if = {
+					# Status of 2 (win) or 3 (3:2 win)
+					limit = {
+						check_variable = {
+							which = blackjack_player_2_win_status
+							value = 2
+						}
+					}
+					blackjack_payout_p2_w = yes
+				} else_if = {
+					# Status of 0 (loss)
+					limit = {
+						NOT = {
+							check_variable = {
+								which = blackjack_player_2_win_status
+								value = 1
+							}
+						}
+					}
+					blackjack_payout_p2_l = yes
+				}
+				if = {
+					# Status of 2 (win) or 3 (3:2 win)
+					limit = {
+						check_variable = {
+							which = blackjack_player_3_win_status
+							value = 2
+						}
+					}
+					blackjack_payout_p3_w = yes
+				} else_if = {
+					# Status of 0 (loss)
+					limit = {
+						NOT = {
+							check_variable = {
+								which = blackjack_player_3_win_status
+								value = 1
+							}
+						}
+					}
+					blackjack_payout_p3_l = yes
+				}
+				if = {
+					# Status of 2 (win) or 3 (3:2 win)
+					limit = {
+						check_variable = {
+							which = blackjack_player_4_win_status
+							value = 2
+						}
+					}
+					blackjack_payout_p4_w = yes
+				} else_if = {
+					# Status of 0 (loss)
+					limit = {
+						NOT = {
+							check_variable = {
+								which = blackjack_player_4_win_status
+								value = 1
+							}
+						}
+					}
+					blackjack_payout_p4_l = yes
+				}
+				
+				# Clear game in progress flag, for the refresh decision
+				clr_global_flag = blackjack_game_in_progress_flag
+
+				# Then show the game over screen
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.19
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.19
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.19
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.19
+					}
+				}
+			}
+		}
+	}
+}
+
+# End screen event
+country_event = {
+	id = blackjack.19
+	title = blackjack.19.t
+	desc = blackjack.19.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Keep playing at this table
+	# Everyone has to pick this in order to keep playing
+	# AI will always do this. gambling addiction :)
+	option = {
+		name = "blackjack.18a"
+		hidden_effect = {
+			set_country_flag = blackjack_play_again_flag
+			if = {
+				limit = {
+					AND = {
+						event_target:blackjack_player_1_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_2_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_3_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_4_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+					}
+				}
+				event_target:blackjack_player_1_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_2_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_3_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_4_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+
+				# Start a new game
+				# Shuffle the deck if needed else just start
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_current_deck_position
+							value = 105 
+						}
+					}
+					set_variable = {
+						which = blackjack_current_deck_position
+						value = 0
+					}
+					blackjack_shuffle_deck_wrapper = yes
+				} else = {
+					blackjack_setup_game_flags_two = yes
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+	# Dont want to play another game
+	# This ends the game for everyone
+	option = {
+		name = "blackjack.19b"
+		ai_chance = {
+			factor = 0
+		}
+		hidden_effect = {
+			# Clear globals
+			event_target:blackjack_player_1_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+			}
+			event_target:blackjack_player_2_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+			}
+			event_target:blackjack_player_3_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+			}
+			event_target:blackjack_player_4_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+			}
+			clear_global_event_target = blackjack_player_1_tag
+			clear_global_event_target = blackjack_player_2_tag
+			clear_global_event_target = blackjack_player_3_tag
+			clear_global_event_target = blackjack_player_4_tag
+			clr_global_flag = blackjack_table_playing
 		}
 	}
 }

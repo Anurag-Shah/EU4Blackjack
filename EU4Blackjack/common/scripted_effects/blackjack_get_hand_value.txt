@@ -168,7 +168,7 @@ blackjack_get_hand_value_player_2 = {
 			if = {
 				limit = {
 					NOT = {
-						check_variable = {
+						check_variable = {blackjack_player_2_hand_value
 							which = blackjack_player_2_hand_value
 							value = 11
 						}
@@ -217,7 +217,7 @@ blackjack_get_hand_value_player_2 = {
 			}
 			change_variable = {
 				which = blackjack_counting_temporary_variable_p2
-				which = blackjack_player_2_hand_value_p2
+				which = blackjack_player_2_hand_value
 			}
 
 			# See if count is legal
@@ -232,14 +232,14 @@ blackjack_get_hand_value_player_2 = {
 				}
 				# Yes, the count is below 22 so legal
 				set_variable = {
-					which = blackjack_player_2_hand_value_p2
+					which = blackjack_player_2_hand_value
 					which = blackjack_counting_temporary_variable_p2
 				}
 			} else = {
 				# No, the higher count is illegal
 				# Just treat each ace as 1
 				change_variable = {
-					which = blackjack_player_2_hand_value_p2
+					which = blackjack_player_2_hand_value
 					which = blackjack_aces_count_p2
 				}
 			}
@@ -338,7 +338,7 @@ blackjack_get_hand_value_player_3 = {
 			}
 			change_variable = {
 				which = blackjack_counting_temporary_variable_p3
-				which = blackjack_player_3_hand_value_p3
+				which = blackjack_player_3_hand_value
 			}
 
 			# See if count is legal
@@ -353,14 +353,14 @@ blackjack_get_hand_value_player_3 = {
 				}
 				# Yes, the count is below 22 so legal
 				set_variable = {
-					which = blackjack_player_3_hand_value_p3
+					which = blackjack_player_3_hand_value
 					which = blackjack_counting_temporary_variable_p3
 				}
 			} else = {
 				# No, the higher count is illegal
 				# Just treat each ace as 1
 				change_variable = {
-					which = blackjack_player_3_hand_value_p3
+					which = blackjack_player_3_hand_value
 					which = blackjack_aces_count_p3
 				}
 			}
@@ -459,7 +459,7 @@ blackjack_get_hand_value_player_4 = {
 			}
 			change_variable = {
 				which = blackjack_counting_temporary_variable_p4
-				which = blackjack_player_4_hand_value_p4
+				which = blackjack_player_4_hand_value
 			}
 
 			# See if count is legal
@@ -474,15 +474,136 @@ blackjack_get_hand_value_player_4 = {
 				}
 				# Yes, the count is below 22 so legal
 				set_variable = {
-					which = blackjack_player_4_hand_value_p4
+					which = blackjack_player_4_hand_value
 					which = blackjack_counting_temporary_variable_p4
 				}
 			} else = {
 				# No, the higher count is illegal
 				# Just treat each ace as 1
 				change_variable = {
-					which = blackjack_player_4_hand_value_p4
+					which = blackjack_player_4_hand_value
 					which = blackjack_aces_count_p4
+				}
+			}
+		}
+	}
+}
+
+# places the total hand value into blackjack_dealer_hand_value variable
+blackjack_get_hand_value_dealer = {
+	event_target:blackjack_player_1_tag = {
+		# Count number of aces
+		count_aces_dealer = yes
+
+		# Get total value of non ace cards
+		compute_non_aces_value_dealer = yes
+		
+		# Add the non aces value to the total first
+		set_variable = {
+			which = blackjack_dealer_hand_value
+			which = blackjack_total_value_dealer
+		}
+
+		# Compute total
+		# If there are no aces, then the value is the non aces value
+		# So we don't need to do anything
+		# If there is exactly 1 ace, then it can be either 11 or 1
+		# Check if 11 puts total below 21, if yes treat it as 11, if no treat it as 1
+
+		# (There's definitely an easier way to do this checking for an extra added 10 but that's literally impossible to read lol)
+		if = {
+			limit = {
+				AND = {
+					check_variable = {
+						which = blackjack_aces_count_dealer
+						value = 1
+					}
+					NOT = {
+						check_variable = {
+							which = blackjack_aces_count_dealer
+							value = 2
+						}
+					}
+				}
+			}
+
+			# If the ace can be 11, that means the rest of the cards have a max value of 10 -> cannot exceed 11
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_dealer_hand_value
+							value = 11
+						}
+					}
+				}
+				# Yes, total value is 10 or lower
+				change_variable = {
+					which = blackjack_dealer_hand_value
+					value = 11
+				}
+			} else = {
+				# No, total value is 11 or higher
+				change_variable = {
+					which = blackjack_dealer_hand_value
+					value = 1
+				}
+			}
+		}
+		# If there is more than 1 ace, then 1 ace can be 11 or 1 and the others must be 1
+		# So compute the 2 possible ace values, check if the larger puts the total below 21, if not use the smaller
+		else_if = {
+			limit = {
+				check_variable = {
+					which = blackjack_aces_count_dealer
+					value = 2
+				}
+			}
+			# Higher count - treat 1 ace as 11
+			set_variable = {
+				which = higher_aces_count_d
+				value = 11
+			}
+			change_variable = {
+				which = higher_aces_count_d
+				which = blackjack_aces_count_dealer
+			}
+			subtract_variable = {
+				which = higher_aces_count_d
+				value = 1 # we're skipping 1 ace cuz its 11
+			}
+
+			# Get total value with higher count
+			set_variable = {
+				which = blackjack_counting_temporary_variable_d
+				which = higher_aces_count_d
+			}
+			change_variable = {
+				which = blackjack_counting_temporary_variable_d
+				which = blackjack_dealer_hand_value
+			}
+
+			# See if count is legal
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							which = blackjack_counting_temporary_variable_d
+							value = 22
+						}
+					}
+				}
+				# Yes, the count is below 22 so legal
+				set_variable = {
+					which = blackjack_dealer_hand_value
+					which = blackjack_counting_temporary_variable_d
+				}
+			} else = {
+				# No, the higher count is illegal
+				# Just treat each ace as 1
+				change_variable = {
+					which = blackjack_dealer_hand_value
+					which = blackjack_aces_count_dealer
 				}
 			}
 		}
@@ -671,6 +792,52 @@ count_aces_player_4 = {
 
 			change_variable = {
 				which = loop_iterator_cap4
+				value = 1
+			}
+		}
+	}
+}
+
+count_aces_dealer = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_aces_count_dealer
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cad
+			value = 1
+		}
+		set_variable = {
+			which = export_variable_cad
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cad
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_dealer = { in_var = loop_iterator_cad out_var = export_variable_cad }
+
+			# check if that card is an ace
+			if = {
+				limit = {
+					blackjack_is_card_ace = { var = export_variable_cad }
+				}
+				change_variable = {
+					which = blackjack_aces_count_dealer
+					value = 1
+				}
+			}
+
+			change_variable = {
+				which = loop_iterator_cad
 				value = 1
 			}
 		}
@@ -871,6 +1038,55 @@ compute_non_aces_value_player_4 = {
 
 			change_variable = {
 				which = loop_iterator_cvp4
+				value = 1
+			}
+		}
+	}
+}
+
+compute_non_aces_value_dealer = {
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_total_value_dealer
+			value = 0
+		}
+		set_variable = {
+			which = loop_iterator_cvd
+			value = 1
+		}
+		set_variable = {
+			which = obj_value_d
+			value = 0
+		}
+		set_variable = {
+			which = real_value_d
+			value = 0
+		}
+
+		while = {
+			limit = {
+				NOT = {
+					check_variable = {
+						which = loop_iterator_cvd
+						value = 19
+					}
+				}
+			}
+
+			# export the right card
+			blackjack_obj_card_val_at_pos_dealer = { in_var = loop_iterator_cvd out_var = obj_value_d }
+
+			# get real value for card (0 for aces)
+			compute_real_value_from_objective_value_no_aces = { obj_val = obj_value_d out_var = real_value_d }
+
+			# add to running total
+			change_variable = {
+				which = blackjack_total_value_dealer
+				which = real_value_d
+			}
+
+			change_variable = {
+				which = loop_iterator_cvd
 				value = 1
 			}
 		}

@@ -146,7 +146,7 @@ blackjack_setup_game_flags_two = {
             value = 1
         }
         set_variable = {
-            which = dealer_position
+            which = blackjack_dealer_position
             value = 1
         }
     }
@@ -1488,7 +1488,6 @@ blackjack_shuffle_deck_wrapper = {
         limit = {
             AND = {
                 ai = yes
-                NOT = { total_development = 70 }
             }
         }
         define_ruler = {
@@ -1930,7 +1929,7 @@ blackjack_initialize_cards = {
             value = 3
         }
         set_variable = {
-            which = dealer_position
+            which = blackjack_dealer_position
             value = 3
         }
     }
@@ -2375,9 +2374,12 @@ blackjack_advance_turn = {
 			limit = {
 				blackjack_game_over = yes
 			}
-			# TODO Go to dealer processing!!
-			# search for the key kgh1
-			# that key will have all the other dealer processing places
+			# Dealer Processing Event
+			event_target:blackjack_player_1_tag = {
+				country_event = {
+					id = blackjack.18
+				}
+			}
 		}
 		
 		# Else navigate to the next player who's status is 0 and send them the turn event (id 17). Can repeat if other 3 are done. update the turn variable accordingly
@@ -4338,9 +4340,12 @@ blackjack_check_and_end_betting = {
 			# Every single player has blackjack
 			# Move on to evaluate dealer
 			else = {
-				# TODO Go to dealer processing!!
-				# search for the key kgh1
-				# that key will have all the other dealer processing places
+				# Dealer Processing Event
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.18
+					}
+				}
 			}
         }
     }
@@ -4902,6 +4907,1700 @@ blackjack_player_4_play_card = {
 					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_player_4_hand_1 which = export_variable } }
 				}
 			}
+		}
+	}
+}
+
+blackjack_dealer_play_card = {
+	if = {
+		limit = {
+			check_variable = { which = blackjack_dealer_position value = 10 }
+		}
+		if = {
+			limit = {
+				check_variable = { which = blackjack_dealer_position value = 14 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_dealer_position value = 16 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 17 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_dealer_position value = 18 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_18 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_17 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_16 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 15 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_15 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_14 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_dealer_position value = 12 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 13 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_13 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_12 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 11 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_11 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_10 which = export_variable } }
+				}
+			}
+		}
+	}
+	else = {
+		if = {
+			limit = {
+				check_variable = { which = blackjack_dealer_position value = 5 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = blackjack_dealer_position value = 7 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 8 }
+					}
+					if = {
+						limit = {
+							check_variable = { which = blackjack_dealer_position value = 9 }
+						}
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_9 which = export_variable } }
+					}
+					else = {
+						event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_8 which = export_variable } }
+					}
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_7 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 6 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_6 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_5 which = export_variable } }
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					check_variable = { which = blackjack_dealer_position value = 3 }
+				}
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 4 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_4 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_3 which = export_variable } }
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						check_variable = { which = blackjack_dealer_position value = 2 }
+					}
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_2 which = export_variable } }
+				}
+				else = {
+					event_target:blackjack_player_1_tag = { set_variable = { which = blackjack_dealer_hand_1 which = export_variable } }
+				}
+			}
+		}
+	}
+}
+
+# Win - add to treasury effects
+blackjack_payout_p1_w = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p1
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = 1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p2_w = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p2
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = 1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p3_w = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p3
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = 1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p4_w = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p4
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = 1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+# Loss - remove from treasury effects
+blackjack_payout_p1_l = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p1
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_1_tag = { add_treasury = -1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p2_l = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p2
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_2_tag = { add_treasury = -1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p3_l = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p3
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_3_tag = { add_treasury = -1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
+		}
+	}
+}
+
+blackjack_payout_p4_l = {
+	# Copy the bet variable
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = payout_variable
+			which = bet_value_p4
+		}
+	}
+
+	# Start
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8192
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -8192 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8192
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4096
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -4096 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4096
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2048
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -2048 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2048
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1024
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -1024 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1024
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 512
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -512 }
+		subtract_variable = {
+			which = payout_variable
+			value = 512
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 256
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -256 }
+		subtract_variable = {
+			which = payout_variable
+			value = 256
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 128
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -128 }
+		subtract_variable = {
+			which = payout_variable
+			value = 128
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 64
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -64 }
+		subtract_variable = {
+			which = payout_variable
+			value = 64
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 32
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -32 }
+		subtract_variable = {
+			which = payout_variable
+			value = 32
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 16
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -16 }
+		subtract_variable = {
+			which = payout_variable
+			value = 16
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 8
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -8 }
+		subtract_variable = {
+			which = payout_variable
+			value = 8
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 4
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -4 }
+		subtract_variable = {
+			which = payout_variable
+			value = 4
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 2
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -2 }
+		subtract_variable = {
+			which = payout_variable
+			value = 2
+		}
+	}
+	if = {
+		limit = {
+			check_variable = {
+				which = payout_variable
+				value = 1
+			}
+		}
+		event_target:blackjack_player_4_tag = { add_treasury = -1 }
+		subtract_variable = {
+			which = payout_variable
+			value = 1
 		}
 	}
 }

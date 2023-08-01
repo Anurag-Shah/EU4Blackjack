@@ -67403,3 +67403,279 @@ defined_text = {
         }
     }
 }
+
+defined_text = {
+    name = get_p1w
+	text = {
+		localisation_key = debug_b_lose
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_1_win_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_push
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_1_win_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_1_win_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_1_win_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_1_win_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win_3_2
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_1_win_status
+                    value = 3
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p2w
+	text = {
+		localisation_key = debug_b_lose
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_2_win_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_push
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_2_win_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_2_win_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_2_win_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_2_win_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win_3_2
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_2_win_status
+                    value = 3
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p3w
+	text = {
+		localisation_key = debug_b_lose
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_3_win_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_push
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_3_win_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_3_win_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_3_win_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_3_win_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win_3_2
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_3_win_status
+                    value = 3
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p4w
+	text = {
+		localisation_key = debug_b_lose
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_player_4_win_status
+                        value = 1
+                    }
+                }
+            }
+        }
+    }
+    
+    text = {
+        localisation_key = debug_b_push
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_4_win_status
+                        value = 1
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_4_win_status
+                            value = 2
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                AND = {
+                    check_variable = {
+                        which = blackjack_player_4_win_status
+                        value = 2
+                    }
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_player_4_win_status
+                            value = 3
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = debug_b_win_3_2
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_player_4_win_status
+                    value = 3
+                }
+            }
+        }
+    }
+}
