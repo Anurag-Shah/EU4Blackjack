@@ -1048,6 +1048,7 @@ country_event = {
 		name = "blackjack.15a"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just hit!"
+			blackjack_save_previous_move_hit = yes
 			#blackjack_hit = yes
 			# The effect doesn't work because ???? but it works if i paste the contents here and look im so done with this im just giving up
 			event_target:blackjack_player_1_tag = {
@@ -1425,6 +1426,7 @@ country_event = {
 		name = "blackjack.15b"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just stood!"
+			blackjack_save_previous_move_stand = yes
 			event_target:blackjack_player_1_tag = {
 				# Set status to stood
 				if = {
@@ -1793,6 +1795,7 @@ country_event = {
 		name = "blackjack.15c"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just doubled down!"
+			blackjack_save_previous_move_double_down = yes
 			event_target:blackjack_player_1_tag = {
 				# Double bet and set status to stood
 				if = {
@@ -2232,6 +2235,7 @@ country_event = {
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
 				log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just surrendered!"
+				blackjack_save_previous_move_surrender = yes
 				# Halve the bet and set status to surrendered
 				if = {
 					# Player 4's turn
