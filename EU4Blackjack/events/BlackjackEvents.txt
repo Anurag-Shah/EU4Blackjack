@@ -192,7 +192,169 @@ country_event = {
 		name = "blackjack.7a"
 		hidden_effect = {
 			set_global_flag = blackjack_p1_has_bet
-			blackjack_check_and_end_betting = yes
+			
+			# Check and end betting
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				set_global_flag = blackjack_see_gamestate_enabled
+		
+				# Compute hand totals
+				blackjack_compute_hand_values = yes
+		
+				# Check if players have blackjack and set their status accordingly
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							blackjack_player_1_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_1_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_2_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_2_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_3_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_3_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_4_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_4_status
+							value = 4
+						}
+					}
+				}
+		
+				# Give game event to all players
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+		
+				# Compute optimal moves
+				blackjack_player_1_optimal_move = yes
+				blackjack_player_2_optimal_move = yes
+				blackjack_player_3_optimal_move = yes
+				blackjack_player_4_optimal_move = yes
+		
+				# Give options event to first non-blackjack player
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 4
+								}
+							}
+						}
+						country_event = {
+							id = blackjack.15
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					}
+					# Every single player has blackjack
+					# Move on to evaluate dealer
+					else = {
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -390,7 +552,169 @@ country_event = {
 		name = "blackjack.8a"
 		hidden_effect = {
 			set_global_flag = blackjack_p2_has_bet
-			blackjack_check_and_end_betting = yes
+			
+			# Check and end betting
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				set_global_flag = blackjack_see_gamestate_enabled
+		
+				# Compute hand totals
+				blackjack_compute_hand_values = yes
+		
+				# Check if players have blackjack and set their status accordingly
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							blackjack_player_1_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_1_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_2_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_2_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_3_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_3_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_4_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_4_status
+							value = 4
+						}
+					}
+				}
+		
+				# Give game event to all players
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+		
+				# Compute optimal moves
+				blackjack_player_1_optimal_move = yes
+				blackjack_player_2_optimal_move = yes
+				blackjack_player_3_optimal_move = yes
+				blackjack_player_4_optimal_move = yes
+		
+				# Give options event to first non-blackjack player
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 4
+								}
+							}
+						}
+						country_event = {
+							id = blackjack.15
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					}
+					# Every single player has blackjack
+					# Move on to evaluate dealer
+					else = {
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -588,7 +912,169 @@ country_event = {
 		name = "blackjack.9a"
 		hidden_effect = {
 			set_global_flag = blackjack_p3_has_bet
-			blackjack_check_and_end_betting = yes
+
+			# Check and end betting
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				set_global_flag = blackjack_see_gamestate_enabled
+		
+				# Compute hand totals
+				blackjack_compute_hand_values = yes
+		
+				# Check if players have blackjack and set their status accordingly
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							blackjack_player_1_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_1_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_2_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_2_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_3_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_3_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_4_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_4_status
+							value = 4
+						}
+					}
+				}
+		
+				# Give game event to all players
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+		
+				# Compute optimal moves
+				blackjack_player_1_optimal_move = yes
+				blackjack_player_2_optimal_move = yes
+				blackjack_player_3_optimal_move = yes
+				blackjack_player_4_optimal_move = yes
+		
+				# Give options event to first non-blackjack player
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 4
+								}
+							}
+						}
+						country_event = {
+							id = blackjack.15
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					}
+					# Every single player has blackjack
+					# Move on to evaluate dealer
+					else = {
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -786,7 +1272,169 @@ country_event = {
 		name = "blackjack.10a"
 		hidden_effect = {
 			set_global_flag = blackjack_p4_has_bet
-			blackjack_check_and_end_betting = yes
+			
+			# Check and end betting
+			if = {
+				limit = { 
+					AND = {
+						has_global_flag = blackjack_p1_has_bet
+						has_global_flag = blackjack_p2_has_bet
+						has_global_flag = blackjack_p3_has_bet
+						has_global_flag = blackjack_p4_has_bet
+					}
+				}
+				clr_global_flag = blackjack_p1_has_bet
+				clr_global_flag = blackjack_p2_has_bet
+				clr_global_flag = blackjack_p3_has_bet
+				clr_global_flag = blackjack_p4_has_bet
+				set_global_flag = blackjack_see_gamestate_enabled
+		
+				# Compute hand totals
+				blackjack_compute_hand_values = yes
+		
+				# Check if players have blackjack and set their status accordingly
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							blackjack_player_1_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_1_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_2_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_2_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_3_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_3_status
+							value = 4
+						}
+					}
+					if = {
+						limit = {
+							blackjack_player_4_has_blackjack = yes
+						}
+						set_variable = {
+							which = blackjack_player_4_status
+							value = 4
+						}
+					}
+				}
+		
+				# Give game event to all players
+				event_target:blackjack_player_1_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_2_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_3_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+				event_target:blackjack_player_4_tag = {
+					country_event = {
+						id = blackjack.6
+					}
+				}
+		
+				# Compute optimal moves
+				blackjack_player_1_optimal_move = yes
+				blackjack_player_2_optimal_move = yes
+				blackjack_player_3_optimal_move = yes
+				blackjack_player_4_optimal_move = yes
+		
+				# Give options event to first non-blackjack player
+				event_target:blackjack_player_1_tag = {
+					if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_1_status
+									value = 4
+								}
+							}
+						}
+						country_event = {
+							id = blackjack.15
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_2_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 2
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_3_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 3
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					} else_if = {
+						limit = {
+							NOT = {
+								check_variable = {
+									which = blackjack_player_4_status
+									value = 4
+								}
+							}
+						}
+						set_variable = {
+							which = blackjack_turn
+							value = 4
+						}
+						country_event = {
+							id = blackjack.17
+						}
+					}
+					# Every single player has blackjack
+					# Move on to evaluate dealer
+					else = {
+						# Dealer Processing Event
+						event_target:blackjack_player_1_tag = {
+							country_event = {
+								id = blackjack.18
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -1042,6 +1690,24 @@ country_event = {
 	picture = TRADEGOODS_eventPicture
 
 	is_triggered_only = yes
+
+	# Go cry about it AI
+	option = {
+		name = "blackjack.15z"
+		trigger = {
+			ai = yes
+		}
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.17
+				}
+			}
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
 
 	# Hit
 	option = {
@@ -1408,15 +2074,44 @@ country_event = {
 			}
 		}
 		# Optimal AI
+		# ai_chance = {
+		# 	factor = 100
+		# 	modifier = {
+		# 		factor = 0
+		# 		OR = {
+		# 			blackjack_optimal_move_stand = yes
+		# 			blackjack_optimal_move_double_down = yes
+		# 			blackjack_optimal_move_surrender = yes
+		# 		}
+		# 	}
+		# }
+
+		# Standard AI
 		ai_chance = {
-			factor = 100
+			factor = 1
+
+			# Optimal move is hit
 			modifier = {
-				factor = 0
-				OR = {
-					blackjack_optimal_move_stand = yes
-					blackjack_optimal_move_double_down = yes
-					blackjack_optimal_move_surrender = yes
-				}
+				factor = 70
+				blackjack_optimal_move_hit = yes
+			}
+
+			# Optimal move stand
+			modifier = {
+				factor = 10
+				blackjack_optimal_move_stand = yes
+			}
+
+			# Optimal move double down
+			modifier = {
+				factor = 18
+				blackjack_optimal_move_double_down = yes
+			}
+
+			# Optimal move surrender
+			modifier = {
+				factor = 9
+				blackjack_optimal_move_surrender = yes
 			}
 		}
 	}
@@ -1777,15 +2472,44 @@ country_event = {
 			}
 		}
 		# Optimal AI
+		# ai_chance = {
+		# 	factor = 100
+		# 	modifier = {
+		# 		factor = 0
+		# 		OR = {
+		# 			blackjack_optimal_move_hit = yes
+		# 			blackjack_optimal_move_double_down = yes
+		# 			blackjack_optimal_move_surrender = yes
+		# 		}
+		# 	}
+		# }
+
+		# Standard AI
 		ai_chance = {
-			factor = 100
+			factor = 1
+
+			# Optimal move stand
 			modifier = {
-				factor = 0
-				OR = {
-					blackjack_optimal_move_hit = yes
-					blackjack_optimal_move_double_down = yes
-					blackjack_optimal_move_surrender = yes
-				}
+				factor = 80
+				blackjack_optimal_move_stand = yes
+			}
+
+			# Optimal move is hit
+			modifier = {
+				factor = 9
+				blackjack_optimal_move_hit = yes
+			}
+
+			# Optimal move double down
+			modifier = {
+				factor = 1
+				blackjack_optimal_move_double_down = yes
+			}
+
+			# Optimal move surrender
+			modifier = {
+				factor = 20
+				blackjack_optimal_move_surrender = yes
 			}
 		}
 	}
@@ -2216,15 +2940,44 @@ country_event = {
 			}
 		}
 		# Optimal AI
+		# ai_chance = {
+		# 	factor = 100
+		# 	modifier = {
+		# 		factor = 0
+		# 		OR = {
+		# 			blackjack_optimal_move_hit = yes
+		# 			blackjack_optimal_move_stand = yes
+		# 			blackjack_optimal_move_surrender = yes
+		# 		}
+		# 	}
+		# }
+
+		# Standard AI
 		ai_chance = {
-			factor = 100
+			factor = 1
+
+			# Optimal move stand
 			modifier = {
-				factor = 0
-				OR = {
-					blackjack_optimal_move_hit = yes
-					blackjack_optimal_move_stand = yes
-					blackjack_optimal_move_surrender = yes
-				}
+				factor = 9
+				blackjack_optimal_move_stand = yes
+			}
+
+			# Optimal move is hit
+			modifier = {
+				factor = 20
+				blackjack_optimal_move_hit = yes
+			}
+
+			# Optimal move double down
+			modifier = {
+				factor = 80
+				blackjack_optimal_move_double_down = yes
+			}
+
+			# Optimal move surrender
+			modifier = {
+				factor = 1
+				blackjack_optimal_move_surrender = yes
 			}
 		}
 	}
@@ -2601,15 +3354,44 @@ country_event = {
 			}
 		}
 		# Optimal AI
+		# ai_chance = {
+		# 	factor = 100
+		# 	modifier = {
+		# 		factor = 0
+		# 		OR = {
+		# 			blackjack_optimal_move_hit = yes
+		# 			blackjack_optimal_move_stand = yes
+		# 			blackjack_optimal_move_double_down = yes
+		# 		}
+		# 	}
+		# }
+
+		# Standard AI
 		ai_chance = {
-			factor = 100
+			factor = 1
+
+			# Optimal move stand
 			modifier = {
-				factor = 0
-				OR = {
-					blackjack_optimal_move_hit = yes
-					blackjack_optimal_move_stand = yes
-					blackjack_optimal_move_double_down = yes
-				}
+				factor = 1
+				blackjack_optimal_move_stand = yes
+			}
+
+			# Optimal move is hit
+			modifier = {
+				factor = 1
+				blackjack_optimal_move_hit = yes
+			}
+
+			# Optimal move double down
+			modifier = {
+				factor = 1
+				blackjack_optimal_move_double_down = yes
+			}
+
+			# Optimal move surrender
+			modifier = {
+				factor = 70
+				blackjack_optimal_move_surrender = yes
 			}
 		}
 	}
