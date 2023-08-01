@@ -4,7 +4,7 @@ country_event = {
 	id = blackjack_gui.1
 	title = blackjack_gui.1.t
 	desc = blackjack_gui.1.d
-	picture = TRADEGOODS_eventPicture
+	picture = CARDS_GAME_eventPicture
 
 	is_triggered_only = yes
 

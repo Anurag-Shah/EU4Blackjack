@@ -1,0 +1,13 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_cards_window"
+		texturefile = "gfx//interface//window//cards_window.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "CARDS_GAME_eventPicture"
+		texturefile = "gfx/event_pictures/CARDS_GAME_eventPicture.dds"
+		transparencecheck = yes
+	}
+}
