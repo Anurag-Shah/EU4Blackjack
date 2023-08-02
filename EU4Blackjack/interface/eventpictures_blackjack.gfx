@@ -1,0 +1,62 @@
+spriteTypes = {
+	spriteType = {
+		name = "jack_clubs_eventPicture"
+		texturefile = "gfx//interface//Gallery_Jack_of_Clubs.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "queen_clubs_eventPicture"
+		texturefile = "gfx//interface//Gallery_Queen_of_Clubs.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "king_clubs_eventPicture"
+		texturefile = "gfx//interface//Gallery_King_of_Clubs.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "jack_hearts_eventPicture"
+		texturefile = "gfx//interface//Gallery_Jack_of_Hearts.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "queen_hearts_eventPicture"
+		texturefile = "gfx//interface//Gallery_Queen_of_Hearts.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "king_hearts_eventPicture"
+		texturefile = "gfx//interface//Gallery_King_of_Hearts.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "jack_diamonds_eventPicture"
+		texturefile = "gfx//interface//Gallery_Jack_of_Diamonds.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "queen_diamonds_eventPicture"
+		texturefile = "gfx//interface//Gallery_Queen_of_Diamonds.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "king_diamonds_eventPicture"
+		texturefile = "gfx//interface//Gallery_King_of_Diamonds.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "jack_spades_eventPicture"
+		texturefile = "gfx//interface//Gallery_Jack_of_Spades.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "queen_spades_eventPicture"
+		texturefile = "gfx//interface//Gallery_Queen_of_Spades.dds"
+		alwaystransparent = yes
+	}
+	spriteType = {
+		name = "king_spades_eventPicture"
+		texturefile = "gfx//interface//Gallery_King_of_Spades.dds"
+		alwaystransparent = yes
+	}
+}

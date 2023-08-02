@@ -1,0 +1,35 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_icon_club17"
+		texturefile = "gfx//interface//icon_club17.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_spade17"
+		texturefile = "gfx//interface//icon_spade17.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_heart17"
+		texturefile = "gfx//interface//icon_heart17.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_diamond17"
+		texturefile = "gfx//interface//icon_diamond17.dds"
+	}
+
+	spriteType = {
+		name = "GFX_icon_club22"
+		texturefile = "gfx//interface//icon_club22.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_spade22"
+		texturefile = "gfx//interface//icon_spade22.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_heart22"
+		texturefile = "gfx//interface//icon_heart22.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_diamond22"
+		texturefile = "gfx//interface//icon_diamond22.dds"
+	}
+}

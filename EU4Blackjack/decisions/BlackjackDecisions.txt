@@ -114,6 +114,29 @@ country_decisions = {
 		}
 	}
 
+	blackjack_gallery_decision = {
+		potential = {
+			NOT = { has_country_flag = blackjack_viewing_gallery }
+		}
+		allow = {
+			hidden_trigger = {
+				NOT = {
+					ai = yes
+				}
+			}
+		}
+		color = { 102 2 60 }
+		effect = {
+			custom_tooltip = blackjack_gallery_decision_tt
+			hidden_effect = {
+				set_country_flag = blackjack_viewing_gallery
+				country_event = {
+					id = blackjack_gallery.13
+				}
+			}
+		}
+	}
+
 	z_blackjack_debug_decision = {
 		major = yes
 		potential = {

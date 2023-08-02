@@ -1,0 +1,549 @@
+namespace = blackjack_gallery
+
+country_event = {
+    id = blackjack_gallery.1
+	title = blackjack_gallery.1.t
+	desc = blackjack_gallery.1.d
+	picture = jack_clubs_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.1a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.2
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.1b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.12
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.1c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.2
+	title = blackjack_gallery.2.t
+	desc = blackjack_gallery.2.d
+	picture = queen_clubs_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.2a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.3
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.2b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.1
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.2c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.3
+	title = blackjack_gallery.3.t
+	desc = blackjack_gallery.3.d
+	picture = king_clubs_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.3a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.4
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.3b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.2
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.3c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.4
+	title = blackjack_gallery.4.t
+	desc = blackjack_gallery.4.d
+	picture = jack_hearts_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.4a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.5
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.4b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.3
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.4c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.5
+	title = blackjack_gallery.5.t
+	desc = blackjack_gallery.5.d
+	picture = queen_hearts_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.5a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.6
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.5b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.4
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.5c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.6
+	title = blackjack_gallery.6.t
+	desc = blackjack_gallery.6.d
+	picture = king_hearts_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.6a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.7
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.6b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.5
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.6c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.7
+	title = blackjack_gallery.7.t
+	desc = blackjack_gallery.7.d
+	picture = jack_diamonds_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.7a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.8
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.7b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.6
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.7c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.8
+	title = blackjack_gallery.8.t
+	desc = blackjack_gallery.8.d
+	picture = queen_diamonds_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.8a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.9
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.8b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.7
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.8c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.9
+	title = blackjack_gallery.9.t
+	desc = blackjack_gallery.9.d
+	picture = king_diamonds_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.9a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.10
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.9b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.8
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.9c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.10
+	title = blackjack_gallery.10.t
+	desc = blackjack_gallery.10.d
+	picture = jack_spades_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.10a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.11
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.10b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.9
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.10c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.11
+	title = blackjack_gallery.11.t
+	desc = blackjack_gallery.11.d
+	picture = queen_spades_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.11a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.12
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.11b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.10
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.11c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+
+country_event = {
+    id = blackjack_gallery.12
+	title = blackjack_gallery.12.t
+	desc = blackjack_gallery.12.d
+	picture = king_spades_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack_gallery.12a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.1
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.12b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.11
+			}
+		}
+	}
+	option = {
+	name = "blackjack_gallery.12c"
+	highlight = yes
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.13
+			}
+		}
+	}
+}
+
+country_event = {
+    id = blackjack_gallery.13
+	title = blackjack_gallery.13.t
+	desc = blackjack_gallery.13.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Close the gallery menu
+	option = {
+		highlight = yes
+		name = "blackjack_gallery.13m"
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_gallery
+		}
+	}
+
+	# Card events
+	option = {
+		name = "blackjack_gallery.13a"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.1
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13b"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.2
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13c"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.3
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13d"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.4
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13e"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.5
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13f"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.6
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13g"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.7
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13h"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.8
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13i"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.9
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13j"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.10
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13k"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.11
+			}
+		}
+	}
+	option = {
+		name = "blackjack_gallery.13l"
+		hidden_effect = {
+			country_event = {
+				id = blackjack_gallery.12
+			}
+		}
+	}
+}
+
