@@ -1,6 +1,6 @@
 country_decisions = {
 	blackjack_start_game = {
-		major = yes
+		color = { 64 224 208 }
 		potential = {
 			NOT = { has_global_flag = blackjack_game_in_progress_flag }
 			NOT = { has_global_flag = blackjack_table_playing }
@@ -14,6 +14,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			custom_tooltip = blackjack_start_game_tt
 			hidden_effect = {
 				# Set country flag
 				set_country_flag = blackjack_is_player
@@ -59,7 +60,15 @@ country_decisions = {
 							}	
 						}
 					}
-					# This is MP, try to assign other players
+					# This is MP
+					# Alert p1 that they are looking for players~!
+					event_target:blackjack_player_1_tag = {
+						country_event = {
+							id = blackjack.4
+						}
+					}
+
+					#try to assign other players
 				 	assign_blackjack_players = yes
 				} else = {
 					# This is sp, assign ais
@@ -90,7 +99,7 @@ country_decisions = {
 	}
 
 	blackjack_view_gamestate = {
-		major = yes
+		color = { 64 224 208 }
 		potential = {
 			has_global_flag = blackjack_game_in_progress_flag
 			has_global_flag = blackjack_see_gamestate_enabled
@@ -107,6 +116,7 @@ country_decisions = {
 		}
 		effect = {
 			hidden_effect = {
+				custom_tooltip = blackjack_view_gamestate_tt
 				country_event = {
 					id = blackjack.6
 				}
@@ -125,7 +135,7 @@ country_decisions = {
 				}
 			}
 		}
-		color = { 102 2 60 }
+		color = { 64 224 208 }
 		effect = {
 			custom_tooltip = blackjack_gallery_decision_tt
 			hidden_effect = {
