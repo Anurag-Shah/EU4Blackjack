@@ -101,7 +101,7 @@ country_event = {
 	}
 }
 
-# Searching for players
+# Inform p1 that we are searching for players
 country_event = {
 	id = blackjack.4
 	title = blackjack.4.t
@@ -161,10 +161,10 @@ country_event = {
 	}
 }
 
-# Non custom place bet p1 event
+# place bet p1 event
 country_event = {
 	id = blackjack.7
-	title = blacjack.7.t
+	title = blackjack.7.t
 	desc = blackjack.7.d
 	picture = TRADEGOODS_eventPicture
 
@@ -190,6 +190,7 @@ country_event = {
 	# Confirm
 	option = {
 		name = "blackjack.7a"
+		highlight = yes
 		hidden_effect = {
 			set_global_flag = blackjack_p1_has_bet
 			
@@ -524,7 +525,7 @@ country_event = {
 # Non custom place bet p2 event
 country_event = {
 	id = blackjack.8
-	title = blacjack.8.t
+	title = blackjack.8.t
 	desc = blackjack.8.d
 	picture = TRADEGOODS_eventPicture
 
@@ -550,6 +551,7 @@ country_event = {
 	# Confirm
 	option = {
 		name = "blackjack.8a"
+		highlight = yes
 		hidden_effect = {
 			set_global_flag = blackjack_p2_has_bet
 			
@@ -884,7 +886,7 @@ country_event = {
 # Non custom place bet p3 event
 country_event = {
 	id = blackjack.9
-	title = blacjack.9.t
+	title = blackjack.9.t
 	desc = blackjack.9.d
 	picture = TRADEGOODS_eventPicture
 
@@ -910,6 +912,7 @@ country_event = {
 	# Confirm
 	option = {
 		name = "blackjack.9a"
+		highlight = yes
 		hidden_effect = {
 			set_global_flag = blackjack_p3_has_bet
 
@@ -1244,7 +1247,7 @@ country_event = {
 # Non custom place bet p4 event
 country_event = {
 	id = blackjack.10
-	title = blacjack.10.t
+	title = blackjack.10.t
 	desc = blackjack.10.d
 	picture = TRADEGOODS_eventPicture
 
@@ -1270,6 +1273,7 @@ country_event = {
 	# Confirm
 	option = {
 		name = "blackjack.10a"
+		highlight = yes
 		hidden_effect = {
 			set_global_flag = blackjack_p4_has_bet
 			
