@@ -45,9 +45,11 @@ for file in files:
             # No alpha channel, add
             img_with_alpha = np.concatenate((np.array(img), np.ones((target_height, target_width, 1), dtype='uint8') * 255), axis=2)
             img = image.Image.from_array(img_with_alpha)
+            img.compression = 'no'
 
         padded_img_data = np.concatenate((padding_fill, np.array(img)))
         img = image.Image.from_array(padded_img_data)
+        img.compression = 'no'
 
         img.save(filename=os.path.join(dir, "output", "icon_" + clear_name + ".dds"))
 
