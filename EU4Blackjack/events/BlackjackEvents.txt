@@ -4340,3 +4340,123 @@ country_event = {
 		}
 	}
 }
+
+# Tutorial event
+country_event = {
+	id = blackjack.20
+	title = blackjack.20.t
+	desc = blackjack.20.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Next tutorial
+	option = {
+		name = "blackjack.20a"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.21
+				}
+			}
+		}
+	}
+	# Exit
+	option = {
+		name = "blackjack.20b"
+		clr_country_flag = blackjack_viewing_tutorial
+	}
+}
+
+country_event = {
+	id = blackjack.21
+	title = blackjack.21.t
+	desc = blackjack.21.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Next tutorial
+	option = {
+		name = "blackjack.21a"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.22
+				}
+			}
+		}
+	}
+	# Exit
+	option = {
+		name = "blackjack.21b"
+		clr_country_flag = blackjack_viewing_tutorial
+	}
+}
+
+country_event = {
+	id = blackjack.22
+	title = blackjack.22.t
+	desc = blackjack.22.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Next tutorial
+	option = {
+		name = "blackjack.22a"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.23
+				}
+			}
+		}
+	}
+	# Exit
+	option = {
+		name = "blackjack.22b"
+		clr_country_flag = blackjack_viewing_tutorial
+	}
+}
+
+country_event = {
+	id = blackjack.23
+	title = blackjack.23.t
+	desc = blackjack.23.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Next tutorial
+	option = {
+		name = "blackjack.23a"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.24
+				}
+			}
+		}
+	}
+	# Exit
+	option = {
+		name = "blackjack.23b"
+		clr_country_flag = blackjack_viewing_tutorial
+	}
+}
+
+country_event = {
+	id = blackjack.24
+	title = blackjack.24.t
+	desc = blackjack.24.d
+	picture = TRADE_GOODS_eventPicture
+
+	is_triggered_only = yes
+
+	# Exit
+	option = {
+		name = "blackjack.24a"
+		clr_country_flag = blackjack_viewing_tutorial
+	}
+}

@@ -6,7 +6,7 @@
  # £icon_club17£ £icon_club22£ £icon_heart17£ £icon_heart22£ £icon_diamond17£ £icon_diamond22£ £icon_spade17£ £icon_spade22£
 
  blackjack_gallery.13: "Gallery"
- blackjack_gallery.13.t: "                              £icon_club22£ £icon_heart22£ Card Gallery £icon_diamond22£ £icon_spade22£"
+ blackjack_gallery.13.t: "£icon_club22£ £icon_heart22£ Card Gallery £icon_diamond22£ £icon_spade22£"
  blackjack_gallery.13.d: "Here is a gallery of all the custom face cards!\n\nSelect one of the options below view a full-sized card!"
 
  blackjack_gallery.13a: "Jack of Clubs"
@@ -24,17 +24,17 @@
  blackjack_gallery.13m: "Close the menu"
 
  blackjack_gallery.1: "Jack of Clubs"
- blackjack_gallery.1.t: "                                  £icon_club22£ Jack of Clubs £icon_club22£"
+ blackjack_gallery.1.t: "£icon_club22£ Jack of Clubs £icon_club22£"
  blackjack_gallery.2: "Queen of Clubs"
- blackjack_gallery.2.t: "                                 £icon_club22£ Queen of Clubs £icon_club22£"
+ blackjack_gallery.2.t: "£icon_club22£ Queen of Clubs £icon_club22£"
  blackjack_gallery.3: "King of Clubs"
- blackjack_gallery.3.t: "                                 £icon_club22£ King of Clubs £icon_club22£"
+ blackjack_gallery.3.t: "£icon_club22£ King of Clubs £icon_club22£"
  blackjack_gallery.4: "Jack of Hearts"
- blackjack_gallery.4.t: "                                 £icon_heart22£ Jack of Hearts £icon_heart22£"
+ blackjack_gallery.4.t: "£icon_heart22£ Jack of Hearts £icon_heart22£"
  blackjack_gallery.5: "Queen of Hearts"
- blackjack_gallery.5.t: "                                £icon_heart22£ Queen of Hearts £icon_heart22£"
+ blackjack_gallery.5.t: "£icon_heart22£ Queen of Hearts £icon_heart22£"
  blackjack_gallery.6: "King of Hearts"
- blackjack_gallery.6.t: "                                 £icon_heart22£ King of Hearts £icon_heart22£"
+ blackjack_gallery.6.t: "£icon_heart22£ King of Hearts £icon_heart22£"
  blackjack_gallery.7: "Jack of Diamonds"
  blackjack_gallery.7.t: "£icon_diamond22£ Jack of Diamonds £icon_diamond22£"
  blackjack_gallery.8: "Queen of Diamonds"
