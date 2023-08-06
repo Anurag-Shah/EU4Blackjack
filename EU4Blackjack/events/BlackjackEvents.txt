@@ -4132,6 +4132,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p1_w = yes
+
+					# Update balance variable
+					change_variable = {
+						which = blackjack_table_balance_player_1
+						which = bet_value_p1
+					}
 				} else_if = {
 					# Status of 0 (loss)
 					limit = {
@@ -4143,6 +4149,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p1_l = yes
+
+					# Update balance variable
+					subtract_variable = {
+						which = blackjack_table_balance_player_1
+						which = bet_value_p1
+					}
 				}
 				if = {
 					# Status of 2 (win) or 3 (3:2 win)
@@ -4153,6 +4165,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p2_w = yes
+
+					# Update balance variable
+					change_variable = {
+						which = blackjack_table_balance_player_2
+						which = bet_value_p2
+					}
 				} else_if = {
 					# Status of 0 (loss)
 					limit = {
@@ -4164,6 +4182,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p2_l = yes
+
+					# Update balance variable
+					subtract_variable = {
+						which = blackjack_table_balance_player_2
+						which = bet_value_p2
+					}
 				}
 				if = {
 					# Status of 2 (win) or 3 (3:2 win)
@@ -4174,6 +4198,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p3_w = yes
+
+					# Update balance variable
+					change_variable = {
+						which = blackjack_table_balance_player_3
+						which = bet_value_p3
+					}
 				} else_if = {
 					# Status of 0 (loss)
 					limit = {
@@ -4185,6 +4215,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p3_l = yes
+
+					# Update balance variable
+					subtract_variable = {
+						which = blackjack_table_balance_player_3
+						which = bet_value_p3
+					}
 				}
 				if = {
 					# Status of 2 (win) or 3 (3:2 win)
@@ -4195,6 +4231,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p4_w = yes
+
+					# Update balance variable
+					change_variable = {
+						which = blackjack_table_balance_player_4
+						which = bet_value_p4
+					}
 				} else_if = {
 					# Status of 0 (loss)
 					limit = {
@@ -4206,6 +4248,12 @@ country_event = {
 						}
 					}
 					blackjack_payout_p4_l = yes
+
+					# Update balance variable
+					subtract_variable = {
+						which = blackjack_table_balance_player_4
+						which = bet_value_p4
+					}
 				}
 				
 				# Clear game in progress flag, for the refresh decision
@@ -4319,18 +4367,22 @@ country_event = {
 			event_target:blackjack_player_1_tag = {
 				clr_country_flag = blackjack_is_player
 				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
 			}
 			event_target:blackjack_player_2_tag = {
 				clr_country_flag = blackjack_is_player
 				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
 			}
 			event_target:blackjack_player_3_tag = {
 				clr_country_flag = blackjack_is_player
 				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
 			}
 			event_target:blackjack_player_4_tag = {
 				clr_country_flag = blackjack_is_player
 				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
 			}
 			clear_global_event_target = blackjack_player_1_tag
 			clear_global_event_target = blackjack_player_2_tag

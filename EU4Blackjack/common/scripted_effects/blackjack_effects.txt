@@ -71,6 +71,26 @@ blackjack_setup_game_flags = {
         }
     }
 
+	# Set player balance variables to 0
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_table_balance_player_1
+			value = 0
+		}
+		set_variable = {
+			which = blackjack_table_balance_player_2
+			value = 0
+		}
+		set_variable = {
+			which = blackjack_table_balance_player_3
+			value = 0
+		}
+		set_variable = {
+			which = blackjack_table_balance_player_4
+			value = 0
+		}
+	}
+
     blackjack_shuffle_deck_wrapper = yes
 
     # Check blackjack_setup_game_flags_two for the continuation of this effect
