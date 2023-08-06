@@ -531,6 +531,7 @@ bitmapfonts = {
 		P = { 112 41 99 }	#Purple, used for Byzantium
 		J = { 0 168 107 }	#Jade, used for Mercs without Army Professionalism cost
 		w = { 254 254 254 }	#White, default W isnt working
+		y = { 254 188 1 }	#Yellow, default Y isnt working
 	}
 
 	bitmapfont = {

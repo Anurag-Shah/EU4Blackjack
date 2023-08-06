@@ -68035,3 +68035,192 @@ defined_text = {
         }
     }
 }
+
+# Balance
+defined_text = {
+    name = get_p1bal
+    text = {
+        localisation_key = p1bal_green
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_1
+                    value = 0.5
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p1bal_red
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_1
+                        value = 0
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p1bal_yellow
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_1
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_1
+                        value = 0.5
+                    }
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p2bal
+    text = {
+        localisation_key = p2bal_green
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_2
+                    value = 0.5
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p2bal_red
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_2
+                        value = 0
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p2bal_yellow
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_2
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_2
+                        value = 0.5
+                    }
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p3bal
+    text = {
+        localisation_key = p3bal_green
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_3
+                    value = 0.5
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p3bal_red
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_3
+                        value = 0
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p3bal_yellow
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_3
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_3
+                        value = 0.5
+                    }
+                }
+            }
+        }
+    }
+}
+
+defined_text = {
+    name = get_p4bal
+    text = {
+        localisation_key = p4bal_green
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_4
+                    value = 0.5
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p4bal_red
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_4
+                        value = 0
+                    }
+                }
+            }
+        }
+    }
+
+    text = {
+        localisation_key = p4bal_yellow
+        trigger = {
+            event_target:blackjack_player_1_tag = {
+                check_variable = {
+                    which = blackjack_table_balance_player_4
+                    value = 0
+                }
+                NOT = {
+                    check_variable = {
+                        which = blackjack_table_balance_player_4
+                        value = 0.5
+                    }
+                }
+            }
+        }
+    }
+}
