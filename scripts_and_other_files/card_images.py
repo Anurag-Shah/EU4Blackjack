@@ -2,8 +2,8 @@ import os
 from wand import image
 import numpy as np
 
-target_width = 40
-target_height = 80
+target_width = 110
+target_height = 166
 part_width = 20
 top_padding = 20
 
