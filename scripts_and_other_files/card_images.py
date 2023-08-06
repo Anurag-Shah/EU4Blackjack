@@ -1,5 +1,6 @@
 import os
 from wand import image
+import numpy as np
 
 target_width = 40
 target_height = 80
@@ -16,10 +17,8 @@ gfx_text = "spriteTypes = {"
 for file in files:
     with image.Image(filename=os.path.join(dir, "input", file)) as img:
         clear_name = file.replace("_of", "").replace(".png", "")
-
         img.compression = 'no'
-        img.alpha_channel = True
-
+        
         if img.width != target_width or img.height != target_height:
             img.resize(target_width, target_height)
 
