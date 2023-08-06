@@ -1,0 +1,3605 @@
+blackjack_shuffle_deck_v2 = {
+    # Assign random province in province group a the variable
+    # Do this 4 times
+    # Increment variable
+    # Unload provinces into deck one at a time
+
+    1 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    2 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    3 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    4 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    5 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    6 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    7 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    8 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    9 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    10 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    11 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    12 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    13 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    14 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    15 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    16 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    17 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    18 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    19 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    20 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    21 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    22 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    23 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    24 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    25 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    26 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    27 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    28 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    29 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    30 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    31 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    32 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    33 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    34 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    35 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    36 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    37 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    38 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    39 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    40 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    41 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    42 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    43 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    44 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    45 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    46 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    47 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    48 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    49 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    50 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    51 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    52 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    53 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    54 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    55 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    56 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    57 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    58 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    59 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    60 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    61 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    62 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    63 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    64 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    65 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    66 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    67 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    68 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    69 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    70 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    71 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    72 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    73 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    74 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    75 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    76 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    77 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    78 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    79 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    80 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    81 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    82 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    83 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    84 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    85 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    86 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    87 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    88 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    89 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    90 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    91 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    92 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    93 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    94 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    95 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    96 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    97 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    98 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    99 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    100 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    101 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    102 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    103 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    104 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    105 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    106 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    107 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    108 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    109 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    110 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    111 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    112 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    113 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    114 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    115 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    116 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    117 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    118 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    119 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    120 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    121 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    122 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    123 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    124 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    125 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    126 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    127 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    128 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    129 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    130 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    131 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    132 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    133 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    134 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    135 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    136 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    137 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    138 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    139 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    140 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    141 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    142 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    143 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    144 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    145 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    146 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    147 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    148 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    149 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    150 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    151 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    152 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    153 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    154 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    155 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    156 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    157 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    158 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    159 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    160 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    161 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    162 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    163 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    164 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    165 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    166 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    167 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    168 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    169 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    170 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    171 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    172 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    173 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    174 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    175 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    176 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    177 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    178 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    179 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    180 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    181 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    182 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    183 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    184 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    185 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    186 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    187 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    188 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    189 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    190 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    191 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    192 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    193 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    194 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    195 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    196 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    197 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    198 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    199 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    200 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    201 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    202 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    203 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    204 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    205 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    206 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    207 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    208 = {
+        set_province_flag = blackjack_shuffle_province
+    }
+
+    event_target:blackjack_player_1_tag = {
+        set_variable = {
+            which = blackjack_deck_iterator
+            value = 1
+        }
+
+        while = {
+            limit = {
+                NOT = {
+                    check_variable = {
+                        which = blackjack_deck_iterator
+                        value = 53
+                    }
+                }
+            }
+            set_variable = {
+                which = blackjack_deck_iterator_2
+                value = 0
+            }
+            while = {
+                limit = {
+                    NOT = {
+                        check_variable = {
+                            which = blackjack_deck_iterator_2
+                            value = 4
+                        }
+                    }
+                }
+                random_province = {
+                    limit = {
+                        AND = {
+                            has_province_flag = blackjack_shuffle_province
+                            NOT = {
+                                has_province_flag = blackjack_shuffle_assigned
+                            }
+                        }
+                    }
+                    set_province_flag = blackjack_shuffle_assigned
+                    set_variable = {
+                        which = blackjack_deck_iterator
+                        which = event_target:blackjack_player_1_tag
+                    }
+                }
+                change_variable = {
+                    which = blackjack_deck_iterator_2
+                    value = 1
+                }
+            }
+            change_variable = {
+                which = blackjack_deck_iterator
+                value = 1
+            }
+        }
+    }
+
+    every_province = {
+        clr_province_flag = blackjack_shuffle_assigned
+    }
+
+
+    1 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_0
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    2 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_1
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    3 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_2
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    4 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_3
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    5 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_4
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    6 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_5
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    7 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_6
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    8 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_7
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    9 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_8
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    10 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_9
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    11 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_10
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    12 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_11
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    13 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_12
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    14 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_13
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    15 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_14
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    16 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_15
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    17 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_16
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    18 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_17
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    19 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_18
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    20 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_19
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    21 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_20
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    22 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_21
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    23 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_22
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    24 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_23
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    25 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_24
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    26 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_25
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    27 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_26
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    28 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_27
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    29 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_28
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    30 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_29
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    31 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_30
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    32 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_31
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    33 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_32
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    34 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_33
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    35 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_34
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    36 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_35
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    37 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_36
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    38 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_37
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    39 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_38
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    40 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_39
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    41 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_40
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    42 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_41
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    43 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_42
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    44 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_43
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    45 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_44
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    46 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_45
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    47 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_46
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    48 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_47
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    49 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_48
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    50 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_49
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    51 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_50
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    52 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_51
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    53 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_52
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    54 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_53
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    55 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_54
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    56 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_55
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    57 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_56
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    58 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_57
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    59 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_58
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    60 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_59
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    61 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_60
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    62 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_61
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    63 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_62
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    64 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_63
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    65 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_64
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    66 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_65
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    67 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_66
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    68 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_67
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    69 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_68
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    70 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_69
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    71 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_70
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    72 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_71
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    73 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_72
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    74 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_73
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    75 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_74
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    76 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_75
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    77 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_76
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    78 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_77
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    79 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_78
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    80 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_79
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    81 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_80
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    82 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_81
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    83 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_82
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    84 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_83
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    85 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_84
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    86 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_85
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    87 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_86
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    88 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_87
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    89 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_88
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    90 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_89
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    91 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_90
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    92 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_91
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    93 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_92
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    94 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_93
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    95 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_94
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    96 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_95
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    97 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_96
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    98 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_97
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    99 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_98
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    100 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_99
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    101 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_100
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    102 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_101
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    103 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_102
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    104 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_103
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    105 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_104
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    106 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_105
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    107 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_106
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    108 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_107
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    109 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_108
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    110 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_109
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    111 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_110
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    112 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_111
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    113 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_112
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    114 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_113
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    115 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_114
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    116 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_115
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    117 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_116
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    118 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_117
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    119 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_118
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    120 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_119
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    121 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_120
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    122 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_121
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    123 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_122
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    124 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_123
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    125 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_124
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    126 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_125
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    127 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_126
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    128 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_127
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    129 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_128
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    130 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_129
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    131 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_130
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    132 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_131
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    133 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_132
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    134 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_133
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    135 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_134
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    136 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_135
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    137 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_136
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    138 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_137
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    139 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_138
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    140 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_139
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    141 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_140
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    142 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_141
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    143 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_142
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    144 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_143
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    145 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_144
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    146 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_145
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    147 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_146
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    148 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_147
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    149 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_148
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    150 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_149
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    151 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_150
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    152 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_151
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    153 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_152
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    154 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_153
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    155 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_154
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    156 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_155
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    157 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_156
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    158 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_157
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    159 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_158
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    160 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_159
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    161 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_160
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    162 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_161
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    163 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_162
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    164 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_163
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    165 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_164
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    166 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_165
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    167 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_166
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    168 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_167
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    169 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_168
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    170 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_169
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    171 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_170
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    172 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_171
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    173 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_172
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    174 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_173
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    175 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_174
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    176 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_175
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    177 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_176
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    178 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_177
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    179 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_178
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    180 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_179
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    181 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_180
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    182 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_181
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    183 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_182
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    184 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_183
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    185 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_184
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    186 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_185
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    187 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_186
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    188 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_187
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    189 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_188
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    190 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_189
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    191 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_190
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    192 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_191
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    193 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_192
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    194 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_193
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    195 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_194
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    196 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_195
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    197 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_196
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    198 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_197
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    199 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_198
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    200 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_199
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    201 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_200
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    202 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_201
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    203 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_202
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    204 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_203
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    205 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_204
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    206 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_205
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    207 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_206
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    208 = {
+        event_target:blackjack_player_1_tag = {
+            set_variable = {
+                which = blackjack_deck_iterator
+                which = PREV
+            }
+            set_variable = {
+                which = blackjack_deck_207
+                which = blackjack_deck_iterator
+            }
+        }
+    }
+
+    # Back to deck setup
+    blackjack_setup_game_flags_two = yes
+}

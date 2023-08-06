@@ -1112,7 +1112,7 @@ on_new_monarch = {
 		}
 
 		clr_global_flag = blackjack_shuffling_deck
-		blackjack_shuffle_deck = yes
+		blackjack_shuffle_deck_v2 = yes
 	}
 
 	on_new_monarch_effect = yes
