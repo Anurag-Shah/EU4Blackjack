@@ -634,4 +634,10 @@ spriteTypes = {
 		texturefile = "gfx//interface//icon_queen_spades_part.dds"
 		loadType = "INGAME"
 	}
+
+	spriteType = {
+		name = "GFX_icon_card_back"
+		texturefile = "gfx//interface//icon_card_back.dds"
+		loadType = "INGAME"
+	}
 }

@@ -26,6 +26,13 @@ country_decisions = {
 				set_global_flag = blackjack_table_playing				# Table
 				set_global_flag = blackjack_game_in_progress_flag		# Game on the table
 
+				# Win Screen flag. ~Set and clear so cwtools can shut up~
+				set_global_flag = blackjack_win_screen_flag
+				clr_global_flag = blackjack_win_screen_flag
+
+				# Clear this flag that makes sure players get informed only once that table is over
+				clr_global_flag = blackjack_its_joever_flag
+
 				# save player as player 1
 				ROOT = {
 					save_global_event_target_as = blackjack_player_1_tag
@@ -101,24 +108,26 @@ country_decisions = {
 	blackjack_view_gamestate = {
 		color = { 64 224 208 }
 		potential = {
-			has_global_flag = blackjack_game_in_progress_flag
-			has_global_flag = blackjack_see_gamestate_enabled
-			has_country_flag = blackjack_is_player
-			ROOT = { NOT = { ai = yes } }
-		}
-		allow = {
-			hidden_trigger = {
+			AND = {
 				has_global_flag = blackjack_game_in_progress_flag
 				has_global_flag = blackjack_see_gamestate_enabled
 				has_country_flag = blackjack_is_player
 				ROOT = { NOT = { ai = yes } }
 			}
 		}
+		allow = {
+			hidden_trigger = {
+				ROOT = { NOT = { ai = yes } }
+			}
+		}
 		effect = {
 			hidden_effect = {
 				custom_tooltip = blackjack_view_gamestate_tt
+				# country_event = {
+				# 	id = blackjack.6
+				# }
 				country_event = {
-					id = blackjack.6
+					id = blackjack_gui.1
 				}
 			}
 		}
@@ -182,6 +191,12 @@ country_decisions = {
 		}
 		effect = {
 			custom_tooltip = blackjack_debug_decision_tooltip
+			if = {
+				limit = {
+					has_global_flag = blackjack_game_in_progress_flag
+				}
+				add_treasury = 100
+			}
 		}
 	}
 }

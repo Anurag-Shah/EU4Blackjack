@@ -8,8 +8,18 @@ country_event = {
 
 	is_triggered_only = yes
 
+    # Refresh
     option = {
-        name = blackjack_gui.1.a
+        name = "blackjack_gui.1.a"
+
+        trigger = {
+            NOT = {
+                has_global_flag = blackjack_win_screen_flag
+            }
+        }
+		ai_chance = {
+			factor = 0
+		}
 
         hidden_effect = {
             country_event = {
@@ -18,11 +28,159 @@ country_event = {
         }
     }
 
-    # Close button for after end
+    # Close
     option = {
-        name = blackjack_gui.1.b
+        name = "blackjack_gui.1.b"
         
+        trigger = {
+            NOT = {
+                has_global_flag = blackjack_win_screen_flag
+            }
+        }
+		ai_chance = {
+			factor = 100
+		}
     }
+
+    # Keep playing at this table
+	# Everyone has to pick this in order to keep playing
+	# AI will always do this. gambling addiction :)
+	option = {
+		name = "blackjack_gui.1.c"
+		
+        trigger = {
+            has_global_flag = blackjack_win_screen_flag
+        }
+        
+        hidden_effect = {
+			set_country_flag = blackjack_play_again_flag
+			if = {
+				limit = {
+					AND = {
+						event_target:blackjack_player_1_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_2_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_3_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+						event_target:blackjack_player_4_tag = {
+							has_country_flag = blackjack_play_again_flag
+						}
+					}
+				}
+				event_target:blackjack_player_1_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_2_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_3_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+				event_target:blackjack_player_4_tag = {
+					clr_country_flag = blackjack_play_again_flag
+				}
+
+				# Clear the Win Screen Flag
+				clr_global_flag = blackjack_win_screen_flag
+
+				# Start a new game
+				# Shuffle the deck if needed else just start
+				if = {
+					limit = {
+						check_variable = {
+							which = blackjack_current_deck_position
+							value = 105 
+						}
+					}
+					set_variable = {
+						which = blackjack_current_deck_position
+						value = 0
+					}
+					blackjack_shuffle_deck_wrapper = yes
+				} else = {
+					blackjack_setup_game_flags_two = yes
+				}
+			}
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+
+    # Dont want to play another game
+	# This ends the game for everyone
+	option = {
+		name = "blackjack_gui.1.e"
+
+        trigger = {
+            has_global_flag = blackjack_win_screen_flag
+        }
+
+		ai_chance = {
+			factor = 0
+		}
+		hidden_effect = {
+            # Fire the "table is over" event for all other players, if not already done
+            if = {
+                limit = {
+                    NOT = {
+                        has_global_flag = blackjack_its_joever_flag
+                    }
+                }
+                set_country_flag = blackjack_ignore_me_gui1_flag
+                every_country = {
+                    limit = {
+                        AND = {
+                            has_country_flag = blackjack_is_player
+                            NOT = {
+                                has_country_flag = blackjack_ignore_me_gui1_flag
+                            }
+                            NOT = {
+                                ai = yes
+                            }
+                        }
+                    }
+                    country_event = {
+                        id = blackjack.26
+                    }
+                }
+            }
+            set_global_flag = blackjack_its_joever_flag
+
+			# Clear globals
+            clr_country_flag = blackjack_ignore_me_gui1_flag
+			event_target:blackjack_player_1_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
+			}
+			event_target:blackjack_player_2_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
+			}
+			event_target:blackjack_player_3_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
+			}
+			event_target:blackjack_player_4_tag = {
+				clr_country_flag = blackjack_is_player
+				clr_country_flag = blackjack_not_playing
+				clr_country_flag = blackjack_play_again_flag
+			}
+			clear_global_event_target = blackjack_player_1_tag
+			clear_global_event_target = blackjack_player_2_tag
+			clear_global_event_target = blackjack_player_3_tag
+			clear_global_event_target = blackjack_player_4_tag
+			clr_global_flag = blackjack_table_playing
+            clr_global_flag = blackjack_see_gamestate_enabled
+		}
+	}
 }
 
 country_event = {

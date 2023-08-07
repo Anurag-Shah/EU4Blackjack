@@ -1,7 +1,7 @@
 # Assigns players 2-4 out of players if possible
 assign_blackjack_players = {
     # clear event targets for players from previous game
-    # TODO move this to the code for ending the game
+	# This is useless? but can't hurt to have it here ig
     clear_global_event_target = blackjack_player_2_tag
     clear_global_event_target = blackjack_player_3_tag
     clear_global_event_target = blackjack_player_4_tag
@@ -186,22 +186,27 @@ blackjack_setup_game_flags_two = {
 	# 3 - surrender
 	# 4 - no previous move yet (default state)
 
-	set_variable = {
-		which = blackjack_previous_move_p1
-		value = 4
+	event_target:blackjack_player_1_tag = {
+		set_variable = {
+			which = blackjack_previous_move_p1
+			value = 4
+		}
+		set_variable = {
+			which = blackjack_previous_move_p2
+			value = 4
+		}
+		set_variable = {
+			which = blackjack_previous_move_p3
+			value = 4
+		}
+		set_variable = {
+			which = blackjack_previous_move_p4
+			value = 4
+		}
 	}
-	set_variable = {
-		which = blackjack_previous_move_p2
-		value = 4
-	}
-	set_variable = {
-		which = blackjack_previous_move_p3
-		value = 4
-	}
-	set_variable = {
-		which = blackjack_previous_move_p4
-		value = 4
-	}
+
+	# Set this again for the decision
+	set_global_flag = blackjack_game_in_progress_flag
 
     # Play first 2 cards for each player and for the dealer
     blackjack_initialize_cards = yes
@@ -3724,23 +3729,35 @@ blackjack_check_and_end_betting = {
 
 		# Give game event to all players
         event_target:blackjack_player_1_tag = {
-            country_event = {
-                id = blackjack.6
+            # country_event = {
+            #     id = blackjack.6
+            # }
+			country_event = {
+                id = blackjack_gui.1
             }
         }
         event_target:blackjack_player_2_tag = {
-            country_event = {
-                id = blackjack.6
+            # country_event = {
+            #     id = blackjack.6
+            # }
+			country_event = {
+                id = blackjack_gui.1
             }
         }
         event_target:blackjack_player_3_tag = {
-            country_event = {
-                id = blackjack.6
+            # country_event = {
+            #     id = blackjack.6
+            # }
+			country_event = {
+                id = blackjack_gui.1
             }
         }
         event_target:blackjack_player_4_tag = {
-            country_event = {
-                id = blackjack.6
+            # country_event = {
+            #     id = blackjack.6
+            # }
+			country_event = {
+                id = blackjack_gui.1
             }
         }
 

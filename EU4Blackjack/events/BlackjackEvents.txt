@@ -255,23 +255,35 @@ country_event = {
 		
 				# Give game event to all players
 				event_target:blackjack_player_1_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_2_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_3_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_4_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 		
@@ -616,23 +628,35 @@ country_event = {
 		
 				# Give game event to all players
 				event_target:blackjack_player_1_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_2_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_3_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_4_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 		
@@ -977,23 +1001,35 @@ country_event = {
 		
 				# Give game event to all players
 				event_target:blackjack_player_1_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_2_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_3_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_4_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 		
@@ -1338,23 +1374,35 @@ country_event = {
 		
 				# Give game event to all players
 				event_target:blackjack_player_1_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_2_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_3_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 				event_target:blackjack_player_4_tag = {
+					# country_event = {
+					# 	id = blackjack.6
+					# }
 					country_event = {
-						id = blackjack.6
+						id = blackjack_gui.1
 					}
 				}
 		
@@ -1696,32 +1744,32 @@ country_event = {
 	is_triggered_only = yes
 
 	# Go cry about it AI
-	option = {
-		name = "blackjack.15z"
-		trigger = {
-			ai = yes
-		}
-		hidden_effect = {
-			ROOT = {
-				country_event = {
-					id = blackjack.17
-				}
-			}
-		}
-		ai_chance = {
-			factor = 0
-		}
-	}
+	# option = {
+	# 	name = "blackjack.15z"
+	# 	trigger = {
+	# 		ai = yes
+	# 	}
+	# 	hidden_effect = {
+	# 		ROOT = {
+	# 			country_event = {
+	# 				id = blackjack.17
+	# 			}
+	# 		}
+	# 	}
+	# 	ai_chance = {
+	# 		factor = 0
+	# 	}
+	# }
 
 	# Hit
 	option = {
 		name = "blackjack.15a"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just hit!"
-			blackjack_save_previous_move_hit = yes
 			#blackjack_hit = yes
 			# The effect doesn't work because ???? but it works if i paste the contents here and look im so done with this im just giving up
 			event_target:blackjack_player_1_tag = {
+				blackjack_save_previous_move_hit = yes
 				# Fetch next card and store into export_variable
 				blackjack_play_and_inc = yes
 		
@@ -2125,8 +2173,8 @@ country_event = {
 		name = "blackjack.15b"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just stood!"
-			blackjack_save_previous_move_stand = yes
 			event_target:blackjack_player_1_tag = {
+				blackjack_save_previous_move_stand = yes
 				# Set status to stood
 				if = {
 					# Player 4's turn
@@ -2523,8 +2571,8 @@ country_event = {
 		name = "blackjack.15c"
 		hidden_effect = {
 			log = "Player [blackjack_player_1_tag.blackjack_turn.GetValue] who is [Root.GetName] just doubled down!"
-			blackjack_save_previous_move_double_down = yes
 			event_target:blackjack_player_1_tag = {
+				blackjack_save_previous_move_double_down = yes
 				# Double bet and set status to stood
 				if = {
 					# Player 4's turn
@@ -3535,6 +3583,9 @@ country_event = {
 	option = {
 		name = "blackjack.18a"
 		hidden_effect = {
+			# Set win screen flag first
+			set_global_flag = blackjack_win_screen_flag
+
 			event_target:blackjack_player_1_tag = {
 				# Get blackjack value
 				blackjack_get_hand_value_dealer = yes
@@ -4259,25 +4310,37 @@ country_event = {
 				# Clear game in progress flag, for the refresh decision
 				clr_global_flag = blackjack_game_in_progress_flag
 
-				# Then show the game over screen
+				# Then show the game screen (which is now the win screen because of the blackjack_win_screen_flag flag)
 				event_target:blackjack_player_1_tag = {
 					country_event = {
-						id = blackjack.19
+						id = blackjack_gui.1
+					}
+					country_event = {
+						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_2_tag = {
 					country_event = {
-						id = blackjack.19
+						id = blackjack_gui.1
+					}
+					country_event = {
+						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_3_tag = {
 					country_event = {
-						id = blackjack.19
+						id = blackjack_gui.1
+					}
+					country_event = {
+						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_4_tag = {
 					country_event = {
-						id = blackjack.19
+						id = blackjack_gui.1
+					}
+					country_event = {
+						id = blackjack.25
 					}
 				}
 			}
@@ -4286,112 +4349,115 @@ country_event = {
 }
 
 # End screen event
-country_event = {
-	id = blackjack.19
-	title = blackjack.19.t
-	desc = blackjack.19.d
-	picture = TRADE_GOODS_eventPicture
+# country_event = {
+# 	id = blackjack.19
+# 	title = blackjack.19.t
+# 	desc = blackjack.19.d
+# 	picture = TRADE_GOODS_eventPicture
 
-	is_triggered_only = yes
+# 	is_triggered_only = yes
 
-	# Keep playing at this table
-	# Everyone has to pick this in order to keep playing
-	# AI will always do this. gambling addiction :)
-	option = {
-		name = "blackjack.18a"
-		hidden_effect = {
-			set_country_flag = blackjack_play_again_flag
-			if = {
-				limit = {
-					AND = {
-						event_target:blackjack_player_1_tag = {
-							has_country_flag = blackjack_play_again_flag
-						}
-						event_target:blackjack_player_2_tag = {
-							has_country_flag = blackjack_play_again_flag
-						}
-						event_target:blackjack_player_3_tag = {
-							has_country_flag = blackjack_play_again_flag
-						}
-						event_target:blackjack_player_4_tag = {
-							has_country_flag = blackjack_play_again_flag
-						}
-					}
-				}
-				event_target:blackjack_player_1_tag = {
-					clr_country_flag = blackjack_play_again_flag
-				}
-				event_target:blackjack_player_2_tag = {
-					clr_country_flag = blackjack_play_again_flag
-				}
-				event_target:blackjack_player_3_tag = {
-					clr_country_flag = blackjack_play_again_flag
-				}
-				event_target:blackjack_player_4_tag = {
-					clr_country_flag = blackjack_play_again_flag
-				}
+# 	# Keep playing at this table
+# 	# Everyone has to pick this in order to keep playing
+# 	# AI will always do this. gambling addiction :)
+# 	option = {
+# 		name = "blackjack.18a"
+# 		hidden_effect = {
+# 			set_country_flag = blackjack_play_again_flag
+# 			if = {
+# 				limit = {
+# 					AND = {
+# 						event_target:blackjack_player_1_tag = {
+# 							has_country_flag = blackjack_play_again_flag
+# 						}
+# 						event_target:blackjack_player_2_tag = {
+# 							has_country_flag = blackjack_play_again_flag
+# 						}
+# 						event_target:blackjack_player_3_tag = {
+# 							has_country_flag = blackjack_play_again_flag
+# 						}
+# 						event_target:blackjack_player_4_tag = {
+# 							has_country_flag = blackjack_play_again_flag
+# 						}
+# 					}
+# 				}
+# 				event_target:blackjack_player_1_tag = {
+# 					clr_country_flag = blackjack_play_again_flag
+# 				}
+# 				event_target:blackjack_player_2_tag = {
+# 					clr_country_flag = blackjack_play_again_flag
+# 				}
+# 				event_target:blackjack_player_3_tag = {
+# 					clr_country_flag = blackjack_play_again_flag
+# 				}
+# 				event_target:blackjack_player_4_tag = {
+# 					clr_country_flag = blackjack_play_again_flag
+# 				}
 
-				# Start a new game
-				# Shuffle the deck if needed else just start
-				if = {
-					limit = {
-						check_variable = {
-							which = blackjack_current_deck_position
-							value = 105 
-						}
-					}
-					set_variable = {
-						which = blackjack_current_deck_position
-						value = 0
-					}
-					blackjack_shuffle_deck_wrapper = yes
-				} else = {
-					blackjack_setup_game_flags_two = yes
-				}
-			}
-		}
-		ai_chance = {
-			factor = 100
-		}
-	}
+# 				# Clear the Win Screen Flag
+# 				clr_global_flag = blackjack_win_screen_flag
 
-	# Dont want to play another game
-	# This ends the game for everyone
-	option = {
-		name = "blackjack.19b"
-		ai_chance = {
-			factor = 0
-		}
-		hidden_effect = {
-			# Clear globals
-			event_target:blackjack_player_1_tag = {
-				clr_country_flag = blackjack_is_player
-				clr_country_flag = blackjack_not_playing
-				clr_country_flag = blackjack_play_again_flag
-			}
-			event_target:blackjack_player_2_tag = {
-				clr_country_flag = blackjack_is_player
-				clr_country_flag = blackjack_not_playing
-				clr_country_flag = blackjack_play_again_flag
-			}
-			event_target:blackjack_player_3_tag = {
-				clr_country_flag = blackjack_is_player
-				clr_country_flag = blackjack_not_playing
-				clr_country_flag = blackjack_play_again_flag
-			}
-			event_target:blackjack_player_4_tag = {
-				clr_country_flag = blackjack_is_player
-				clr_country_flag = blackjack_not_playing
-				clr_country_flag = blackjack_play_again_flag
-			}
-			clear_global_event_target = blackjack_player_1_tag
-			clear_global_event_target = blackjack_player_2_tag
-			clear_global_event_target = blackjack_player_3_tag
-			clear_global_event_target = blackjack_player_4_tag
-			clr_global_flag = blackjack_table_playing
-		}
-	}
-}
+# 				# Start a new game
+# 				# Shuffle the deck if needed else just start
+# 				if = {
+# 					limit = {
+# 						check_variable = {
+# 							which = blackjack_current_deck_position
+# 							value = 105 
+# 						}
+# 					}
+# 					set_variable = {
+# 						which = blackjack_current_deck_position
+# 						value = 0
+# 					}
+# 					blackjack_shuffle_deck_wrapper = yes
+# 				} else = {
+# 					blackjack_setup_game_flags_two = yes
+# 				}
+# 			}
+# 		}
+# 		ai_chance = {
+# 			factor = 100
+# 		}
+# 	}
+
+# 	# Dont want to play another game
+# 	# This ends the game for everyone
+# 	option = {
+# 		name = "blackjack.19b"
+# 		ai_chance = {
+# 			factor = 0
+# 		}
+# 		hidden_effect = {
+# 			# Clear globals
+# 			event_target:blackjack_player_1_tag = {
+# 				clr_country_flag = blackjack_is_player
+# 				clr_country_flag = blackjack_not_playing
+# 				clr_country_flag = blackjack_play_again_flag
+# 			}
+# 			event_target:blackjack_player_2_tag = {
+# 				clr_country_flag = blackjack_is_player
+# 				clr_country_flag = blackjack_not_playing
+# 				clr_country_flag = blackjack_play_again_flag
+# 			}
+# 			event_target:blackjack_player_3_tag = {
+# 				clr_country_flag = blackjack_is_player
+# 				clr_country_flag = blackjack_not_playing
+# 				clr_country_flag = blackjack_play_again_flag
+# 			}
+# 			event_target:blackjack_player_4_tag = {
+# 				clr_country_flag = blackjack_is_player
+# 				clr_country_flag = blackjack_not_playing
+# 				clr_country_flag = blackjack_play_again_flag
+# 			}
+# 			clear_global_event_target = blackjack_player_1_tag
+# 			clear_global_event_target = blackjack_player_2_tag
+# 			clear_global_event_target = blackjack_player_3_tag
+# 			clear_global_event_target = blackjack_player_4_tag
+# 			clr_global_flag = blackjack_table_playing
+# 		}
+# 	}
+# }
 
 # Tutorial event
 country_event = {
@@ -4416,7 +4482,9 @@ country_event = {
 	# Exit
 	option = {
 		name = "blackjack.20b"
-		clr_country_flag = blackjack_viewing_tutorial
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_tutorial
+		}
 	}
 }
 
@@ -4442,7 +4510,9 @@ country_event = {
 	# Exit
 	option = {
 		name = "blackjack.21b"
-		clr_country_flag = blackjack_viewing_tutorial
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_tutorial
+		}
 	}
 }
 
@@ -4468,7 +4538,9 @@ country_event = {
 	# Exit
 	option = {
 		name = "blackjack.22b"
-		clr_country_flag = blackjack_viewing_tutorial
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_tutorial
+		}
 	}
 }
 
@@ -4494,7 +4566,9 @@ country_event = {
 	# Exit
 	option = {
 		name = "blackjack.23b"
-		clr_country_flag = blackjack_viewing_tutorial
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_tutorial
+		}
 	}
 }
 
@@ -4509,6 +4583,36 @@ country_event = {
 	# Exit
 	option = {
 		name = "blackjack.24a"
-		clr_country_flag = blackjack_viewing_tutorial
+		hidden_effect = {
+			clr_country_flag = blackjack_viewing_tutorial
+		}
+	}
+}
+
+# Game over, refresh the screen for the win screen
+country_event = {
+	id = blackjack.25
+	title = blackjack.25.t
+	desc = blackjack.25.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.25a"
+	}
+}
+
+# A player has left the table, start a new game if you want to keep playing
+country_event = {
+	id = blackjack.26
+	title = blackjack.26.t
+	desc = blackjack.26.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "blackjack.26a"
 	}
 }

@@ -349,8 +349,16 @@ defined_text = {
 		}
 	}
 	text = {
+		localisation_key = icon_card_back
+		trigger = {
+			NOT = {
+                has_global_flag = blackjack_win_screen_flag
+            }
+		}
+	}
+	text = {
 		localisation_key = dealer_card_at_2_full
-		trigger = { always = yes }
+		trigger = { has_global_flag = blackjack_win_screen_flag }
 	}
 }
 
