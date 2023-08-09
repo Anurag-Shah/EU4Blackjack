@@ -148,6 +148,10 @@
  blackjack.22b: "I'm ready to play!"
  blackjack.23b: "I'm ready to play!"
  blackjack.24a: "I'm ready to play!"
+ blackjack.21c: "Go back to 'Introduction to Blackjack'"
+ blackjack.22c: "Go back to 'Playing Blackjack'"
+ blackjack.23c: "Go back to 'On your turn'"
+ blackjack.24c: "Go back to 'Winning or losing a round'"
 
  p1bal_green: "§q[blackjack_player_1_tag.blackjack_table_balance_player_1.GetValue]§!"
  p1bal_red: "§k[blackjack_player_1_tag.blackjack_table_balance_player_1.GetValue]§!"

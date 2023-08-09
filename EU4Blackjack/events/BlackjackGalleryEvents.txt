@@ -435,7 +435,7 @@ country_event = {
     id = blackjack_gallery.13
 	title = blackjack_gallery.13.t
 	desc = blackjack_gallery.13.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 

@@ -59,4 +59,9 @@ spriteTypes = {
 		texturefile = "gfx//interface//Gallery_King_of_Spades.dds"
 		alwaystransparent = yes
 	}
+	spriteType = {
+		name = "blackjack_eventPicture"
+		texturefile = "gfx//event_pictures//blackjack_event_bg.dds"
+		alwaystransparent = yes
+	}
 }

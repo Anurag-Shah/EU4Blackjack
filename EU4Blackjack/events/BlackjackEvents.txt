@@ -6,7 +6,7 @@ country_event = {
 	id = blackjack.1
 	title = blackjack.1.t
 	desc = blackjack.1.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -78,7 +78,7 @@ country_event = {
 	id = blackjack.2
 	title = blackjack.2.t
 	desc = blackjack.2.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -92,7 +92,7 @@ country_event = {
 	id = blackjack.3
 	title = blackjack.3.t
 	desc = blackjack.3.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -106,7 +106,7 @@ country_event = {
 	id = blackjack.4
 	title = blackjack.4.t
 	desc = blackjack.4.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -120,7 +120,7 @@ country_event = {
 	id = blackjack.5
 	title = blackjack.5.t
 	desc = blackjack.5.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -134,7 +134,7 @@ country_event = {
 	id = blackjack.6
 	title = blackjack.6.t
 	desc = blackjack.6.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -166,7 +166,7 @@ country_event = {
 	id = blackjack.7
 	title = blackjack.7.t
 	desc = blackjack.7.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -541,7 +541,7 @@ country_event = {
 	id = blackjack.8
 	title = blackjack.8.t
 	desc = blackjack.8.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -916,7 +916,7 @@ country_event = {
 	id = blackjack.9
 	title = blackjack.9.t
 	desc = blackjack.9.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -1291,7 +1291,7 @@ country_event = {
 	id = blackjack.10
 	title = blackjack.10.t
 	desc = blackjack.10.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -1666,7 +1666,7 @@ country_event = {
 	id = blackjack.11
 	title = blackjack.11.t
 	desc = blackjack.11.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -1686,7 +1686,7 @@ country_event = {
 	id = blackjack.12
 	title = blackjack.12.t
 	desc = blackjack.12.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -1706,7 +1706,7 @@ country_event = {
 	id = blackjack.13
 	title = blackjack.13.t
 	desc = blackjack.13.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -1726,7 +1726,7 @@ country_event = {
 	id = blackjack.14
 	title = blackjack.14.t
 	desc = blackjack.14.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -1747,7 +1747,7 @@ country_event = {
 	id = blackjack.15
 	title = blackjack.15.t
 	desc = blackjack.15.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -3462,7 +3462,7 @@ country_event = {
 	id = blackjack.16
 	title = blackjack.16.t
 	desc = blackjack.16.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -3483,7 +3483,7 @@ country_event = {
 	id = blackjack.17
 	title = blackjack.17.t
 	desc = blackjack.17.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -3582,7 +3582,7 @@ country_event = {
 	id = blackjack.18
 	title = blackjack.18.t
 	desc = blackjack.18.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	hidden = yes
 
@@ -4367,7 +4367,7 @@ country_event = {
 # 	id = blackjack.19
 # 	title = blackjack.19.t
 # 	desc = blackjack.19.d
-# 	picture = TRADE_GOODS_eventPicture
+# 	picture = blackjack_eventPicture
 
 # 	is_triggered_only = yes
 
@@ -4478,7 +4478,7 @@ country_event = {
 	id = blackjack.20
 	title = blackjack.20.t
 	desc = blackjack.20.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -4506,7 +4506,7 @@ country_event = {
 	id = blackjack.21
 	title = blackjack.21.t
 	desc = blackjack.21.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -4521,6 +4521,19 @@ country_event = {
 			}
 		}
 	}
+
+	# Previous tutorial
+	option = {
+		name = "blackjack.21c"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.20
+				}
+			}
+		}
+	}
+
 	# Exit
 	option = {
 		name = "blackjack.21b"
@@ -4534,7 +4547,7 @@ country_event = {
 	id = blackjack.22
 	title = blackjack.22.t
 	desc = blackjack.22.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -4549,6 +4562,19 @@ country_event = {
 			}
 		}
 	}
+
+	# Previous tutorial
+	option = {
+		name = "blackjack.22c"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.21
+				}
+			}
+		}
+	}
+
 	# Exit
 	option = {
 		name = "blackjack.22b"
@@ -4562,7 +4588,7 @@ country_event = {
 	id = blackjack.23
 	title = blackjack.23.t
 	desc = blackjack.23.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -4577,6 +4603,19 @@ country_event = {
 			}
 		}
 	}
+
+	# Previous tutorial
+	option = {
+		name = "blackjack.23c"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.22
+				}
+			}
+		}
+	}
+
 	# Exit
 	option = {
 		name = "blackjack.23b"
@@ -4590,9 +4629,21 @@ country_event = {
 	id = blackjack.24
 	title = blackjack.24.t
 	desc = blackjack.24.d
-	picture = TRADE_GOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
+
+	# Previous tutorial
+	option = {
+		name = "blackjack.23c"
+		hidden_effect = {
+			ROOT = {
+				country_event = {
+					id = blackjack.23
+				}
+			}
+		}
+	}
 
 	# Exit
 	option = {
@@ -4608,7 +4659,7 @@ country_event = {
 	id = blackjack.25
 	title = blackjack.25.t
 	desc = blackjack.25.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
@@ -4622,7 +4673,7 @@ country_event = {
 	id = blackjack.26
 	title = blackjack.26.t
 	desc = blackjack.26.d
-	picture = TRADEGOODS_eventPicture
+	picture = blackjack_eventPicture
 
 	is_triggered_only = yes
 
