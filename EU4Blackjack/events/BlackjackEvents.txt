@@ -172,16 +172,18 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						which = bet_value_p1
-						value = 5001
+			event_target:blackjack_player_1_tag = {
+				if = {
+					limit = {
+						check_variable = {
+							which = bet_value_p1
+							value = 5001
+						}
 					}
-				}
-				set_variable = {
-					which = bet_value_p1
-					value = 5000
+					set_variable = {
+						which = bet_value_p1
+						value = 5000
+					}
 				}
 			}
 		}
@@ -545,17 +547,19 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						which = bet_value_p2
-						value = 5001
+			event_target:blackjack_player_1_tag = {
+				if = {
+					limit = {
+						check_variable = {
+							which = bet_value_p2
+							value = 5001
+						}
 					}
-				}
-				set_variable = {
-					which = bet_value_p2
-					value = 5000
-				}
+					set_variable = {
+						which = bet_value_p2
+						value = 5000
+					}
+				}	
 			}
 		}
 	}
@@ -882,7 +886,7 @@ country_event = {
 			}
 			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.11
+					id = blackjack.12
 				}
 			}
 		}
@@ -918,16 +922,18 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						which = bet_value_p3
-						value = 5001
+			event_target:blackjack_player_1_tag = {
+				if = {
+					limit = {
+						check_variable = {
+							which = bet_value_p3
+							value = 5001
+						}
 					}
-				}
-				set_variable = {
-					which = bet_value_p3
-					value = 5000
+					set_variable = {
+						which = bet_value_p3
+						value = 5000
+					}
 				}
 			}
 		}
@@ -1231,7 +1237,7 @@ country_event = {
 		hidden_effect = {
 			event_target:blackjack_player_1_tag = {
 				change_variable = {
-					which = bet_value_p2
+					which = bet_value_p3
 					value = 1000
 				}
 			}
@@ -1255,7 +1261,7 @@ country_event = {
 			}
 			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.11
+					id = blackjack.13
 				}
 			}
 		}
@@ -1291,16 +1297,18 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = {
-					check_variable = {
-						which = bet_value_p4
-						value = 5001
+			event_target:blackjack_player_1_tag = {
+				if = {
+					limit = {
+						check_variable = {
+							which = bet_value_p4
+							value = 5001
+						}
 					}
-				}
-				set_variable = {
-					which = bet_value_p4
-					value = 5000
+					set_variable = {
+						which = bet_value_p4
+						value = 5000
+					}
 				}
 			}
 		}
@@ -1628,7 +1636,7 @@ country_event = {
 			}
 			event_target:blackjack_player_1_tag = {
 				country_event = {
-					id = blackjack.11
+					id = blackjack.14
 				}
 			}
 		}
@@ -4313,31 +4321,37 @@ country_event = {
 				# Then show the game screen (which is now the win screen because of the blackjack_win_screen_flag flag)
 				event_target:blackjack_player_1_tag = {
 					country_event = {
-						id = blackjack_gui.1
-					}
-					country_event = {
 						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_2_tag = {
-					country_event = {
-						id = blackjack_gui.1
+					if = {
+						limit = {
+							ai = yes
+						}
+						set_country_flag = blackjack_play_again_flag
 					}
 					country_event = {
 						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_3_tag = {
-					country_event = {
-						id = blackjack_gui.1
+					if = {
+						limit = {
+							ai = yes
+						}
+						set_country_flag = blackjack_play_again_flag
 					}
 					country_event = {
 						id = blackjack.25
 					}
 				}
 				event_target:blackjack_player_4_tag = {
-					country_event = {
-						id = blackjack_gui.1
+					if = {
+						limit = {
+							ai = yes
+						}
+						set_country_flag = blackjack_play_again_flag
 					}
 					country_event = {
 						id = blackjack.25
