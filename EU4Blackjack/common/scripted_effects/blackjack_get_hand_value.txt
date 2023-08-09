@@ -168,7 +168,7 @@ blackjack_get_hand_value_player_2 = {
 			if = {
 				limit = {
 					NOT = {
-						check_variable = {blackjack_player_2_hand_value
+						check_variable = {
 							which = blackjack_player_2_hand_value
 							value = 11
 						}
