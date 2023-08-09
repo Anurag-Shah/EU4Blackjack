@@ -86,21 +86,6 @@ country_decisions = {
 				# but it goes through events first to ask other players
 				# therefore, the reamining of game flow control is deferred to assign_blackjack_ais
 				# :)
-				
-				# Aforementioned nonfunctional trigger
-				# One day you'll be useful
-				# Or probably not tbh
-				
-				# if = {
-				# 	limit = {
-				# 		singleplayer_trigger = yes
-				# 	}
-				# 	log = "reached"
-				# 	assign_blackjack_ais = yes
-				# } else = {
-				# 	# else this is mp, try to assign other players
-				# 	assign_blackjack_players = yes
-				# }
 			}
 		}
 	}
@@ -175,27 +160,6 @@ country_decisions = {
 				country_event = {
 					id = blackjack.20
 				}
-			}
-		}
-	}
-
-	z_blackjack_debug_decision = {
-		major = yes
-		potential = {
-			ROOT = { NOT = { ai = yes } }
-		}
-		allow = {
-			hidden_trigger = {
-				ROOT = { NOT = { ai = yes } }
-			}
-		}
-		effect = {
-			custom_tooltip = blackjack_debug_decision_tooltip
-			if = {
-				limit = {
-					has_global_flag = blackjack_game_in_progress_flag
-				}
-				add_treasury = 100
 			}
 		}
 	}
